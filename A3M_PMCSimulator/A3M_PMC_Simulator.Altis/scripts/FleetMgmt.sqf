@@ -605,8 +605,8 @@ _index46 =lbAdd   [1575, "РФ Mи-8МТВ-3                                    
 _index47 =lbAdd   [1575, "РФ Mи-8MT (Серый)                                          Price:   $9,000,000 "];     _Pic40= getText( configFile  >> "CfgVehicles">> "RHS_Mi8mt_vvs">>  "picture"); lbSetPicture    [1575, 47   , _Pic40  ];  lbSetPictureColor   [1575, 47,[0.738,0.714,0.417,1 ]];
 _index48 =lbAdd   [1575, "РФ Mи-8МТВ-3 (Серый)                                       Price:   $9,350,000 "];     _Pic41= getText( configFile  >> "CfgVehicles">> "RHS_Mi8MTV3_vvs">> "picture"); lbSetPicture    [1575, 48   , _Pic41  ];  lbSetPictureColor   [1575, 48,[0.738,0.714,0.417,1 ]];
 _index49 =lbAdd   [1575, "РФ Mи-8MT (Камо)                                           Price:   $9,000,000 "];     _Pic42= getText( configFile  >> "CfgVehicles">> "RHS_Mi8mt_vvsc">> "picture"); lbSetPicture    [1575, 49   , _Pic42  ];  lbSetPictureColor   [1575, 49,[0.738,0.714,0.417,1 ]];
-_index50 =lbAdd   [1575, "РФ Mи-8МТВ-3 (Камо)                                        Price:   $9,350,000 "];     _Pic43= getText( configFile  >> "CfgVehicles">> "RHS_Mi8MTV3_vvsc">>   "picture"); lbSetPicture    [1575, 50   , _Pic43  ];  lbSetPictureColor   [1575, 50,[0.738,0.714,0.417,1 ]];
-						ВОТ ТУТ Я ЗАКОНЧИЛ 02.11.15
+_index50 =lbAdd   [1575, "РФ Mи-8МТВ-3 (Камо)    ВОТ ТУТ Я ЗАКОНЧИЛ 02.11.15         Price:   $9,350,000 "];     _Pic43= getText( configFile  >> "CfgVehicles">> "RHS_Mi8MTV3_vvsc">>   "picture"); lbSetPicture    [1575, 50   , _Pic43  ];  lbSetPictureColor   [1575, 50,[0.738,0.714,0.417,1 ]];
+
 }; 
 };
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
