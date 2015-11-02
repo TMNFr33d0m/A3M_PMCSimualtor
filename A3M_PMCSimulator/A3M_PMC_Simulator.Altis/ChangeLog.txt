@@ -1,0 +1,26 @@
+Changelog:
+
+Changed: Mission to Mod Format
+
+Added: A3M Objects (Custom Models to Game)
+Added: Notification Format Messages
+Added: Medical Center, Respawn Fee (Medical Insurance Deductible, adjustable in Parameters), Respawn to Hospital Bed. 
+Added: Full Manual in Briefing (Map Screen)
+Added: Various Sounds
+Removed: Docx. Version of Readme, to lower filesize. 
+Removed: MP FM Radio in HQ to lower filesize
+Fixed: Glitch in VIP Escort mission that prevented "Follow Me" option from appearing.
+Fixed: VIP Escort now spawns on marker and moves to player vs. appear on player's pos. 
+Fixed: Convoy Mission paid out wrong RP amount.
+Fixed: Immediate De-spawn of Delivery Truck upon mission completion. 
+Fixed: Major glitch where purchased vehicles had free weapons and ammo in default inventory. 
+Fixed: Beautification of generated code (Stores) 
+Fixed: Misconfiguration in ALiVE DATA module causing player gear not to save. 
+Fixed: Leights OPFOR names changed AGAIN, updated classnames. Fixes Checkpoint Mission as well. 
+Changed: Checkpoint: Removed several sleeps in favor of waituntil scriptDone. Should improve performance and reliability. 
+Changed: Locality of all scripts, more utilization of server vs. client
+
+Added: Persistent Company Budget via ALiVE (Select "Server save and exit" when restarting server, Select "ALiVE Persist" in params menu at next server restart to retrive previous balance for company.) (ALiVE War Room Account Required)
+Added: Automatic Scalability, Missions now scale enemies in proportion to number of players. 
+Added: Hacker Den Mission (Attack and Defend)
+Added: Dignitary Speech Security Mission 
