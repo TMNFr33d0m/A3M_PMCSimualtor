@@ -55,132 +55,132 @@ class A3M_btn_pistols: RscButton
 	action = "[] call DoAddPistols";
 
 	idc = 1810;
-	text = "Pistols & SMGs"; //--- ToDo: Localize;
+	text = "Пистолеты & SMG"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.180921 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Sidearms and Personal Defense Weapons"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с PDW и пистолетами"; //--- ToDo: Localize;
 };
 class A3M_btn_Rifles: RscButton
 {
 	action = "[] call DoAddRifles"; 
 
 	idc = 1811;
-	text = "Long Rifles"; //--- ToDo: Localize;
+	text = "Штурмовые винтовки"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.13691 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access catalogue of Assault Rifles and Long Arms Weapons"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с штурмовым вооружением"; //--- ToDo: Localize;
 };
 class A3M_btn_Lnch: RscButton
 {
 	action = "[] call DoAddLaunchers"; 
 
 	idc = 1812;
-	text = "Launchers"; //--- ToDo: Localize;
+	text = "Пусковые установки"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.400976 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Launchers"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с пусковыми установками"; //--- ToDo: Localize;
 };
 class A3M_btn_Mags: RscButton
 {
 	action = "[] call DoAddAmmo";
 
 	idc = 1813;
-	text = "Ammunition"; //--- ToDo: Localize;
+	text = "Боеприпасы"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.224932 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Magazines and Ammunition"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с боеприпасами"; //--- ToDo: Localize;
 };
 class A3M_Btn_Optics: RscButton
 {
 	action = "[] call DoAddOptics"; 
 
 	idc = 1814;
-	text = "Optics"; //--- ToDo: Localize;
+	text = "Прицелы"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.268943 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Weapon Optics and Target Acquisition Assistance Devices"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с прицелами"; //--- ToDo: Localize;
 };
 class A3M_btn_Supp: RscButton
 {
 	action = "[] call DoAddSuppressors";
 
 	idc = 1815;
-	text = "Suppressors"; //--- ToDo: Localize;
+	text = "Глушители"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.312954 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Suppressors"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с глушителями"; //--- ToDo: Localize;
 };
 class A3M_btn_Smoke: RscButton
 {
 	action = "[] call DoAddSmoke";
 
 	idc = 1816;
-	text = "Smoke Grenades"; //--- ToDo: Localize;
+	text = "Дымовые гранаты"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.488997 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access catalogue of smoke and signaling devices"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с дымовыми и сигнальными гранатами"; //--- ToDo: Localize;
 };
 class A3M_btn_Expl: RscButton
 {
 	action = "[] call DoAddExplosives";
 
 	idc = 1817;
-	text = "Grenades / Explosives"; //--- ToDo: Localize;
+	text = "Боевые гранаты / Взрывчатка"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.444986 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access catalogue of Grenades and Explosives"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с боевыми гранатами и взрывчаткой"; //--- ToDo: Localize;
 };
 class A3M_Btn_Unis: RscButton
 {
 	action = "[] call DoAddClothes";
 
 	idc = 1818;
-	text = "Uniforms"; //--- ToDo: Localize;
+	text = "Форма"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.555014 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Clothing"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с формой"; //--- ToDo: Localize;
 };
 class A3M_btn_Vests: RscButton
 {
 	action = "[] call DoAddVests"; 
 
 	idc = 1819;
-	text = "Body Armor / Carriers"; //--- ToDo: Localize;
+	text = "Бронежилет / Подсумки"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.687046 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Body Armor and Carrier Catalogue"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с бронежилетами и подсумками"; //--- ToDo: Localize;
 };
 class A3M_Btn_Misc: RscButton
 {
 	action = "[] call DoAddItems"; 
 
 	idc = 1820;
-	text = "Misc Items"; //--- ToDo: Localize;
+	text = "Разные предметы"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.841084 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Electronics and Non-Weapon Tactical Items Catalogue"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с тактическими девайсами"; //--- ToDo: Localize;
 };
 class RscListbox_1500: RscListbox
 {
@@ -197,40 +197,40 @@ class A3M_BackPackButton: RscButton
 	action = "[] call DoAddBackpacks"; 
 
 	idc = 1821;
-	text = "Backpacks"; //--- ToDo: Localize;
+	text = "Рюкзаки"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.599024 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Backpacks"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с рюкзаками"; //--- ToDo: Localize;
 };
 class A3M_ModSelector: RscCombo
 {
 	onLBSelChanged = "_this spawn A3M_fnc_handleWModClick";
 	idc = 2175;
-	text = "Select Modification "; //--- ToDo: Localize;
+	text = "Выбор модификации "; //--- ToDo: Localize;
 	x = 0.33174 * safezoneW + safezoneX;
 	y = 0.130295 * safezoneH + safezoneY;
 	w = 0.194821 * safezoneW;
 	h = 0.0220062 * safezoneH;
-	tooltip = "Select Modification to list Supported Items. ENSURE THE MOD IS INSTALLED BEFORE PURCHASING MOD ITEMS! "; //--- ToDo: Localize;
+	tooltip = "Выбор поддерживаемых модификацией предметов. УБЕДИТЕСЬ В ТОМ ЧТО МОД УСТАНОВЛЕН ПЕРЕЗ ЗАКАЗОМ! "; //--- ToDo: Localize;
 };
 class A3M_HeadGearButton: RscButton
 {
 	action = "[] call DoAddHeadgear";
 
 	idc = 1822;
-	text = "Head Gear"; //--- ToDo: Localize;
+	text = "Головные уборы"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.643035 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Catalogue of Ballistic Head Protection and Hats"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с головными уборами"; //--- ToDo: Localize;
 };
 class A3M_ModsTxt: RscText
 {
 	idc = 1000;
-	text = "Supported Modifications:"; //--- ToDo: Localize;
+	text = "Поддерживаемые модификации:"; //--- ToDo: Localize;
 	x = 0.213957 * safezoneW + safezoneX;
 	y = 0.125895 * safezoneH + safezoneY;
 	w = 0.126061 * safezoneW;
@@ -240,7 +240,7 @@ class A3M_StoreFrameSA: RscFrame
 {
 	Moving = 1; 
 	idc = 1800;
-	text = "Lazarus International Security Supply"; //--- ToDo: Localize;
+	text = "Lazarus - Международные поставки"; //--- ToDo: Localize;
 	x = 0.0737401 * safezoneW + safezoneX;
 	y = 0.0642782 * safezoneH + safezoneY;
 	w = 0.830978 * safezoneW;
@@ -251,19 +251,19 @@ class A3M_exitbutton: RscButton
 	action = "closeDialog 0;";
 
 	idc = 1823;
-	text = "Exit"; //--- ToDo: Localize;
+	text = "Выйти"; //--- ToDo: Localize;
 	x = 0.113001 * safezoneW + safezoneX;
 	y = 0.918117 * safezoneH + safezoneY;
 	w = 0.0401102 * safezoneW;
 	h = 0.0220062 * safezoneH;
-	tooltip = "Exit Store Interface"; //--- ToDo: Localize;
+	tooltip = "Выйти из магазина"; //--- ToDo: Localize;
 };
 class A3M_Btn_Med: RscButton
 {
 	action = "[] spawn DoAddMedical";
 
 	idc = 1824;
-	text = "Medical"; //--- ToDo: Localize;
+	text = "Медицинские пренадлежности"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.753062 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
@@ -274,7 +274,7 @@ class A3M_Btn_Elect: RscButton
 	action = "[] spawn DoAddElect"; 
 
 	idc = 1825;
-	text = "Electronics"; //--- ToDo: Localize;
+	text = "Электроника"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.797073 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
@@ -286,7 +286,7 @@ class A3m_Btn_Buy: RscButton
 	action="[] call A3M_Fnc_BuyButton"; 
 
 	idc = 1826;
-	text = "PURCHASE"; //--- ToDo: Localize;
+	text = "ЗАКАЗАТЬ"; //--- ToDo: Localize;
 	x = 0.802869 * safezoneW + safezoneX;
 	y = 0.92912 * safezoneH + safezoneY;
 	w = 0.0897389 * safezoneW;
