@@ -753,31 +753,31 @@ UpgradesOn = 0;
 lbClear 1575;
 
 	if (Ace3_Enabled == 1) then {
-		_index0 =   lbAdd   [1575,"Replacement Wheel                                                                                                      Price:   $525.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "ACE_Wheel">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-		_index1 =   lbAdd   [1575,"Replacement Track                                                                                                      Price:   $175.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "ACE_Track">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-		_index2 =   lbAdd   [1575,"Match Grade Ammo Crate (Small Ammo Shipment)                                                                           Price:   $392,378.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "ACE_Box_Ammo">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-		_index3 =   lbAdd   [1575,"Medical Supply Shipment                                                                                                Price:   $9,895.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "ACE_medicalSupplyCrate_advanced">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
-		_index4 =   lbAdd   [1575,"Empty Sandbag                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Item_Sandbag_empty">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
+		_index0 =   lbAdd   [1575,"Замена колеса                                                                                                           Цена:   $525.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "ACE_Wheel">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+		_index1 =   lbAdd   [1575,"Замена трака                                                                                                            Цена:   $175.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "ACE_Track">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
+		_index2 =   lbAdd   [1575,"Пополнить боеприпасы                                                                                                    Цена:   $392,378.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "ACE_Box_Ammo">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+		_index3 =   lbAdd   [1575,"Медецинские припасы                                                                                                     Цена:   $9,895.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "ACE_medicalSupplyCrate_advanced">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
+		_index4 =   lbAdd   [1575,"Пустой мешок с песком                                                                                                   Цена:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Item_Sandbag_empty">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
 		} else {
 			if (Iowa_Enabled == 1) then { 
-			_index0 =   lbAdd   [1575,"Iowa Class Battleship                                                                                              Price:   $100,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "USS_Iowa_Battleship">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+			_index0 =   lbAdd   [1575,"Линкор Айова                                                                                                   Цена:   $100,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "USS_Iowa_Battleship">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
 				} else {
 					if (SMA_Enabled == 1) then { 
-						_index0 =   lbAdd   [1575,"120 + Assorted Weapons, Ammo, Accessories (SMA)                                                        Price:   $2,185,995.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "SMA_Weapon_Box">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
+						_index0 =   lbAdd   [1575,"120 + Смешанное оружие, боеприпасы, аксесуары (SMA)                                                        Цена:   $2,185,995.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "SMA_Weapon_Box">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
 						} else {
 							if (HLC_Enabled == 1) then { 
-							_index0 =   lbAdd   [1575,"180 HK MP5 Submachineguns, Accessories, Ammo (HLC)                                                 Price:   $6,340,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "HLC_MP5_ammobox">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
+							_index0 =   lbAdd   [1575,"180 HK MP5 Оружие, боеприпасы, аксесуары (HLC)                                                 Цена:   $6,340,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "HLC_MP5_ammobox">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
 								} else {
 									if (RHS_Support_Enabled == 1) then { 
-										_index0 =   lbAdd   [1575,"330 Assorted Russian Weapons / Ammunition                                               Price:   $2,106,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rhs_weapon_crate">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-										_index1 =   lbAdd   [1575,"460 Assorted U.S. Weapons / Ammunition                                                  Price:   $6,900,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rhsusf_weapon_crate">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];	
+										_index0 =   lbAdd   [1575,"330 Смешанное Российское оружие / Боеприпасы                                             Цена:   $2,106,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rhs_weapon_crate">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+										_index1 =   lbAdd   [1575,"460 Смешанное Американское оружие / Боеприпасы                                           Цена:   $6,900,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rhsusf_weapon_crate">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];	
 										} else {
-											_index0 =   lbAdd   [1575,"HEMTT A4 M978A4 Fuel Servicing Truck (Tanker)                                       Price:   $1,200,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "B_Truck_01_fuel_F">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-											_index1 =   lbAdd   [1575,"Assorted Small Ammo Shipment (NATO)                                                 Price:   $6,720.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "Box_NATO_Ammo_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-											_index2 =   lbAdd   [1575,"Assorted Small Weapons Shipment (NATO)                                              Price:   $91,800.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "Box_NATO_Wps_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-											_index3 =   lbAdd   [1575,"Patrol Boat w/ Minigun                                                              Price:   $1,275,000.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "B_Boat_Armed_01_minigun_F">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
-											_index4 =   lbAdd   [1575,"RHIB Boat                                                                           Price:   $1,275.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "B_Boat_Transport_01_F">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
-											_index5 =   lbAdd   [1575,"SDV (NATO)                                                                          Price:   $1,200,000.00"]; _Pic6= getText( configFile  >> "CfgVehicles">> "B_SDV_01_F">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
+											_index0 =   lbAdd   [1575,"HEMTT A4 M978A4 Бензовоз                                                             Цена:   $1,200,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "B_Truck_01_fuel_F">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+											_index1 =   lbAdd   [1575,"Смешанные малая отгрузка боеприпасов (НАТО)                                          Цена:   $6,720.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "Box_NATO_Ammo_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
+											_index2 =   lbAdd   [1575,"Смешанные малая оружейная отгрузка (НАТО)                                            Цена:   $91,800.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "Box_NATO_Wps_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+											_index3 =   lbAdd   [1575,"Patrol Боевая лодка с Миниганом                                                      Цена:   $1,275,000.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "B_Boat_Armed_01_minigun_F">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
+											_index4 =   lbAdd   [1575,"RHIB Лодка                                                                           Цена:   $1,275.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "B_Boat_Transport_01_F">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
+											_index5 =   lbAdd   [1575,Подводная лодка (НАТО)                                                                Цена:   $1,200,000.00"]; _Pic6= getText( configFile  >> "CfgVehicles">> "B_SDV_01_F">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
 										}; 
 				
 								};
@@ -831,7 +831,7 @@ ModSelection = _this select 1;
 //hint format ["Handle Mod Click Activated. Variable passed was %1", ModSelection];
 switch (ModSelection) do {
 case 0: {
-hint"No mods are required to access this content. Official DLCs may be required in some cases.";
+hint"Некоторые DLC могут быть запрошены в некоторых случаях.";
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
 Apex_Enabled = 0;
@@ -842,7 +842,7 @@ lbClear 1575;
 _Msg1 = lbAdd [1575,"Stock A3 - Select a Category" ]; 
 };
 case 1: {
-hint"Use of this selection requires a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint"Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 RHS_Support_Enabled = 1;
 Ace3_Enabled = 0;
 Apex_Enabled = 0;
@@ -854,7 +854,7 @@ _Msg2 = lbAdd [1575,"RHS: Escalation - Select a Category" ];
 };
 
 case 2: {
-hint "Use of this content may require a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint "Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 RHS_Support_Enabled = 0;
 Apex_Enabled = 0;
 Iowa_Enabled = 0;
@@ -866,7 +866,7 @@ _Msg3 = lbAdd [1575,"Ace 3 - Select Support Category." ];
 };
 
 case 3: {
-hint "Use of this content may require a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint "Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
 Iowa_Enabled = 0;
@@ -878,7 +878,7 @@ _Msg4 = lbAdd [1575,"Apex Drakon - Select Robotics Category." ];
 };
 
 case 4: {
-hint "Use of this content may require a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint "Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
 Apex_Enabled = 0;
@@ -890,7 +890,7 @@ _Msg5 = lbAdd [1575,"U.S.S. Iowa- Select Support Category." ];
 };
 
 case 5: {
-hint "Use of this content may require a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint "Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
 Apex_Enabled = 0;
@@ -903,7 +903,7 @@ _Msg5 = lbAdd [1575,"Specialist Military Arms - Select Support Category." ];
 
 
 case 6: {
-hint "Use of this content may require a mod to be installed. Please be sure the selected mod is installed prior to purchase";
+hint "Использование этого контента требует мод. Убедитесь в том что он установлен и включен.";
 HLC_Enabled = 1;
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
