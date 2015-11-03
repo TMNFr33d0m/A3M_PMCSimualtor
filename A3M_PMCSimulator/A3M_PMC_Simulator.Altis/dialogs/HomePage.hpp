@@ -77,7 +77,7 @@ class A3M_Btn_PBank: RscClrButton
 	y = 0.114892 * safezoneH + safezoneY;
 	w = 0.35349 * safezoneW;
 	h = 0.0880246 * safezoneH;
-	tooltip = "Access Pursuit Bank"; //--- ToDo: Localize;
+	tooltip = "Доступ к персональному банку"; //--- ToDo: Localize;
 };
 class A3M_Btn_Fleet: RscClrButton
 {
@@ -87,7 +87,7 @@ class A3M_Btn_Fleet: RscClrButton
 	y = 0.455988 * safezoneH + safezoneY;
 	w = 0.403989 * safezoneW;
 	h = 0.187052 * safezoneH;
-	tooltip = "Lazarus Fleet Management"; //--- ToDo: Localize;
+	tooltip = "Lazarus - Управление флотом"; //--- ToDo: Localize;
 };
 class A3M_Btn_Arms: RscClrButton
 {
@@ -97,7 +97,7 @@ class A3M_Btn_Arms: RscClrButton
 	y = 0.21392 * safezoneH + safezoneY;
 	w = 0.347879 * safezoneW;
 	h = 0.110031 * safezoneH;
-	tooltip = "Lazarus Security Supply"; //--- ToDo: Localize;
+	tooltip = "Lazarus - Защищенные поставки"; //--- ToDo: Localize;
 };
 class A3M_Btn_Admin: RscClrButton
 {
@@ -107,7 +107,7 @@ class A3M_Btn_Admin: RscClrButton
 	y = 0.874104 * safezoneH + safezoneY;
 	w = 0.145885 * safezoneW;
 	h = 0.0770215 * safezoneH;
-	tooltip = "Administrator Login"; //--- ToDo: Localize;
+	tooltip = "Войти как администратор"; //--- ToDo: Localize;
 };
 class A3M_Btn_Mail: RscClrButton
 {
@@ -117,7 +117,7 @@ class A3M_Btn_Mail: RscClrButton
 	y = 0.753071 * safezoneH + safezoneY;
 	w = 0.151496 * safezoneW;
 	h = 0.132037 * safezoneH;
-	tooltip = "Access Email"; //--- ToDo: Localize;
+	tooltip = "Принять почту"; //--- ToDo: Localize;
 };
 class A3M_Btn_Exit: RscClrButton
 {
@@ -127,7 +127,7 @@ class A3M_Btn_Exit: RscClrButton
 	y = 0.0378707 * safezoneH + safezoneY;
 	w = 0.0336657 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Exit Browser"; //--- ToDo: Localize;
+	tooltip = "Выйти"; //--- ToDo: Localize;
 };
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
