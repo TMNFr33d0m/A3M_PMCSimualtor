@@ -61,7 +61,7 @@ class m4R_Frame: RscFrame
 class M4r_LaneATxT: RscText
 {
 	idc = 1000;
-	text = "Lane A"; //--- ToDo: Localize;
+	text = "Полоса A"; //--- ToDo: Localize;
 	x = 0.207856 * safezoneW + safezoneX;
 	y = 0.181115 * safezoneH + safezoneY;
 	w = 0.0572832 * safezoneW;
@@ -70,7 +70,7 @@ class M4r_LaneATxT: RscText
 class M4r_LaneBTxT: RscText
 {
 	idc = 1001;
-	text = "Lane B"; //--- ToDo: Localize;
+	text = "Полоса B"; //--- ToDo: Localize;
 	x = 0.46563 * safezoneW + safezoneX;
 	y = 0.170119 * safezoneH + safezoneY;
 	w = 0.0458265 * safezoneW;
@@ -79,7 +79,7 @@ class M4r_LaneBTxT: RscText
 class M4r_LaneCTxT: RscText
 {
 	idc = 1002;
-	text = "Lane C"; //--- ToDo: Localize;
+	text = "Полоса C"; //--- ToDo: Localize;
 	x = 0.706219 * safezoneW + safezoneX;
 	y = 0.170119 * safezoneH + safezoneY;
 	w = 0.0458265 * safezoneW;
@@ -88,7 +88,7 @@ class M4r_LaneCTxT: RscText
 class M4R_LaneA_Button1: RscButton
 {
 	idc = 1600;
-	text = "All Targets Up"; //--- ToDo: Localize;
+	text = "Все цели подняты"; //--- ToDo: Localize;
 	x = 0.184943 * safezoneW + safezoneX;
 	y = 0.214103 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -98,7 +98,7 @@ class M4R_LaneA_Button1: RscButton
 class M4R_LaneA_Button2: RscButton
 {
 	idc = 1601;
-	text = "All Targets Down"; //--- ToDo: Localize;
+	text = "Все цели опущены"; //--- ToDo: Localize;
 	x = 0.184943 * safezoneW + safezoneX;
 	y = 0.258087 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -198,7 +198,7 @@ class M4R_LaneA_POP40: RscButton
 class M4R_NoPopOn: RscButton
 {
 	idc = 1611;
-	text = "Automatic Reset Off"; //--- ToDo: Localize;
+	text = "Автоматический сброс выключен"; //--- ToDo: Localize;
 	x = 0.557283 * safezoneW + safezoneX;
 	y = 0.741912 * safezoneH + safezoneY;
 	w = 0.108838 * safezoneW;
@@ -208,7 +208,7 @@ class M4R_NoPopOn: RscButton
 class M4R_NoPopOff: RscButton
 {
 	idc = 1612;
-	text = "Automatic Reset On"; //--- ToDo: Localize;
+	text = "Автоматический сброс включен"; //--- ToDo: Localize;
 	x = 0.299509 * safezoneW + safezoneX;
 	y = 0.741912 * safezoneH + safezoneY;
 	w = 0.10311 * safezoneW;
@@ -218,7 +218,7 @@ class M4R_NoPopOff: RscButton
 class M4R_LaneA_ProgramText: RscText
 {
 	idc = 1003;
-	text = "Programs"; //--- ToDo: Localize;
+	text = "Программы"; //--- ToDo: Localize;
 	x = 0.207856 * safezoneW + safezoneX;
 	y = 0.28008 * safezoneH + safezoneY;
 	w = 0.0458265 * safezoneW;
@@ -227,17 +227,17 @@ class M4R_LaneA_ProgramText: RscText
 class M4R_LaneA_Random40: RscButton
 {
 	idc = 1613;
-	text = "Random 40"; //--- ToDo: Localize;
+	text = "Случайно 40"; //--- ToDo: Localize;
 	x = 0.202127 * safezoneW + safezoneX;
 	y = 0.368048 * safezoneH + safezoneY;
 	w = 0.0572832 * safezoneW;
 	h = 0.021992 * safezoneH;
-	action = "hint 'this feature does not yet work'"; 
+	action = "hint 'Эта функция в разработке'"; 
 };
 class M4R_LaneA_IndivText: RscText
 {
 	idc = 1004;
-	text = "Manual Control"; //--- ToDo: Localize;
+	text = "Ручное управление"; //--- ToDo: Localize;
 	x = 0.196399 * safezoneW + safezoneX;
 	y = 0.412032 * safezoneH + safezoneY;
 	w = 0.0687398 * safezoneW;
@@ -246,7 +246,7 @@ class M4R_LaneA_IndivText: RscText
 class M4R_LaneB_ProgramText: RscText
 {
 	idc = 1005;
-	text = "Programs"; //--- ToDo: Localize;
+	text = "Программы"; //--- ToDo: Localize;
 	x = 0.46563 * safezoneW + safezoneX;
 	y = 0.28008 * safezoneH + safezoneY;
 	w = 0.0458265 * safezoneW;
@@ -255,7 +255,7 @@ class M4R_LaneB_ProgramText: RscText
 class M4R_LaneB_ManualText: RscText
 {
 	idc = 1006;
-	text = "Manual Control"; //--- ToDo: Localize;
+	text = "Ручной контроль"; //--- ToDo: Localize;
 	x = 0.448445 * safezoneW + safezoneX;
 	y = 0.412032 * safezoneH + safezoneY;
 	w = 0.0687398 * safezoneW;
@@ -264,7 +264,7 @@ class M4R_LaneB_ManualText: RscText
 class M4R_LaneB_Button1: RscButton
 {
 	idc = 1614;
-	text = "All Targets Up"; //--- ToDo: Localize;
+	text = "Все цели подняты"; //--- ToDo: Localize;
 	x = 0.436989 * safezoneW + safezoneX;
 	y = 0.214103 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -274,7 +274,7 @@ class M4R_LaneB_Button1: RscButton
 class M4R_LaneB_Button2: RscButton
 {
 	idc = 1615;
-	text = "All Targets Down"; //--- ToDo: Localize;
+	text = "Все цели опущены"; //--- ToDo: Localize;
 	x = 0.436989 * safezoneW + safezoneX;
 	y = 0.258087 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -304,12 +304,12 @@ class M4R_LaneB_POP7: RscButton
 class M4R_LaneB_R40: RscButton
 {
 	idc = 1618;
-	text = "Random 40 "; //--- ToDo: Localize;
+	text = "Случайно 40 "; //--- ToDo: Localize;
 	x = 0.454174 * safezoneW + safezoneX;
 	y = 0.368048 * safezoneH + safezoneY;
 	w = 0.0572832 * safezoneW;
 	h = 0.021992 * safezoneH;
-	action = "hint 'this feature does not yet work'"; 
+	action = "hint 'Эта функция в разработке'"; 
 };
 class M4R_LaneB_300: RscButton
 {
@@ -384,7 +384,7 @@ class M4R_LaneB_R50: RscButton
 class M4R_LaneC_Button1 : RscButton
 {
 	idc = 1626;
-	text = "All Targets Up"; //--- ToDo: Localize;
+	text = "Все цели подняты"; //--- ToDo: Localize;
 	x = 0.677578 * safezoneW + safezoneX;
 	y = 0.214103 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -394,7 +394,7 @@ class M4R_LaneC_Button1 : RscButton
 class M4R_LaneC_Button2: RscButton
 {
 	idc = 1627;
-	text = "All Targets Down "; //--- ToDo: Localize;
+	text = "Все цели опущены"; //--- ToDo: Localize;
 	x = 0.677578 * safezoneW + safezoneX;
 	y = 0.258087 * safezoneH + safezoneY;
 	w = 0.0916531 * safezoneW;
@@ -404,7 +404,7 @@ class M4R_LaneC_Button2: RscButton
 class M4R_LaneC_ProgramText: RscText
 {
 	idc = 1007;
-	text = "Programs"; //--- ToDo: Localize;
+	text = "Программы"; //--- ToDo: Localize;
 	x = 0.700491 * safezoneW + safezoneX;
 	y = 0.28008 * safezoneH + safezoneY;
 	w = 0.0458265 * safezoneW;
@@ -433,12 +433,12 @@ class M4R_LaneC_POP7: RscButton
 class M4R_LaneC_R40: RscButton
 {
 	idc = 1630;
-	text = "Random 40"; //--- ToDo: Localize;
+	text = "Случайно 40"; //--- ToDo: Localize;
 	x = 0.694763 * safezoneW + safezoneX;
 	y = 0.368048 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
 	h = 0.021992 * safezoneH;
-	action="hint ' this feature is not yet available'"; 
+	action="hint 'Эта функция в разработке'"; 
 };
 class M4R_LaneC_300: RscButton
 {
@@ -513,7 +513,7 @@ class M4R_LaneC_L50: RscButton
 class M4R_LaneC_ManualText: RscText
 {
 	idc = 1008;
-	text = "Manual Control"; //--- ToDo: Localize;
+	text = "Ручной контроль"; //--- ToDo: Localize;
 	x = 0.689035 * safezoneW + safezoneX;
 	y = 0.412032 * safezoneH + safezoneY;
 	w = 0.0687398 * safezoneW;
@@ -522,7 +522,7 @@ class M4R_LaneC_ManualText: RscText
 class M4R_Close: RscButton
 {
 	idc = 1638;
-	text = "Close"; //--- ToDo: Localize;
+	text = "Закрыть"; //--- ToDo: Localize;
 	x = 0.46563 * safezoneW + safezoneX;
 	y = 0.741912 * safezoneH + safezoneY;
 	w = 0.0400982 * safezoneW;
@@ -532,7 +532,7 @@ class M4R_Close: RscButton
 class M4R_LaneA_GetScore: RscButton
 {
 	idc = 1639;
-	text = "Check Score"; //--- ToDo: Localize;
+	text = "Набранные очки"; //--- ToDo: Localize;
 	x = 0.202127 * safezoneW + safezoneX;
 	y = 0.620956 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
@@ -542,7 +542,7 @@ class M4R_LaneA_GetScore: RscButton
 class M4R_LaneA_ClearScore: RscButton
 {
 	idc = 1640;
-	text = "Reset Score"; //--- ToDo: Localize;
+	text = "Сброс"; //--- ToDo: Localize;
 	x = 0.202127 * safezoneW + safezoneX;
 	y = 0.66494 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
@@ -552,7 +552,7 @@ class M4R_LaneA_ClearScore: RscButton
 class M4R_LaneB_CheckScore: RscButton
 {
 	idc = 1641;
-	text = "Check Score"; //--- ToDo: Localize;
+	text = "Набранные очки"; //--- ToDo: Localize;
 	x = 0.454174 * safezoneW + safezoneX;
 	y = 0.620956 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
@@ -562,7 +562,7 @@ class M4R_LaneB_CheckScore: RscButton
 class M4R_LaneB_ResetScore: RscButton
 {
 	idc = 1642;
-	text = "Reset Score"; //--- ToDo: Localize;
+	text = "Сброс"; //--- ToDo: Localize;
 	x = 0.454174 * safezoneW + safezoneX;
 	y = 0.66494 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
@@ -572,7 +572,7 @@ class M4R_LaneB_ResetScore: RscButton
 class M4R_LaneC_CheckScore: RscButton
 {
 	idc = 1643;
-	text = "Check Score"; //--- ToDo: Localize;
+	text = "Набранные очки"; //--- ToDo: Localize;
 	x = 0.689035 * safezoneW + safezoneX;
 	y = 0.620956 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
@@ -582,7 +582,7 @@ class M4R_LaneC_CheckScore: RscButton
 class M4R_LaneC_ResetScore: RscButton
 {
 	idc = 1644;
-	text = "Reset Score"; //--- ToDo: Localize;
+	text = "Сброс"; //--- ToDo: Localize;
 	x = 0.689035 * safezoneW + safezoneX;
 	y = 0.66494 * safezoneH + safezoneY;
 	w = 0.0630115 * safezoneW;
