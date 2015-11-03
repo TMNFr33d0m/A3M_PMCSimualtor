@@ -230,7 +230,7 @@ if (isDedicated) then {
 		systemChat "Loading Phase * A3M PMC Simulator * 100% Complete...";
 		systemChat "                                                         "; 
 		systemChat "A3M PMC Simulator ~ By Cody Salazar AKA TMN Fr33d0m ";
-		systemChat "                                                        "; 
+		systemChat "           Перевод на русский язык: MikeSwuft                   "; 
 		systemChat "             http://www.a3milsim.com                "; 
 		};
 }; 
