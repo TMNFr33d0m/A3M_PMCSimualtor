@@ -52,19 +52,19 @@ class A3M_AdminFrame: RscFrame
 	Moving = 1; 
 
 	idc = 1800;
-	text = "A3M PMC Sandbox | Administrator Panel"; //--- ToDo: Localize;
+	text = "A3M PMC Sandbox | Панель Администратора"; //--- ToDo: Localize;
 	x = 0.0567346 * safezoneW + safezoneX;
 	y = 0.134697 * safezoneH + safezoneY;
 	w = 0.875309 * safezoneW;
 	h = 0.770215 * safezoneH;
-	tooltip = "By Cody S. AkA A3M Fr33d0m - www.A3MilSim.com"; //--- ToDo: Localize;
+	tooltip = "Сделанно Cody S. AkA A3M Fr33d0m - www.A3MilSim.com, Перевод на РЮЗГЕ: MikeSwuft"; //--- ToDo: Localize;
 };
 class A3M_ExitButton: RscButton
 {
 	action= "[] call A3M_Fnc_CloseDia;";
 
 	idc = 1600;
-	text = "Exit"; //--- ToDo: Localize;
+	text = "Выход"; //--- ToDo: Localize;
 	x = 0.875934 * safezoneW + safezoneX;
 	y = 0.863102 * safezoneH + safezoneY;
 	w = 0.0458403 * safezoneW;
@@ -75,41 +75,41 @@ class A3M_10k2All: RscButton
 	action = "[] spawn CashAdvance";
 
 	idc = 1601;
-	text = "Advance $10,000 To All Players"; //--- ToDo: Localize;
+	text = "Передать $10,000 Всем игрокам"; //--- ToDo: Localize;
 	x = 0.281173 * safezoneW + safezoneX;
 	y = 0.290941 * safezoneH + safezoneY;
 	w = 0.160441 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Advance $10,000 to each connected player from the operational budget."; //--- ToDo: Localize;
+	tooltip = "Передать $10,000 из бюджета, всем подключенным к серверу игрокам."; //--- ToDo: Localize;
 };
 class A3M_CancelAllMissions: RscButton
 {
 	action="[] spawn CancelAllMissions";
 
 	idc = 1602;
-	text = "Force Cancel All Missions"; //--- ToDo: Localize;
+	text = "Отмена ВСЕХ заданий"; //--- ToDo: Localize;
 	x = 0.281173 * safezoneW + safezoneX;
 	y = 0.455988 * safezoneH + safezoneY;
 	w = 0.131791 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Cancel all active missions and order all players to RTB."; //--- ToDo: Localize;
+	tooltip = "Отменить все активные миссии и приказать всем игрокам вернуться на базу."; //--- ToDo: Localize;
 };
 class A3M_Dia_Oprtvs: RscListbox
 {
 	OnLbDblClick= "_this call A3M_HandlePlyrSel";
 
 	idc = 1595;
-	text = "Active Operatives: "; //--- ToDo: Localize;
+	text = "Текущие задания: "; //--- ToDo: Localize;
 	x = 0.0679565 * safezoneW + safezoneX;
 	y = 0.224923 * safezoneH + safezoneY;
 	w = 0.201994 * safezoneW;
 	h = 0.671188 * safezoneH;
-	tooltip = "Double Click to Activate an Operative Selection"; //--- ToDo: Localize;
+	tooltip = "Кликните 2 раза для выбора"; //--- ToDo: Localize;
 };
 class A3M_ctl_PlyrTxt: RscText
 {
 	idc = 1000;
-	text = "Active Operatives: "; //--- ToDo: Localize;
+	text = "Текущие задания: "; //--- ToDo: Localize;
 	x = 0.0702008 * safezoneW + safezoneX;
 	y = 0.18751 * safezoneH + safezoneY;
 	w = 0.168329 * safezoneW;
@@ -120,12 +120,12 @@ class A3M_Btn_MessageClient: RscButton
 	action="[] call A3MLocalEffectTest";
 
 	idc = 1603;
-	text = "Send Message"; //--- ToDo: Localize;
+	text = "Отправить сообщение"; //--- ToDo: Localize;
 	x = 0.724438 * safezoneW + safezoneX;
 	y = 0.863102 * safezoneH + safezoneY;
 	w = 0.134663 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Select an operator from the list, type a message, and hit this button to send it, "; //--- ToDo: Localize;
+	tooltip = "Выберите получателя из списка, напишите сообщение, и нажмите ЭТУ кнопку для отправки, "; //--- ToDo: Localize;
 };
 class RscText_1001: RscText
 {
@@ -142,7 +142,7 @@ class A3M_Dia_MessageBox: RscEdit
 	y = 0.852099 * safezoneH + safezoneY;
 	w = 0.437654 * safezoneW;
 	h = 0.0440123 * safezoneH;
-	tooltip = "Type a message here."; //--- ToDo: Localize;
+	tooltip = "Пишите сообщение здесь."; //--- ToDo: Localize;
 };
 class A3M_Dia_Number: RscEdit
 {
@@ -151,12 +151,12 @@ class A3M_Dia_Number: RscEdit
 	y = 0.246929 * safezoneH + safezoneY;
 	w = 0.185161 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Enter a dollar amount here"; //--- ToDo: Localize;
+	tooltip = "Введите колличество долларов здесь"; //--- ToDo: Localize;
 };
 class A3M_Dia_TxtBanking: RscText
 {
 	idc = 1002;
-	text = "Financial Control: "; //--- ToDo: Localize;
+	text = "Управление финансами: "; //--- ToDo: Localize;
 	x = 0.275562 * safezoneW + safezoneX;
 	y = 0.180911 * safezoneH + safezoneY;
 	w = 0.100997 * safezoneW;
@@ -165,7 +165,7 @@ class A3M_Dia_TxtBanking: RscText
 class A3M_Dia_GCont: RscText
 {
 	idc = 1003;
-	text = "Gameplay Control:"; //--- ToDo: Localize;
+	text = "Управление геймплеем:"; //--- ToDo: Localize;
 	x = 0.275562 * safezoneW + safezoneX;
 	y = 0.405372 * safezoneH + safezoneY;
 	w = 0.0953862 * safezoneW;
@@ -176,65 +176,65 @@ class A3M_Btn_AdvPlyr: RscButton
 	action="[] Spawn OpAdvance;";
 
 	idc = 1604;
-	text = "Advance"; //--- ToDo: Localize;
+	text = "Прибавить"; //--- ToDo: Localize;
 	x = 0.477556 * safezoneW + safezoneX;
 	y = 0.246929 * safezoneH + safezoneY;
 	w = 0.0561095 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Advance the amount in the box to the player currently selected."; //--- ToDo: Localize;
+	tooltip = "Впишите сумму в рамку для передачи выбранному игроку."; //--- ToDo: Localize;
 };
 class A3M_Btn_FinePlyr: RscButton
 {
 	action="[] Spawn OpDeduct;";
 
 	idc = 1605;
-	text = "Deduct"; //--- ToDo: Localize;
+	text = "Вычесть"; //--- ToDo: Localize;
 	x = 0.544888 * safezoneW + safezoneX;
 	y = 0.246929 * safezoneH + safezoneY;
 	w = 0.0504986 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Fine the selected player for the amount shown in the box. "; //--- ToDo: Localize;
+	tooltip = "Оштрафовать выбранного игрока на сумму указанную в рамке. "; //--- ToDo: Localize;
 };
 class A3M_Btn_MovePlyrToJail: RscButton
 {
 	action="[] call A3M_fnc_Incarcerate;";
 
 	idc = 1606;
-	text = "Incarcerate"; //--- ToDo: Localize;
+	text = "Заключить в тюрьму"; //--- ToDo: Localize;
 	x = 0.281173 * safezoneW + safezoneX;
 	y = 0.544012 * safezoneH + safezoneY;
 	w = 0.0673314 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Move this player to a C-12 detention facility cell. "; //--- ToDo: Localize;
+	tooltip = "Переместить выбранного игрока в тюрьму на базе. "; //--- ToDo: Localize;
 };
 class A3M_Btn_Cleanup: RscButton
 {
 	action="[] call A3M_Fnc_Cleanup;";
 
 	idc = 1607;
-	text = "Force Cleanup"; //--- ToDo: Localize;
+	text = "Отчистка"; //--- ToDo: Localize;
 	x = 0.281173 * safezoneW + safezoneX;
 	y = 0.5 * safezoneH + safezoneY;
 	w = 0.0841643 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Force Cleanup of bodies and junk. "; //--- ToDo: Localize;
+	tooltip = "Отчистка от трупов и мусора. "; //--- ToDo: Localize;
 };
 class A3M_Dia_RefActvOprtvs: RscButton
 {
 	action="[] spawn A3M_Refresh;";
 
 	idc = 1608;
-	text = "Refresh"; //--- ToDo: Localize;
+	text = "Обновить"; //--- ToDo: Localize;
 	x = 0.219453 * safezoneW + safezoneX;
 	y = 0.191912 * safezoneH + safezoneY;
 	w = 0.0504986 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Refresh list of Active Operatives"; //--- ToDo: Localize;
+	tooltip = "Обновить список активных операций"; //--- ToDo: Localize;
 };
 class A3M_Dia_AmoutnTxt: RscText
 {
 	idc = 1004;
-	text = "Amount: "; //--- ToDo: Localize;
+	text = "Колличество: "; //--- ToDo: Localize;
 	x = 0.275562 * safezoneW + safezoneX;
 	y = 0.202917 * safezoneH + safezoneY;
 	w = 0.0448876 * safezoneW;
@@ -243,7 +243,7 @@ class A3M_Dia_AmoutnTxt: RscText
 class A3M_Dia_MsgText: RscText
 {
 	idc = 1005;
-	text = "Message:"; //--- ToDo: Localize;
+	text = "Сообщение:"; //--- ToDo: Localize;
 	x = 0.272196 * safezoneW + safezoneX;
 	y = 0.814689 * safezoneH + safezoneY;
 	w = 0.0448876 * safezoneW;
@@ -252,7 +252,7 @@ class A3M_Dia_MsgText: RscText
 class A3M_Dia_BalncTxt: RscText
 {
 	idc = 1006;
-	text = "Company Account Balance: "; //--- ToDo: Localize;
+	text = "Баланс компании: "; //--- ToDo: Localize;
 	x = 0.647007 * safezoneW + safezoneX;
 	y = 0.235926 * safezoneH + safezoneY;
 	w = 0.140274 * safezoneW;
@@ -277,7 +277,7 @@ class A3M_Dia_TotalSpent: RscStructuredText
 class A3M_Dia_TxtTotal: RscText
 {
 	idc = 1007;
-	text = "Total Spent: "; //--- ToDo: Localize;
+	text = "Потрачено денег: "; //--- ToDo: Localize;
 	x = 0.716582 * safezoneW + safezoneX;
 	y = 0.290941 * safezoneH + safezoneY;
 	w = 0.0673314 * safezoneW;
@@ -294,7 +294,7 @@ class A3M_Dia_Plyblslts: RscStructuredText
 class A3M_Dia_TxtSlots: RscText
 {
 	idc = 1008;
-	text = "Playable Slots Remaining: "; //--- ToDo: Localize;
+	text = "Игровых слотов осталось: "; //--- ToDo: Localize;
 	x = 0.655985 * safezoneW + safezoneX;
 	y = 0.35696 * safezoneH + safezoneY;
 	w = 0.145885 * safezoneW;
@@ -311,7 +311,7 @@ class A3M_Dia_CurPlyrSel: RscStructuredText
 class A3M_Dia_CurSelTxt: RscText
 {
 	idc = 1009;
-	text = "Currently Selected Player: "; //--- ToDo: Localize;
+	text = "Текущие игроки: "; //--- ToDo: Localize;
 	x = 0.651496 * safezoneW + safezoneX;
 	y = 0.147901 * safezoneH + safezoneY;
 	w = 0.123441 * safezoneW;
@@ -323,12 +323,12 @@ class A3M_Btn_Promote: RscButton
 	Action = "[] call PromotePlayer"; 
 
 	idc = 1609;
-	text = "Promote Player"; //--- ToDo: Localize;
+	text = "Передать полномочия"; //--- ToDo: Localize;
 	x = 0.438304 * safezoneW + safezoneX;
 	y = 0.455988 * safezoneH + safezoneY;
 	w = 0.0953476 * safezoneW;
 	h = 0.0330092 * safezoneH;
-	tooltip = "Give this player purchasing power, and the ability to act as a field coordinator. Player will have access to company budget, admin panel, fleet mgmt, etc. "; //--- ToDo: Localize;
+	tooltip = "Дать выбранному игроку возможность заказывать снаряжение, и возможности координатора группы. Игроку бедет доступен бюджет компании, панель администратора, управление флотом, и тд. "; //--- ToDo: Localize;
 };
 ////////////////////////////////////////////////////////
 // GUI EDITOR OUTPUT END
