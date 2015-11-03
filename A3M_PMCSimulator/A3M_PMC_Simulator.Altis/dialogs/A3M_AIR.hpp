@@ -53,7 +53,7 @@ class A3M_Dia_PersMngr: RscFrame
 {
 	Moving = 1; 
 	idc = 2570;
-	text = "Personnel Management "; //--- ToDo: Localize;
+	text = "Персональные настройки"; //--- ToDo: Localize;
 	x = 0.198185 * safezoneW + safezoneX;
 	y = 0.185425 * safezoneH + safezoneY;
 	w = 0.594655 * safezoneW;
@@ -92,7 +92,7 @@ class A3M_Btn_RcClose: RscButton
 {
 	action = "closeDialog 0";
 	idc = 2562;
-	text = "Close"; //--- ToDo: Localize;
+	text = "Закрыть"; //--- ToDo: Localize;
 	x = 0.640249 * safezoneW + safezoneX;
 	y = 0.785977 * safezoneH + safezoneY;
 	w = 0.0841493 * safezoneW;
