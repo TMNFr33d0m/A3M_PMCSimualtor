@@ -51,7 +51,7 @@ class M_MissionFrame: RscFrame
 {
 	Moving = 1; 
 	idc = 1901;
-	text = "WarMail Encrypted Email Service"; //--- ToDo: Localize;
+	text = "WarMail - Зашифрованный почтовый сервис"; //--- ToDo: Localize;
 	x = 0.152262 * safezoneW + safezoneX;
 	y = 0.114892 * safezoneH + safezoneY;
 	w = 0.605738 * safezoneW;
@@ -61,7 +61,7 @@ class M_EmailWindow: RscListbox
 {
 	onLBDblClick = "_this spawn A3M_fnc_Email";
 	idc = 1905;
-	text = "Inbox: "; //--- ToDo: Localize;
+	text = "Входящие: "; //--- ToDo: Localize;
 	x = 0.275653 * safezoneW + safezoneX;
 	y = 0.180911 * safezoneH + safezoneY;
 	w = 0.448695 * safezoneW;
@@ -70,7 +70,7 @@ class M_EmailWindow: RscListbox
 class M_Inbox_Text: RscText
 {
 	idc = 1000;
-	text = "Inbox: "; //--- ToDo: Localize;
+	text = "Входящие: "; //--- ToDo: Localize;
 	x = 0.236392 * safezoneW + safezoneX;
 	y = 0.180911 * safezoneH + safezoneY;
 	w = 0.0343688 * safezoneW;
@@ -80,7 +80,7 @@ class Email_Close_Button: RscButton
 {
 	action="closeDialog 0";
 	idc = 1600;
-	text = "Close"; //--- ToDo: Localize;
+	text = "Закрыть"; //--- ToDo: Localize;
 	x = 0.197131 * safezoneW + safezoneX;
 	y = 0.918117 * safezoneH + safezoneY;
 	w = 0.0729129 * safezoneW;
@@ -100,7 +100,7 @@ class A3M_Btn_AcceptMission: RscButton
 	
 	action = "_this spawn A3M_Fnc_AcceptMission"; 
 	idc = 1601;
-	text = "Accept Contract"; //--- ToDo: Localize;
+	text = "Принять контракт"; //--- ToDo: Localize;
 	x = 0.169088 * safezoneW + safezoneX;
 	y = 0.852098 * safezoneH + safezoneY;
 	w = 0.100956 * safezoneW;
@@ -109,7 +109,7 @@ class A3M_Btn_AcceptMission: RscButton
 class A3m_Dia_MMsgTxt: RscText
 {
 	idc = 1001;
-	text = "Message: "; //--- ToDo: Localize;
+	text = "Сообщение: "; //--- ToDo: Localize;
 	x = 0.225175 * safezoneW + safezoneX;
 	y = 0.378966 * safezoneH + safezoneY;
 	w = 0.0448695 * safezoneW;
