@@ -57,7 +57,7 @@ class A3M_AdminFrame: RscFrame
 	y = 0.134697 * safezoneH + safezoneY;
 	w = 0.875309 * safezoneW;
 	h = 0.770215 * safezoneH;
-	tooltip = "Сделанно Cody S. AkA A3M Fr33d0m - www.A3MilSim.com, Перевод на РЮЗГЕ: MikeSwuft"; //--- ToDo: Localize;
+	tooltip = "Сделанно Cody S. AkA A3M Fr33d0m - www.A3MilSim.com, Перевод на русский: MikeSwuft"; //--- ToDo: Localize;
 };
 class A3M_ExitButton: RscButton
 {
