@@ -51,7 +51,7 @@ class A3M_Bank_Frame: RscFrame
 {
 	Moving = 1; 
 	idc = 1860;
-	text = "Pursuit Bank - Member FDICK"; //--- ToDo: Localize;
+	text = "Персональный банк - Пользователь FDICK"; //--- ToDo: Localize;
 	x = 0.270875 * safezoneW + safezoneX;
 	y = 0.224923 * safezoneH + safezoneY;
 	w = 0.45825 * safezoneW;
@@ -68,7 +68,7 @@ class A3M_AcctBalDyn: RscStructuredText
 class AcctBalTitle: RscText
 {
 	idc = 1060;
-	text = "Account Balance: "; //--- ToDo: Localize;
+	text = "Балланс аккаунта: "; //--- ToDo: Localize;
 	x = 0.608834 * safezoneW + safezoneX;
 	y = 0.323951 * safezoneH + safezoneY;
 	w = 0.0801938 * safezoneW;
@@ -77,7 +77,7 @@ class AcctBalTitle: RscText
 class A3M_SignIn: RscButton
 {
 	idc = 1660;
-	text = "Sign in"; //--- ToDo: Localize;
+	text = "Войти"; //--- ToDo: Localize;
 	x = 0.276603 * safezoneW + safezoneX;
 	y = 0.345957 * safezoneH + safezoneY;
 	w = 0.0515531 * safezoneW;
@@ -87,7 +87,7 @@ class A3M_SignIn: RscButton
 class A3M_ExitButton: RscButton
 {
 	idc = 1661;
-	text = "Secure SignOut"; //--- ToDo: Localize;
+	text = "Выйти"; //--- ToDo: Localize;
 	x = 0.631747 * safezoneW + safezoneX;
 	y = 0.466991 * safezoneH + safezoneY;
 	w = 0.09165 * safezoneW;
@@ -98,7 +98,7 @@ class A3M_ExitButton: RscButton
 class A3M_SubmitTime: RscButton
 {
 	idc = 1662;
-	text = "Submit Timesheet"; //--- ToDo: Localize;
+	text = "Получить плату"; //--- ToDo: Localize;
 	x = 0.345341 * safezoneW + safezoneX;
 	y = 0.345957 * safezoneH + safezoneY;
 	w = 0.131747 * safezoneW;
@@ -117,7 +117,7 @@ class A3M_DebitsDyn: RscStructuredText
 class A3M_DebitText: RscText
 {
 	idc = 1061;
-	text = "Debits:"; //--- ToDo: Localize;
+	text = "Долги:"; //--- ToDo: Localize;
 	x = 0.322428 * safezoneW + safezoneX;
 	y = 0.444985 * safezoneH + safezoneY;
 	w = 0.0400969 * safezoneW;
