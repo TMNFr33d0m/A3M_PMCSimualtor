@@ -59,7 +59,7 @@ class A3M_Dia_CurInv: RscListbox
 {
 	OnLbDblClick = "_this spawn HandleCurInv";
 	idc = 1525;
-	text = "On Person"; //--- ToDo: Localize;
+	text = "Персонально"; //--- ToDo: Localize;
 	x = 0.225063 * safezoneW + safezoneX;
 	y = 0.224923 * safezoneH + safezoneY;
 	w = 0.162718 * safezoneW;
@@ -69,7 +69,7 @@ class A3M_Dia_Stashbox: RscListbox
 {
 	OnLbDblClick = "_this spawn HandleCurStash";
 	idc = 1526;
-	text = "In Stash"; //--- ToDo: Localize;
+	text = "В хранилище"; //--- ToDo: Localize;
 	x = 0.606608 * safezoneW + safezoneX;
 	y = 0.224923 * safezoneH + safezoneY;
 	w = 0.17394 * safezoneW;
@@ -79,7 +79,7 @@ class A3M_Btn_AddToStash: RscButton
 {
 	Action = "[] spawn MoveToStash";
 	idc = 1600;
-	text = "Add To Stash"; //--- ToDo: Localize;
+	text = "Добавить в хранилище"; //--- ToDo: Localize;
 	x = 0.43828 * safezoneW + safezoneX;
 	y = 0.246929 * safezoneH + safezoneY;
 	w = 0.11783 * safezoneW;
@@ -89,7 +89,7 @@ class A3M_Btn_TakeFromStash: RscButton
 {
 	Action = "[] spawn GetFromStash";
 	idc = 1601;
-	text = "Take From Stash"; //--- ToDo: Localize;
+	text = "Взять из хранилища"; //--- ToDo: Localize;
 	x = 0.43828 * safezoneW + safezoneX;
 	y = 0.301945 * safezoneH + safezoneY;
 	w = 0.11783 * safezoneW;
@@ -99,7 +99,7 @@ class A3M_Btn_Discard: RscButton
 {
 	Action = "[] spawn DiscardItem";
 	idc = 1602;
-	text = "Discard Item From Stash"; //--- ToDo: Localize;
+	text = "Убрать из хранилища"; //--- ToDo: Localize;
 	x = 0.423692 * safezoneW + safezoneX;
 	y = 0.35696 * safezoneH + safezoneY;
 	w = 0.145885 * safezoneW;
@@ -109,7 +109,7 @@ class A3M_Btn_ExitStash: RscButton
 {
 	action = "CloseDialog 0";
 	idc = 1603;
-	text = "Exit"; //--- ToDo: Localize;
+	text = "Выйти"; //--- ToDo: Localize;
 	x = 0.460723 * safezoneW + safezoneX;
 	y = 0.755272 * safezoneH + safezoneY;
 	w = 0.0729424 * safezoneW;
@@ -127,7 +127,7 @@ class A3M_Dia_LkrImg: RscPicture
 class A3M_DiaTxt_PersTtl: RscText
 {
 	idc = 1000;
-	text = "Personal Stash"; //--- ToDo: Localize;
+	text = "Персональное хранилище"; //--- ToDo: Localize;
 	x = 0.456235 * safezoneW + safezoneX;
 	y = 0.130297 * safezoneH + safezoneY;
 	w = 0.151496 * safezoneW;
@@ -136,7 +136,7 @@ class A3M_DiaTxt_PersTtl: RscText
 class A3M_DiaTxt_Inv: RscText
 {
 	idc = 1001;
-	text = "Inventory"; //--- ToDo: Localize;
+	text = "Инвентарь"; //--- ToDo: Localize;
 	x = 0.275562 * safezoneW + safezoneX;
 	y = 0.169908 * safezoneH + safezoneY;
 	w = 0.0448876 * safezoneW;
@@ -145,7 +145,7 @@ class A3M_DiaTxt_Inv: RscText
 class A3M_DiaTxt_St: RscText
 {
 	idc = 1002;
-	text = "Stash"; //--- ToDo: Localize;
+	text = "Хранилище"; //--- ToDo: Localize;
 	x = 0.67394 * safezoneW + safezoneX;
 	y = 0.169908 * safezoneH + safezoneY;
 	w = 0.0448876 * safezoneW;
