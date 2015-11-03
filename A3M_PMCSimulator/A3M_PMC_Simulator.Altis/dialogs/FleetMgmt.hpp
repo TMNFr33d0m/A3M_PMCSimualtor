@@ -138,19 +138,19 @@ class A3M_SelectWheeled: RscButton
 	y = 0.422984 * safezoneH + safezoneY;
 	w = 0.0898764 * safezoneW;
 	h = 0.0330067 * safezoneH;
-	tooltip = "Jump into the Motor Fleet UI to purchase wheeled vehicles"; //--- ToDo: Localize;
+	tooltip = "Заберитесь в Motor Fleet UI для заказа колесной техники"; //--- ToDo: Localize;
 };
 class A3M_SelectArmor: RscButton
 {
 	action = "[] call DoAddArmored";
 
 	idc = 1605;
-	text = "Дэпо обслуживания бронетехникиt"; //--- ToDo: Localize;
+	text = "Депо обслуживания бронетехникиt"; //--- ToDo: Localize;
 	x = 0.107916 * safezoneW + safezoneX;
 	y = 0.422984 * safezoneH + safezoneY;
 	w = 0.0730246 * safezoneW;
 	h = 0.0330067 * safezoneH;
-	tooltip = "Browse our Armored Vehicle Fleet"; //--- ToDo: Localize;
+	tooltip = "Просмотр бронетехники"; //--- ToDo: Localize;
 };
 class A3M_RotaryVeh: RscButton
 {
@@ -162,7 +162,7 @@ class A3M_RotaryVeh: RscButton
 	y = 0.422984 * safezoneH + safezoneY;
 	w = 0.0674073 * safezoneW;
 	h = 0.0330067 * safezoneH;
-	tooltip = "Просмотрите вертолетный флот"; //--- ToDo: Localize;
+	tooltip = "Просмотр вертолетного флота"; //--- ToDo: Localize;
 };
 class A3M_SelectPlanes: RscButton
 {
@@ -174,7 +174,7 @@ class A3M_SelectPlanes: RscButton
 	y = 0.422984 * safezoneH + safezoneY;
 	w = 0.0617901 * safezoneW;
 	h = 0.0330067 * safezoneH;
-	tooltip = "Browse Fixed-Wing Assets"; //--- ToDo: Localize;
+	tooltip = "Просмотр воздушного флота"; //--- ToDo: Localize;
 };
 class A3M_SelectionWindow: RscListbox
 {
