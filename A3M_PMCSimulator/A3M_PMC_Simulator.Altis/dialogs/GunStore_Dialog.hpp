@@ -279,7 +279,7 @@ class A3M_Btn_Elect: RscButton
 	y = 0.797073 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Access Electronics and Non-Weapon Tactical Items Catalogue"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с электроникой"; //--- ToDo: Localize;
 };
 class A3m_Btn_Buy: RscButton
 {
