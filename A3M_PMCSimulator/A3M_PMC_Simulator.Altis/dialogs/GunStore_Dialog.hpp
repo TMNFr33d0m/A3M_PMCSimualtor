@@ -67,12 +67,12 @@ class A3M_btn_Rifles: RscButton
 	action = "[] call DoAddRifles"; 
 
 	idc = 1811;
-	text = "Штурмовые винтовки"; //--- ToDo: Localize;
+	text = "Основное вооружение"; //--- ToDo: Localize;
 	x = 0.0816454 * safezoneW + safezoneX;
 	y = 0.13691 * safezoneH + safezoneY;
 	w = 0.108887 * safezoneW;
 	h = 0.0330081 * safezoneH;
-	tooltip = "Доступ к каталогу с штурмовым вооружением"; //--- ToDo: Localize;
+	tooltip = "Доступ к каталогу с основным вооружением"; //--- ToDo: Localize;
 };
 class A3M_btn_Lnch: RscButton
 {
