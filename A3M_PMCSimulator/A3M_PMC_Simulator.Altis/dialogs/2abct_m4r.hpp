@@ -51,7 +51,7 @@ class m4R_Frame: RscFrame
 {
 	Moving = 1; 
 	idc = 1800;
-	text = "Pneumatic Range Control"; //--- ToDo: Localize;
+	text = "Управление стрельбищем"; //--- ToDo: Localize;
 	x = 0.150573 * safezoneW + safezoneX;
 	y = 0.148127 * safezoneH + safezoneY;
 	w = 0.675942 * safezoneW;
