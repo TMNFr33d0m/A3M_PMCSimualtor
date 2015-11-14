@@ -79,15 +79,22 @@ if (isDedicated) then {
 				AlivePersistBudget = paramsArray select 1; 
 		
 				if (AlivePersistBudget == 1) then {
-					B_DefenseBudget = ["B_DefenseBudget"] call ALiVE_fnc_getData;
-					publicVariable "B_DefenseBudget";
+					B_DefenseBudget = ["P_DefenseBudget"] call ALiVE_fnc_getData;
 					
+					if (B_DefenseBudget == 1) then {systemChat "ERROR: Persistant Budget Failed To Load. Budget set at 12 Million."; B_DefenseBudget = 12000000; publicVariable "B_DefenseBudget";} else {publicVariable "B_DefenseBudget"};					
 				}; 
 				
 		} else {
 			// Handle Client Hosted ...Bad Idea!! 
 			if ((isServer) and (!IsDedicated))then {
 				// Set Initialization Phase to 1 (True)
+				
+					if (AlivePersistBudget == 1) then {
+					B_DefenseBudget = 12000000;
+					publicVariable "B_DefenseBudget";					
+					systemChat "WARNING: ALiVE Budget Persistence NOT SUPPORTED in Client Hosting Mode.";
+					systemChat "WARNING: Budget Reverted to 12 Million.";
+				}; 
 				
 				initphase = 1; 
 					// No TFAR Backpacks on spawn. No!! 

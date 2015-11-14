@@ -2016,7 +2016,7 @@ _numberText
 
 // Push Budget to ALiVE Server 
 ALiVEBudgetPush = {
-["B_defensebudget", B_defensebudget] call ALiVE_fnc_setData;
+["P_defensebudget", B_defensebudget] call ALiVE_fnc_setData;
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////

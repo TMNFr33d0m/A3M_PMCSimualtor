@@ -1,4 +1,9 @@
 // Server Side Scripting (Things Only The Server Should Be Doing)
+
+ALiVEBudgetPush = {
+["P_defensebudget", B_defensebudget] call ALiVE_fnc_setData;
+};
+
 A3M_svr_VIPEscort= {
 
 // JIP Handler Mission Status
