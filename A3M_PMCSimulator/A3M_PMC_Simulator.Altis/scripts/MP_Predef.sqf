@@ -9,7 +9,7 @@
 |__/  |__/ \______/ |__/     |__/      |__/      |__/     |__/ \______/        \______/ |__/|__/ |__/ |__/ \______/ |__/ \_______/   \___/   \______/ |__/  
 
 
-Multiplayer / Client Side Predefines by Cody Salazar AKA Fr33d0m 
+Multiplayer / Client Side Predefines by Cody Salazar AKA Fr33d0m
 www.A3MilSim.com
 
 License:
@@ -43,7 +43,7 @@ A3M_fnc_AnyName = {This is a function. This is a bit of a blanket term, but shou
 A3M_MP_EscVIPCmds = {
 Asset = (_this select 0); 
 
-VIPAct1 = Asset addAction ["Get Down!",{							
+VIPAct1 = Asset addAction ["Пригнись!",{							
 		[[Player],"A3M_MP_GetDown",True,False] call BIS_fnc_MP;
 		Asset disableAI "anim";
 		[[Asset, "AmovPercMstpSnonWnonDnon_Scared2"], "switchMoveEverywhere" ] call BIS_fnc_MP;
@@ -51,7 +51,7 @@ VIPAct1 = Asset addAction ["Get Down!",{
 		Asset EnableAI "anim";
 		}];
 													
-VIPAct2= Asset addAction ["Follow Me!",{
+VIPAct2= Asset addAction ["Следуй за мной!",{
 		[[ Asset, "AmovPercMstpSnonWnonDnon"],"switchMoveEverywhere" ] call BIS_fnc_MP;
 		Asset EnableAI "anim";
 		[[Player],"A3M_MP_KYHD",True,False] call BIS_fnc_MP;																										
@@ -64,42 +64,42 @@ VIPAct2= Asset addAction ["Follow Me!",{
 };
 A3M_MP_EscortTask = {
 
-VIPEscort=player createSimpleTask ["Escort VIP"]; 
-VIPEscort SetSimpleTaskDescription ["Escort the Astral Corporation Executive to his Destination. Protect him at all costs.", "Escort VIP", "VIP's Destination"];
+VIPEscort=player createSimpleTask ["Сопроводите VIP`a"]; 
+VIPEscort SetSimpleTaskDescription ["Сопроводите VIP`a. Защищайте его любой ценой!", "Сопроводите VIP`a", "Точка назначения VIP'a"];
 VIPEscort SetSimpleTaskDestination (getMarkerPos PublicDestination);
 VIPEscort setTaskState "Assigned"; 
 player setCurrentTask VIPEscort; 
 
 playMusic "Assigned";
 
-["TaskAssigned", ["Escort the VIP to his destination. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Сопроводите VIP`a. Смотрите карту!"]] call bis_fnc_showNotification;
 
 };
 A3M_MP_EscortSuccess = {
 VIPEscort setTaskState "Succeeded"; 
-["TaskDone", ["OPSG has safely escorted the executive to his destination."]] call bis_fnc_showNotification;
+["TaskDone", ["OPSG прибыл в точку назначения."]] call bis_fnc_showNotification;
 playMusic "Success"; 
 player addRating 300; 
 ["ScoreAdded",["Executive Escort Complete!",300]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $50,000.00."]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $50,000.00."]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_EscortFailed= {
-VIPEscort setTaskState "Failed"; 
+VIPEscort setTaskState "Провалено"; 
 playSound "A3M_MissionFailed"; 
 playMusic "Failure";
-["TaskFailed", ["OPSG has failed to safely escort the Executive."]] call bis_fnc_showNotification;
+["TaskFailed", ["OPSG has Провалено to safely escort the Executive."]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 };
 A3M_MP_ConvoyTask = {
-DELEscort=player createSimpleTask ["Deliver Astral Corp Supplies to Destination"]; 
-DELEscort SetSimpleTaskDescription ["Escort the Astral Corp Supplies to their Destination. Protect them at all costs.", "Deliver Supplies", "Supply Destination"];
+DELEscort=player createSimpleTask ["Доставьте припасы!"]; 
+DELEscort SetSimpleTaskDescription ["Доставьте припасы! Защищайте их любой ценой.", "Deliver Supplies", "Supply Destination"];
 DELEscort SetSimpleTaskDestination (getMarkerPos PubDelDestination);
 DELEscort setTaskState "Assigned"; 
 
 player setCurrentTask DELEscort; 
 playMusic "Assigned";
-["TaskAssigned", ["Drive the supply truck to it's destination. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Доставьте грузовик снабжения до точки. Смотрите карту!."]] call bis_fnc_showNotification;
 
 };
 A3M_MP_ConvoySuccess = {
@@ -108,20 +108,20 @@ DELEscort setTaskState "Succeeded";
 playMusic "Success"; 
 player addRating 500; 
 ["ScoreAdded",["Delivery Complete!",500]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $75,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $75,000.00"]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_ConvoyFailed = {
-DELEscort setTaskState "Failed";
+DELEscort setTaskState "Провалено";
 playSound "A3M_MissionFailed";  
 playMusic "Failure";
-["TaskFailed", ["OPSG has failed to safely escort the truck to it's destination."]] call bis_fnc_showNotification;
+["TaskFailed", ["OPSG has Провалено to safely escort the truck to it's destination."]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_SEFailed = {
-["TaskFailed", ["The Hostage was Killed."]] call bis_fnc_showNotification;
-hint format ["Message: \n \n Our Vital Monitors indicate that the Astral Corp Executive you were commissioned to rescue has been killed. The mission is FUBAR. Return to Base."]; 
-SARMission setTaskState "FAILED";
+["TaskFailed", ["The Hostage был убит."]] call bis_fnc_showNotification;
+hint format ["Message: \n \n Our Vital Monitors indicate that the Astral Corp Executive you were commissioned to rescue был убит! The mission is FUBAR. Return to Base."]; 
+SARMission setTaskState "Провалено";
 playSound "A3M_MissionFailed";  
 PlayMusic "Failure"; 
 player setCurrentTask CO1;
@@ -133,14 +133,14 @@ SARMission setTaskState "Succeeded";
 PlayMusic "Success"; 
 player addRating 850; 
 ["ScoreAdded",["Executive Recovered!",850]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $1,500,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $1,500,000.00"]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_ChangeSARDest= {
 SARMission SetSimpleTaskDescription ["An Astral Corporation executive has been rescued. Return him to the C-12 compound safe and sound. ", "Snatch and Extract", " RTB"];
 SARMission SetSimpleTaskDestination (getMarkerPos "BA");
 SAR1 removeAction RescueAction; 
-["InformationGreen", ["The Package has been secured. Move to HQ immediately!"]] call bis_fnc_showNotification;
+["InformationGreen", ["The Package has been secured. Move to HQ !"]] call bis_fnc_showNotification;
 }; 
 A3M_MP_Raid1 = {
 
@@ -150,7 +150,7 @@ A3MRaid1 SetSimpleTaskDestination (getMarkerPos "sg1");
 A3MRaid1 setTaskState "Assigned"; 
 player setCurrentTask A3MRaid1; 
 playMusic "Assigned";
-["TaskAssigned", ["Eliminate the rogue military unit. Clear the area. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Eliminate the rogue military unit. Clear the area. Смотрите карту!."]] call bis_fnc_showNotification;
 }; 
 A3M_MP_Raid2 = {
 A3MRaid2=player createSimpleTask ["Move to the Enemy Terrorist City and eliminate the enemy forces."]; 
@@ -159,7 +159,7 @@ A3MRaid2 SetSimpleTaskDestination (getMarkerPos "sg2");
 A3MRaid2 setTaskState "Assigned"; 
 player setCurrentTask A3MRaid2; 
 playMusic "Assigned";
-["TaskAssigned", ["Eliminate the rogue military unit. Clear the area. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Eliminate the rogue military unit. Clear the area. Смотрите карту!."]] call bis_fnc_showNotification;
 }; 
 A3M_MP_RaidClear = {
 ["TaskDone", ["OPSG has successfully eliminated the Terror Cell."]] call bis_fnc_showNotification;
@@ -168,17 +168,17 @@ A3MRaid2 setTaskState "Succeeded";
 playMusic "Success";
 player addRating 2000; 
 ["ScoreAdded",["Terror Cell Eliminated!",2000]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $2,000,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $2,000,000.00"]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_StartTaskNSAR = {
 NSARTask=player createSimpleTask ["Assist the stranded NATO forces."]; 
-NSARTask SetSimpleTaskDescription ["A distress call from a NATO unit in the mountains was received by an AAF telecommunications center. The message attached indicated that the unit is currently combat ineffective and awaiting an extraction that failed. The United States has contracted OPSG to insert and assist the NATO operatives in their extract.  ", "Assist NATO Operatives", "NATO Operatives"];
+NSARTask SetSimpleTaskDescription ["A distress call from a NATO unit in the mountains was received by an AAF telecommunications center. The message attached indicated that the unit is currently combat ineffective and awaiting an extraction that Провалено. The United States has contracted OPSG to insert and assist the NATO operatives in their extract.  ", "Assist NATO Operatives", "NATO Operatives"];
 NSARTask SetSimpleTaskDestination (getMarkerPos NSARPickedNo);
 NSARTask setTaskState "Assigned"; 
 player setCurrentTask NSARTask; 
 playMusic "Assigned";
-["TaskAssigned", ["Extract NATO Team. Time Sensitive. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Extract NATO Team. Time Sensitive. Смотрите карту!."]] call bis_fnc_showNotification;
 };
 A3M_MP_SARfound = {
 
@@ -202,15 +202,15 @@ BonusRating = (1000*EESurvivors);
 player addRating BonusRating; 
 
 ["ScoreAdded",["NATO Team Escorted!",900]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $5,000,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $5,000,000.00"]] call bis_fnc_showNotification;
 hint format ["You have been awarded %1 additional RP points, 1000 per additional NATO unit escorted safely the officer.",BonusRating];
 player setCurrentTask CO1;
 }; 
 A3M_MP_SARfailed = {
-NSARTask setTaskState "Failed"; 
+NSARTask setTaskState "Провалено"; 
 playMusic "Failure"; 
-["TaskFailed", ["OPSG has failed to safely escorted the NATO team."]] call bis_fnc_showNotification;
-hint "The NATO team has been decimated...the ranking officers killed. OPSG has failed to meet the conditions of your contract. The contract has been cancelled and you are to RTB Immediately"; 
+["TaskFailed", ["OPSG has Провалено to safely escorted the NATO team."]] call bis_fnc_showNotification;
+hint "The NATO team has been decimated...the ranking officers killed. OPSG has Провалено to meet the conditions of your contract. The contract has been cancelled and you are to RTB "; 
 player setCurrentTask CO1;
 }; 
 A3M_MP_SARmission= {
@@ -222,7 +222,7 @@ SARMission setTaskState "Assigned";
 player setCurrentTask SARMission; 
 playMusic "Assigned";
 
-["TaskAssigned", ["Rescue the captured Astral Corporation executive. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Rescue the captured Astral Corporation executive. Смотрите карту!."]] call bis_fnc_showNotification;
 
 }; 
 A3M_MP_T9EnemyElim= {
@@ -281,7 +281,7 @@ T9Task SetSimpleTaskDestination (getMarkerPos "T9");
 T9Task setTaskState "Assigned"; 
 player setCurrentTask T9Task; 
 playMusic "Assigned";
-["TaskAssigned", ["Perform Premise Security Detail at the T-9 Facility. See Map."]] call bis_fnc_showNotification; 
+["TaskAssigned", ["Perform Premise Security Detail at the T-9 Facility. Смотрите карту!."]] call bis_fnc_showNotification; 
 };
 A3M_MP_T9Shift = {
 ["TaskAssigned", ["OPSG has commenced a T-9 security shift."]] call bis_fnc_showNotification;
@@ -298,11 +298,11 @@ playMusic "Success";
 ["TaskDone", ["OPSG has completed a security shift at the T-9 Facility."]] call bis_fnc_showNotification;
 player addRating 1000;
 ["ScoreAdded",["NATO Team Escorted!",1000]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $750,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $750,000.00"]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
 }; 
 A3M_MP_T9failed = {
-T9Task setTaskState "Failed"; 
+T9Task setTaskState "Провалено"; 
 playMusic "Failure"; 
 ["TaskFailed", ["OPSG has allowed chaos at the T-9 facility."]] call bis_fnc_showNotification;
 player setCurrentTask CO1;
@@ -317,7 +317,7 @@ HackDen setTaskState "Assigned";
 player setCurrentTask HackDen; 
 playMusic "Assigned";
 
-["TaskAssigned", ["Raid Hacker's Den. See map."]] call bis_fnc_showNotification;
+["TaskAssigned", ["Raid Hacker's Den. Смотрите карту!."]] call bis_fnc_showNotification;
 
 };
 A3M_MP_HackOption= {
@@ -348,7 +348,7 @@ player addRating 950;
 
 ["TaskDone", ["Hacker Den Raided, Data Recovered."]] call bis_fnc_showNotification;
 ["ScoreAdded",["Hacker Den Raided",950]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $750,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $750,000.00"]] call bis_fnc_showNotification;
 
 CO1 setTaskState "Assigned"; 
 player setCurrentTask CO1; 
@@ -378,7 +378,7 @@ PublicVariable "MissionStatus";
 };
 A3M_MP_VIPActions = {
 
-APAct1 = SpeechVIP addAction ["Get Down!",{
+APAct1 = SpeechVIP addAction ["Пригнись!",{
 
 													if (speechInterrupt == 0) then {["","A3M_MP_speechInterrupt",True,False] call BIS_fnc_MP;}; 
 													
@@ -389,7 +389,7 @@ APAct1 = SpeechVIP addAction ["Get Down!",{
 													SpeechVIP EnableAI "anim";
 													}];
 													
-APAct2= SpeechVIP addAction ["Follow Me!",{
+APAct2= SpeechVIP addAction ["Следуй за мной!",{
 													if (speechInterrupt == 0) then {["","A3M_MP_speechInterrupt",True,False] call BIS_fnc_MP;
 																					[[ SpeechVIP, "AmovPercMstpSnonWnonDnon"],"switchMoveEverywhere" ] call BIS_fnc_MP;
 																												SpeechVIP EnableAI "anim";
@@ -420,18 +420,18 @@ DVSTask SetSimpleTaskDestination (getMarkerPos SpeechPos);
 DVSTask setTaskState "Assigned"; 
 player setCurrentTask DVSTask; 
 
-titleText ["The dignitary is about to take the stage! Hurry and get to the venue location. See map for details.", "PLAIN DOWN"];
+titleText ["The dignitary is about to take the stage! Hurry and get to the venue location. Смотрите карту! for details.", "PLAIN DOWN"];
 
 }; 
 A3M_MP_DVSTaskFailed = {
 
-DVSTask setTaskState "Failed"; 
-if (!IsNil DVSTask2) then {DVSTask2 setTaskState "Failed"}; 
+DVSTask setTaskState "Провалено"; 
+if (!IsNil DVSTask2) then {DVSTask2 setTaskState "Провалено"}; 
 playMusic "Failure"; 
 
 ["TaskFailed", ["OPSG has allowed the Dignitary to be assassinated."]] call bis_fnc_showNotification;
 player addRating -500; 
-["InformationRed", ["You have lost -500 RP: Dignitary Killed."]] call bis_fnc_showNotification;
+["InformationRed", ["Вы потеряли -500 RP: Dignitary Killed."]] call bis_fnc_showNotification;
 
 player setCurrentTask CO1;
 
@@ -523,9 +523,9 @@ Case "SpeechPos2": {
  }; 
 A3M_MP_SniperEsc = {
 playMusic "Failure";
-["TaskFailed", ["OPSG has failed to stop a sniper's escape."]] call bis_fnc_showNotification;
+["TaskFailed", ["OPSG has Провалено to stop a sniper's escape."]] call bis_fnc_showNotification;
 player addRating -300; 
-["InformationRed", ["You have lost -300 RP for allowing the escape."]] call bis_fnc_showNotification;
+["InformationRed", ["Вы потеряли -300 RP for allowing the escape."]] call bis_fnc_showNotification;
 };
 A3M_MP_speechInterrupt = {
 
@@ -534,12 +534,12 @@ A3M_MP_speechInterrupt = {
 	
 	deleteVehicle LogicSnd; 
 	
-	DVSTask setTaskState "Failed"; 
+	DVSTask setTaskState "Провалено"; 
 	playMusic "Failure";
 	["TaskFailed", ["OPSG has allowed the speech to be interrupted."]] call bis_fnc_showNotification;
 	player addRating -300; 
 	
-	["InformationRed", ["You have lost -300 RP: Speech Interrupted."]] call bis_fnc_showNotification;
+	["InformationRed", ["Вы потеряли -300 RP: Speech Interrupted."]] call bis_fnc_showNotification;
 	
 	[] Spawn A3M_MP_SpeechExTask;
 	["", "A3M_svr_SpeechWinTrigger", false, false, false] call bis_fnc_MP;
@@ -1855,7 +1855,7 @@ SaveProfileNamespace;
 [] call DoBalance; 
 [] call DoDebits; 
 
-} else {Hint "Guest User: You are not signed in! Please sign in to the banking system."}; 
+} else {Hint "Пользователь Гость: Вы не авторизированы! Пожалуйста авторизируйтесь!"}; 
 };
 
 A3M_SignIn = {
@@ -1898,7 +1898,7 @@ publicVariable "B_defensebudget";
 B_totalcost= (B_totalcost+GlobalPushAmount); 
 publicVariable "B_totalcost"; 
 ["InformationGreen", ["Cash Advance Received!"]] call bis_fnc_showNotification;
-Hint Format ["You've been advanced $%1.00 from the Operation Budget by your Team Coordinator.", GlobalPushAmount]; 
+Hint Format ["Вам были переданы $%1.00 из бюджета вашим командиром!.", GlobalPushAmount]; 
 }; 
 
 }; 
@@ -1912,7 +1912,7 @@ Player AddRating -_SubRate;
 Player addRating _PreRate; 
 // Done Compensating
 ["InformationGreen", ["You have been promoted!"]] call bis_fnc_showNotification;
-hint format ["Congratulations %1, You have been promoted! \n \n You are vested with purchasing power within your company. Purchase wisely and work to make your company the best in the business! \n \n You may now act as a Team Coordinator.", TargetPlayer]; 
+hint format ["Поздравляем %1, Вы получили повышение! \n \n You are vested with purchasing power within your company. Purchase wisely and work to make your company the best in the business! \n \n You may now act as a Team Coordinator.", TargetPlayer]; 
 }; 
 };
 A3M_Fnc_MoneyFromYou = {
@@ -1945,18 +1945,18 @@ Wallet = (Wallet + 10000);
 	B_totalcost= (B_totalcost+10000); 
     publicVariable "B_totalcost"; 
 	["InformationGreen", ["Cash Advance Received!"]] call bis_fnc_showNotification;
-   	hint "You've been advanced $10,000.00 from the Operation Budget by your Team Coordinator."; 
+   	hint "Вам были переданы $10,000.00 из бюджета вашим командиром!."; 
 }; 
 A3M_MissionsCanceledMP = {
 PlaySound "A3M_RTB"; 
-VIPEscort setTaskState "Failed";
-DELEscort setTaskState "Failed";
-RBduty2 setTaskState "Failed";
-SARMission setTaskState "Failed";
-A3MRaid1 setTaskState "Failed";
+VIPEscort setTaskState "Провалено";
+DELEscort setTaskState "Провалено";
+RBduty2 setTaskState "Провалено";
+SARMission setTaskState "Провалено";
+A3MRaid1 setTaskState "Провалено";
 sleep 2; 
-["InformationRed", ["Return To Base Immediately!"]] call bis_fnc_showNotification;
-Hint "Your mission was cancelled by the Team Coordinator. Return to Base Immediately for further instructions."; 
+["InformationRed", ["Return To Base !"]] call bis_fnc_showNotification;
+Hint "Ваш командир отменил эту миссию! Возвращайтесь на базу для получения инструкций!"; 
 player setCurrentTask CO1; 
 }; 
 // Administrator Panel Script 
@@ -2934,62 +2934,62 @@ switch (RAPickedNumber) do {
 Case "M0": {
 mantype= "M2"; 
 removeAllActions RBVeh; 
-greet= RBVeh addAction ["Greeting", {Hint "Hello. How are you today sir? Im a Altian Citizen." }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Vehicle Appears Normal"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The vehicle appears clean and in good repair. \n Smells:\n The vehicle doesn't smell of anything at all.  \n Driver Attitude: \n Driver appears calm and cooperative"} ];
-search= RBVeh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Officer, is this really needed? I know my rights!"; sleep 2; hint "Searching Car....."; sleep 5; hint "Nothing illegal or interesting was found in the car"; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; getincar= RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; } ]; 
-goSouth= RBVeh addAction ["Allow to Proceed", {hint "Thank you sir, I'll be moving on now"; [] Call DoExitStopSouth; }]; 
-goNorth= RBveh addAction ["Order To Turn Around", {hint "Are you kidding me? I'm perfectly legal! You are out of your mind, buster! "; [] Call DoExitStopNorth;  }]; 
+greet= RBVeh addAction ["Приветствие", {Hint "Привет! Как служба командир? Я гражданин Алтиса." }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Все в порядке"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n Техника ничем не пахнет.  \n Поведение водителя: \n Водитель выглядит спокойным и дружелюбным"} ];
+search= RBVeh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Офицер, Это действительно необходимо? Я знаю свои права!"; sleep 2; hint "Обыск машины....."; sleep 5; hint "Ничего необычного не найдено"; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; getincar= RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; } ]; 
+goSouth= RBVeh addAction ["Пропустить", {hint "Спасибо сэр, я могу пройти."; [] Call DoExitStopSouth; }]; 
+goNorth= RBveh addAction ["Приказать развернуться", {hint "Да вы шутите? Все легально! Ты в своем уме ублюдок? "; [] Call DoExitStopNorth;  }]; 
 }; 
 
 // Drunk Driver
 Case "M1": {
 mantype= "M1"; 
 removeAllActions RBVeh; 
-RBveh addAction ["Greeting", {Hint "Yeth Thir! I'm...I'mmm...Okay. Yeah I'm Okay.  Fuck YOU okay! Don't judge me. Who are you to judge me? Only GOD can judge me. Or the judge. Who judges the judge? He probably judges himself every day under the bench! " }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Vehicle Appears normal"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The vehicle appears clean and in good repair.  \n Smells: \n The vehicle smells of alcohol and vomit \n Driver Attitude: \n Driver appears Impaired and Uncooperative"} ];
-RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "I did nothing to you! Why are you judging me like this? Don't judge me! "; sleep 2; hint "Searching Car....."; sleep 5; hint "Found open bottle of Russian vodka"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; RBVehD addAction ["Arrest for DWI", { mantype= 4; publicVariable "mantype"; Hint "Abreast? Arrest meee? Fuck YOU! You aren't GAWD!"; sleep 2; hint "Escort the Suspect to Altian jail. Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail."; sleep 2; [] call A3M_fnc_jailtrigger;}];}];
-RBveh addAction ["Allow to Proceed", {hint "Yesh, Yesh it's okay. I'm okay. You're okay. Okay. Bye."; [] Call DoExitStopSouth;}]; 
-RBveh addAction ["Order To Turn Around", {hint "Who are YOU to JUDGE ME!! FUCK YOU!! I'll go home and get my box of ROTTEN EGGS! That's what I'LL DO!!"; [] Call DoExitStopNorth;}]; 
+RBveh addAction ["Приветствие", {Hint "Дыа сеэр! Я... ээээ... я в порядке. Да я в ПОРЯДКЕ.  Иди нахуй да? Не суди меня! Ты никто что бы это делать! Только бог меня может судить, а ты ублюдок! " }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Все в порядке"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная.  \n Запах: \n Машина пахнет блевотней и алкоголем \n Поведение водителя: \n Водитель выглядит пьяным и неприветливым"} ];
+RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Я ничего тебе не сделал! Почему ты так поступаешь со мной? Не суди меня! Ты никто что бы это делать!! "; sleep 2; hint "Обыск машины....."; sleep 5; hint "Вы нашли бутылку Русской водки"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; RBVehD addAction ["Arrest for DWI", { mantype= 4; publicVariable "mantype"; Hint "Abreast? Arrest meee? Fuck YOU! You aren't GAWD!"; sleep 2; hint "Escort the Suspect to Altian jail. Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail."; sleep 2; [] call A3M_fnc_jailtrigger;}];}];
+RBveh addAction ["Пропустить", {hint "Да, да, да, да все в порядке. Я в порядке. Вы в порядке. Все в порядке."; [] Call DoExitStopSouth;}]; 
+RBveh addAction ["Приказать развернуться", {hint "Кто ТЫ такой что бы СУДИТЬ МЕНЯ? ПОШЕЛ НАХУЙ! Я пойду домой и возьму тухлые яйца! Это то что Я СДЕЛАЮ!!!"; [] Call DoExitStopNorth;}]; 
 }; 
 
 // Drug Runner
 Case "M2": {
 mantype= "M1";
 removeAllActions RBVeh; 
-RBveh addAction ["Greeting", {Hint "Hello sir. All is okay here, yes? I am Altian Citizen." }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"}]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears clean and in good repair. \n Smells:\n A faint smell of Anise is radiating from the vehicle.  \n Driver Attitude: \n The driver appears to be quite nervous."} ];
-RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "I better call my lawyer. I'm not saying anything until my attorney arrives. Oh my God."; sleep 2.0; hint "Searching Car....."; sleep 6; hint "You found a load of cocaine"; sleep 2; hint "Driver: Step out of the vehicle! \n \n If the driver refuses to exit, shoot the vehicle's tires and disable it!";
-		RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; 
+RBveh addAction ["Приветствие", {Hint "Hello sir. All is okay here, yes? I am Altian Citizen." }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"}]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n Машина слегка пахнет анисом.  \n Поведение водителя: \n Водитель начинает нервничать."} ];
+RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "I better call my lawyer. I'm not saying anything until my attorney arrives. Oh my God."; sleep 2.0; hint "Обыск машины....."; sleep 6; hint "You found a load of cocaine"; sleep 2; hint "Водитель: Отойдите от машины! \n \n If Водитель refuses to exit, shoot the vehicle's tires and disable it!";
+		RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; 
 		RBVehD addAction ["Sir, You are under arrest...", { mantype= "M4"; publicVariable "mantype"; Hint "Oh God...Oh My God....Ohhhh Shit. Fuck...FUCK ME! "; sleep 3.0; hint "Transport the Criminal to Altian Jail. Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail."; [] call A3M_fnc_jailtrigger; }];}];	
-RBveh addAction ["Allow to Proceed", {hint "Okay...thanks to you sir!"; [] Call DoExitStopSouth;  }]; 
-RBveh addAction ["Order To Turn Around", {hint "Okay...No problem officer. I'll just go back where I came from then."; [] Call DoExitStopNorth;} ];  
+RBveh addAction ["Пропустить", {hint "Okay...thanks to you sir!"; [] Call DoExitStopSouth;  }]; 
+RBveh addAction ["Приказать развернуться", {hint "Okay...No problem officer. I'll just go back where I came from then."; [] Call DoExitStopNorth;} ];  
 };
 
 // Illegal Alien
 Case "M3": {
 mantype= "M1"; 
 removeAllActions RBVeh; 
-RBveh addAction ["Greeting", {Hint "Allu." }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Vehicle appears normal"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears dirty and aged. \n Smells:\n The vehicle smells like chewing tobacco. \n Driver Attitude: \n  The driver appears disoriented, but cooperative."} ];
-RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Dis No Gut."; sleep 2.0; hint "Searching Car....."; sleep 5; hint "Found Multiple Identifications. Upon further review, the Altian Citizen Number on the Altian ID doesn't check out..."; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh}]; RBVehD addAction ["Arrest for Illegal Immigration", { mantype= "M4"; publicVariable "mantype"; Hint "Fock you mane. You cops are always trying to keepa de mano down!  "; sleep 3.0; hint "Escort the Illegal Alien to Altian Jail. Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail."; [] call A3M_fnc_jailtrigger; } ]; } ];
-RBveh addAction ["Allow to Proceed", {hint "Peace on you sire"; [] Call DoExitStopSouth;} ]; 
-RBveh addAction ["Order To Turn Around", {hint "Eat a deek, bottmonch."; [] Call DoExitStopNorth;} ];
+RBveh addAction ["Приветствие", {Hint "Алоха." }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Все в порядке"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Машина выглядит старой и грязной. \n Запах:\n Машина пропахла табаком. \n Поведение водителя: \n  Водитель выглядит странно но дружелюбно."} ];
+RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Dis No Gut."; sleep 2.0; hint "Обыск машины....."; sleep 5; hint "Found Multiple Identifications. Upon further review, the Altian Citizen Number on the Altian ID doesn't check out..."; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh}]; RBVehD addAction ["Arrest for Illegal Immigration", { mantype= "M4"; publicVariable "mantype"; Hint "Fock you mane. You cops are always trying to keepa de mano down!  "; sleep 3.0; hint "Escort the Illegal Alien to Altian Jail. Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail."; [] call A3M_fnc_jailtrigger; } ]; } ];
+RBveh addAction ["Пропустить", {hint "Peace on you sire"; [] Call DoExitStopSouth;} ]; 
+RBveh addAction ["Приказать развернуться", {hint "Eat a deek, bottmonch."; [] Call DoExitStopNorth;} ];
 }; 
 
-// Terrorist Attack on checkpoint - carbomb
+// ТЕРРОРИСТЫ АТАКУЮТ on checkpoint - carbomb
 Case "M4": {
 mantype= "M3";
 removeAllActions RBVeh; 
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected!"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Visual Inspection: \n The vehicle appears clean, but in disrepair. Wires appear to be protruding from the drivers side door frame. \n Smells:\n The smell of Jet Fuel permeates the air. \n Driver Attitude: \n The driver appears very calm."; } ];
-RBveh addAction ["Greeting", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Allahu Akbar"; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 3; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "TERRORIST ATTACK"; }; } ];
-RBveh addAction ["Search", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Allahu Akbar"; [ '','RemAllAct',True,False] call BIS_fnc_MP;  sleep 5; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "TERRORIST ATTACK"; }; } ];
-RBveh addAction ["Allow to Proceed", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Allahu Akbar"; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 2; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "TERRORIST ATTACK"; }; } ]; 
-RBveh addAction ["Order To Turn Around", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Allahu Akbar"; [ '','RemAllAct',True,False] call BIS_fnc_MP;  sleep 2:  if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "TERRORIST ATTACK"; }; } ]; 
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!!"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "Визуальный осмотр: \n Техника выглядит не ремонтированой. Wires appear to be protruding from the drivers side door frame. \n Запах:\n The smell of Jet Fuel permeates the air. \n Поведение водителя: \n Водитель appears very calm."; } ];
+RBveh addAction ["Приветствие", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "АЛЛАХУ АКБАР"; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 3; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "ТЕРРОРИСТЫ АТАКУЮТ"; }; } ];
+RBveh addAction ["Search", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "АЛЛАХУ АКБАР"; [ '','RemAllAct',True,False] call BIS_fnc_MP;  sleep 5; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "ТЕРРОРИСТЫ АТАКУЮТ"; }; } ];
+RBveh addAction ["Пропустить", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "АЛЛАХУ АКБАР"; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 2; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "ТЕРРОРИСТЫ АТАКУЮТ"; }; } ]; 
+RBveh addAction ["Приказать развернуться", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; Hint "АЛЛАХУ АКБАР"; [ '','RemAllAct',True,False] call BIS_fnc_MP;  sleep 2:  if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "ТЕРРОРИСТЫ АТАКУЮТ"; }; } ]; 
 }; 
 
 // Innocent 2
@@ -2997,84 +2997,84 @@ Case "M5": {
 mantype= "M2"; 
 removeAllActions RBVeh; 
 RBVeh setDamage 0.3; 
-RBveh addAction ["Greeting", {Hint "Im an Altian Citizen. What the fuck do you want? Fuck outta my way, bitch!" }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears clean, but in disrepair. A single red wire is protruding from under the vehicle. A fluid is dripping on the ground.  \n Smells:\n The vehicle smells of rich burning fuel and exhaust. \n Driver Attitude: \n The driver appears angry and combative"} ];
-RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Officer, You're a real fucking prick. I know my rights, fuckhead!!"; sleep 2.0; hint "Searching Car....."; sleep 5; hint "Nothing illegal or interesting was found in the car. Anomaly was a false alert - damaged vehicle. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; }]; 
-RBveh addAction ["Allow to Proceed", {hint "Yeah, that's what I thought. Civil Rights Violatin' muthafuckas!" ; [] Call DoExitStopSouth;}]; 
-RBveh addAction ["Order To Turn Around", {hint "Civil Rights Violatin' muthafuckas! I'll have your ass for this!" ;[] Call DoExitStopNorth;}]; 
+RBveh addAction ["Приветствие", {Hint "Im an Altian Citizen. What the fuck do you want? Fuck outta my way, bitch!" }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит не ремонтированой. Красный провод торчит из под днища.  \n Запах:\n Машина пахнет выхдлопными газами. \n Поведение водителя: \n Водитель appears angry and combative"} ];
+RBveh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Офицер, You're a real fucking prick. Я знаю свои права, fuckhead!!"; sleep 2.0; hint "Обыск машины....."; sleep 5; hint "Ничего необычного не найдено. Anomaly was a false alert - damaged vehicle. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; }]; 
+RBveh addAction ["Пропустить", {hint "Yeah, that's what I thought. Civil Rights Violatin' muthafuckas!" ; [] Call DoExitStopSouth;}]; 
+RBveh addAction ["Приказать развернуться", {hint "Civil Rights Violatin' muthafuckas! I'll have your ass for this!" ;[] Call DoExitStopNorth;}]; 
 }; 
 
 // Innocent 3
 Case "M6": { 
 mantype= "M2";
 removeAllActions RBVeh; 
-RBveh addAction ["Greeting", {Hint "Hi...I'd like to pass on that ass, please? " }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Vehicle Appears Normal"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears clean and in good repair. \n Smells:\n The vehicle smells like Strawberries. \n Driver Attitude: \n The driver appears to be feeling snarky."} ];
-RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Officer, What the hell? Is this really needed? I know my rights!"; sleep 2.0; hint "Searching Car....."; sleep 10; hint "Nothing illegal or interesting was found in the car"; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; } ];  
-RBveh addAction ["Allow to Proceed", {hint "Later bitches"; [] Call DoExitStopSouth;} ]; 
-RBveh addAction ["Order To Turn Around", {hint "Fuck you bitches. I'm filing a complaint and fucking your mother in the ass!"; [] Call DoExitStopNorth; } ]; 
+RBveh addAction ["Приветствие", {Hint "Hi...I'd like to pass on that ass, please? " }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Все в порядке"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n The vehicle Запах like Strawberries. \n Поведение водителя: \n Водитель appears to be feeling snarky."} ];
+RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Офицер, Какого черта? Это действительно необходимо? Я знаю свои права!"; sleep 2.0; hint "Обыск машины....."; sleep 10; hint "Ничего необычного не найдено"; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; } ];  
+RBveh addAction ["Пропустить", {hint "Later bitches"; [] Call DoExitStopSouth;} ]; 
+RBveh addAction ["Приказать развернуться", {hint "Да пошел ты! Я ебал твою мать в жопу, гнида!!"; [] Call DoExitStopNorth; } ]; 
 }; 
 
 //Innocent 4
 Case "M7": {
 mantype= "M2"; 
 removeAllActions RBVeh; 
-RBveh addAction ["Greeting", {Hint "I'm an Altian Citizen. Let me pass." }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"}]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears clean and in good repair. \n Smells:\n The vehicle smells of an oil substance. \n Driver Attitude: \n The driver appears uncertain."}];
-RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Officer, please, This is insane. Is this really needed? I know my rights!"; sleep 2.0; hint "Searching Car....."; sleep 10; hint "You found a KingCock Double Trouble Dildo. Nothing illegal in this vehicle. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; } ]; 
-RBveh addAction ["Allow to Proceed", {hint "Have a nice day"; [] Call DoExitStopSouth;} ]; 
-RBveh addAction ["Order To Turn Around", {hint "Doom on you!"; [] Call DoExitStopNorth;} ]; 
+RBveh addAction ["Приветствие", {Hint "Я гражданин Алтиса. Пропустите меня." }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"}]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n The vehicle Запах of an oil substance. \n Поведение водителя: \n Водитель appears uncertain."}];
+RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Офицер, пожалуйста, это недоразумение. Это действительно необходимо? Я знаю свои права!"; sleep 2.0; hint "Обыск машины....."; sleep 10; hint "Вы нашли дилдо Пидоратор3000. Ничего необычного больше небыло. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; } ]; 
+RBveh addAction ["Пропустить", {hint "Хорошего дня"; [] Call DoExitStopSouth;} ]; 
+RBveh addAction ["Приказать развернуться", {hint "Гори в аду!"; [] Call DoExitStopNorth;} ]; 
 }; 
 
 //Innocent 5
 Case "M8": {
 mantype= "M2"; 
 removeAllActions RBVeh; 
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The vehicle appears clean and in good repair. \n Smells:\n The vehicle smells sulphuric, like rotten eggs. \n Driver Attitude: \n The drive appears nervous."} ];
-RBveh addAction ["Greeting", {Hint "I'm an Altian Citizen. Let me pass. Immediately" }];
-RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Officer, This is insane. Is this really needed? I know my rights!"; sleep 2.0; hint "Searching Car....."; sleep 10; hint "Nothing illegal or interesting was found in the car. A suspicious smell turns out to be a rotten sandwich. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; } ]; 
-RBveh addAction ["Allow to Proceed", {hint "Have a good one!"; [] Call DoExitStopSouth;} ]; 
-RBveh addAction ["Order To Turn Around", {hint "Eat shit, dickbag!"; [] Call DoExitStopNorth;} ]; 
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n The vehicle Запах sulphuric, like rotten eggs. \n Поведение водителя: \n The drive appears nervous."} ];
+RBveh addAction ["Приветствие", {Hint "Я гражданин Алтиса. Пропустите меня. " }];
+RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Офицер, это недоразумение. Это действительно необходимо? Я знаю свои права!"; sleep 2.0; hint "Обыск машины....."; sleep 10; hint "Ничего необычного не найдено. Подозрительный запах был вызван протухшим сэндвичем. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; } ]; 
+RBveh addAction ["Пропустить", {hint "Хорошего дня!"; [] Call DoExitStopSouth;} ]; 
+RBveh addAction ["Приказать развернуться", {hint "Жри говно, козел!"; [] Call DoExitStopNorth;} ]; 
 }; 
 
 // Innocent 6
 Case "M9": {
 mantype= "M2"; 
 removeAllActions RBVeh; 
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Vehicle Appears Normal"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears to have excessive junk in the back. \n Smells:\n The vehicle smells strongly of wintergreen air freshener. \n Driver Attitude: \n The driver appears nervous."} ];
-RBveh addAction ["Greeting", {Hint "I'm an Altian Citizen. Let me pass." }];
-RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Officer, What the fuck. You gonna ask me to suck your cock next?"; sleep 2.0; hint "Searching Car....."; sleep 10; hint "Nothing illegal or interesting was found in the car. A suspicious smell turns out to be a moldy gym sock. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; } ]; 	
-RBveh addAction ["Allow to Proceed", {[] Call DoExitStopSouth; hint "Have a good day!" } ]; 
-RBveh addAction ["Order To Turn Around", {[] Call DoExitStopNorth; hint "Oh, that's fucking great. Thanks bitch!" } ]; 
+backscatter= RBVeh addAction ["Сканер", {Hint "Все в порядке"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Машина кажется слишком перегруженной сзади. \n Запах:\n Машина слишком сильно пахнет грушевым освежителем. \n Поведение водителя: \n Водитель appears nervous."} ];
+RBveh addAction ["Приветствие", {Hint "Я гражданин Алтиса. Пропустите меня." }];
+RBveh addAction ["Search", { RBVehD LeaveVehicle RBVeh; hint "Офицер, Какого хуя? Что дальше? Предложишь пососать твой хер?"; sleep 2.0; hint "Обыск машины....."; sleep 10; hint "Ничего необычного не найдено. Подозрительный запах был вызван старой жвачкой. "; rightsviols= (rightsviols + 1); publicVariable "rightsviols"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; } ]; 	
+RBveh addAction ["Пропустить", {[] Call DoExitStopSouth; hint "Хорошего дня!" } ]; 
+RBveh addAction ["Приказать развернуться", {[] Call DoExitStopNorth; hint "Блять, это охуительно! Спасибо уебок!" } ]; 
 }; 
 
-// Foiled  Terrorist Attack
+// Foiled  ТЕРРОРИСТЫ АТАКУЮТ
 Case "M10": {
 mantype= "M3"; 
 removeAllActions RBVeh; 
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The Vehicle appears to have wires slightly protruding from the grill. \n Smells:\n The vehicle smells of alcohol or paint thinner \n Driver Attitude: \n The driver appears fidgety."} ];
-RBveh addAction ["Greeting", {Hint "Hello! I'm an Altian Citizen." }];
-RBveh addAction ["Search", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; hint "You stupid fuck. I'll kill you. Allahu Akbar."; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 2.0; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "TERRORIST ATTACK"; }; } ]; 
-RBveh addAction ["Allow to Proceed", {[] call DoExitStopSouth; hint "You live to fight another day, infidel!"; } ]; 
-RBveh addAction ["Order To Turn Around", {[] call DoExitStopNorth; hint "Fuck you infidels!";} ]; 
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n The Vehicle appears to have wires slightly protruding from the grill. \n Запах:\n The vehicle Запах of alcohol or paint thinner \n Поведение водителя: \n Водитель appears fidgety."} ];
+RBveh addAction ["Приветствие", {Hint "Привэт! Я житэл Алтыса." }];
+RBveh addAction ["Search", {Bad1= createGroup East; [RBVeh] joinSilent Bad1; hint "Ти тупой уебэк. Я убью тебя. Аллаху Акбар."; [ '','RemAllAct',True,False] call BIS_fnc_MP; sleep 2.0; if (alive RBVehD) then { mantype = "M5"; publicVariable "mantype"; bomb = 'Bo_GBU12_LGB' createVehicle getPos RBVeh; hint "ТЕРРОРИСТЫ АТАКУЮТ"; }; } ]; 
+RBveh addAction ["Пропустить", {[] call DoExitStopSouth; hint "Ты жывэшь для барьбы, нэвэрный!"; } ]; 
+RBveh addAction ["Приказать развернуться", {[] call DoExitStopNorth; hint "Пошел нахуй нэвэрный!";} ]; 
 }; 
 
 // Heroin Runner
 Case "M11": {
 mantype= "M1"; 
 removeAllActions RBVeh; 
-greet= RBVeh addAction ["Greeting", {Hint "How are you today sir. Im an Altian Citizen." }];
-backscatter= RBVeh addAction ["Backscatter Scanner", {Hint "Anomaly Detected"} ]; 
-inspect= RBVeh addAction ["Inspect Vehicle", {Hint "Visual Inspection: \n The vehicle appears clean and in good repair. \n Smells:\n The vehicle doesn't smell of anything at all.  \n Driver Attitude: \n Driver appears calm and cooperative"} ];
-search= RBVeh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Officer, is this really needed? This is just stupid. I know my rights! Call my lawyer! "; hint "Searching Car....."; sleep 6; hint "You found a load of heroin."; sleep 2; hint "Driver: Step out of the vehicle! \n \n If the driver refuses to exit, shoot the vehicle's tires and disable it!"; RBVehD addAction ["Return to Vehicle", {RBVehD moveInDriver RBVeh} ]; RBVehD addAction ["Sir, You are under arrest...", { mantype= "M4"; publicVariable "mantype"; Hint "Oh Mother of God. I've really done it now."; sleep 3.0; hint "Transport the Criminal to Altian Jail.  Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail.";[] call A3M_fnc_jailtrigger;}];}]; 
-goSouth= RBVeh addAction ["Allow to Proceed", {hint "Thank you sir, I'll be moving on now"; [] Call DoExitStopSouth; }];  
-goNorth= RBveh addAction ["Order To Turn Around", {hint "Are you kidding me? But...that's where I CAME from! "; [] Call DoExitStopNorth;}]; 
+greet= RBVeh addAction ["Приветствие", {Hint "Как дела офицер. Я гражданин Алтиса." }];
+backscatter= RBVeh addAction ["Сканер", {Hint "Что-то не так!"} ]; 
+inspect= RBVeh addAction ["Осмотреть технику", {Hint "Визуальный осмотр: \n Техника выглядит как хорошо отремонтированная. \n Запах:\n Техника ничем не пахнет.  \n Поведение водителя: \n Водитель выглядит спокойным и дружелюбным"} ];
+search= RBVeh addAction ["Search", {RBVehD LeaveVehicle RBVeh; hint "Офицер, Это действительно необходимо? Это так тупо!  Я знаю свои права! Вызовите моего адвоката! "; hint "Обыск машины....."; sleep 6; hint "Вы нашли закладку героина."; sleep 2; hint "Водитель: Отойдите от машины! \n \n If Водитель refuses to exit, shoot the vehicle's tires and disable it!"; RBVehD addAction ["Вернуться к технике", {RBVehD moveInDriver RBVeh} ]; RBVehD addAction ["Sir, You are under arrest...", { mantype= "M4"; publicVariable "mantype"; Hint "Oh Mother of God. I've really done it now."; sleep 3.0; hint "Transport the Criminal to Altian Jail.  Alternately, use the Fast Transport option in the action menu to fast travel the suspect to Altian Jail.";[] call A3M_fnc_jailtrigger;}];}]; 
+goSouth= RBVeh addAction ["Пропустить", {hint "Спасибо сэр, я могу пройти."; [] Call DoExitStopSouth; }];  
+goNorth= RBveh addAction ["Приказать развернуться", {hint "Да вы шутите? Но...я же... приехал издалека... "; [] Call DoExitStopNorth;}]; 
 }; 
 
 }; 
@@ -3154,23 +3154,23 @@ playMusic "Assigned";
 RBVehD addAction ["Fast Transport", {[] call A3M_fnc_booked} ]; 
 }; 
 A3M_FNC_PRISMP= { 
-["TaskFailed", ["The prisoner has been killed in custody."]] call bis_fnc_showNotification; 
-ALTEscort setTaskState "Failed"; 
+["TaskFailed", ["Заключенный был убит."]] call bis_fnc_showNotification; 
+ALTEscort setTaskState "Провалено"; 
 mantype = "M0";
 }; 
 A3M_FNC_CIVMP= {
 removeAllActions RBVeh; 
-["TaskFailed", ["The Driver has been killed."]] call bis_fnc_showNotification; 
+["TaskFailed", ["Водитель был убит!"]] call bis_fnc_showNotification; 
 hint "This is a major civil rights violation. Expect backlash! "; 
 mantype = "M0";
 }; 
 A3M_fnc_TerrMP= {
-["TaskDone", ["The Terrorist has been killed."]] call bis_fnc_showNotification;
-hint "The terrorist has been neutralized. Great Job. The shooting was in policy, and the terrorist was killed before he could detonate a very lethal bomb.";
+["TaskDone", ["Террорист был убит!"]] call bis_fnc_showNotification;
+hint "Террорист был нейтрализован. Хорошая работа. The shooting was in policy, and Террорист был убит before he could detonate a very lethal bomb.";
 mantype = "M0";
 };
 A3M_FNC_CRIMMP= {
-["InformationRed", ["The suspect has been neutralized."]] call bis_fnc_showNotification;
+["InformationRed", ["Подозреваемый был нейтрализован!"]] call bis_fnc_showNotification;
 hint "The shooting will come under investigation by command staff, but for your moral sake, we hope it was an in policy shooting. You know the truth in your heart."; 
 mantype = "M0";
 };
@@ -3179,7 +3179,7 @@ A3M_fnc_rbmissionend = {
 if (CheckPointActive == 1) then {
 ["TaskDone", ["Checkpoint Duty Shift Completed."]] call bis_fnc_showNotification;
 ["ScoreAdded",["Performed Checkpoint Shift",1500]] call bis_fnc_showNotification;
-["InformationGreen", ["Budget Increase Secured. OPSG has been allotted $150,000.00"]] call bis_fnc_showNotification;
+["InformationGreen", ["Бюджет пополнен! OPSG выплачивает $150,000.00"]] call bis_fnc_showNotification;
 
 hint format ["Checkpoint Duty Complete. \n \n You had %1 Rights Violation Complaints. \n ~ Altis Government HR", rightsviols];
 RBduty2 setTaskState "Succeeded";
