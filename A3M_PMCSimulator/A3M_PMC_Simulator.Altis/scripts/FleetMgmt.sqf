@@ -337,6 +337,7 @@ ACE_Track=175;		//Spare Track
 ACE_Box_Ammo=392378;		//Office Supply Crate 
 ACE_medicalSupplyCrate_advanced=9895;		//Medical Supply Crate
 ACE_Item_Sandbag_empty=	1;		//Empty Sandbag
+ACE_Box_Misc=526593; 				// Ace Misc Supply Box
 
 USS_Iowa_Battleship=100000000; //Iowa-class battleship (U.S. Navy) 
 
@@ -351,9 +352,6 @@ rhsusf_weapon_crate=6900000;		// 460  Assorted U.S. Weapons / Ammunition
 
 
 // Base Upgrades, Safehouse Upgrades
-
-
-
 
 if (isNil"_MATV") then {_MATV ="";};
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -758,6 +756,8 @@ lbClear 1575;
 		_index2 =   lbAdd   [1575,"Match Grade Ammo Crate (Small Ammo Shipment)                                                                           Price:   $392,378.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "ACE_Box_Ammo">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
 		_index3 =   lbAdd   [1575,"Medical Supply Shipment                                                                                                Price:   $9,895.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "ACE_medicalSupplyCrate_advanced">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
 		_index4 =   lbAdd   [1575,"Empty Sandbag                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Item_Sandbag_empty">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
+		_index5 =   lbAdd   [1575,"ACE Misc Items (Office Supplies)                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Box_Misc">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
+		
 		} else {
 			if (Iowa_Enabled == 1) then { 
 			_index0 =   lbAdd   [1575,"Iowa Class Battleship                                                                                              Price:   $100,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "USS_Iowa_Battleship">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
@@ -923,7 +923,7 @@ A3M_fnc_winged= {
 switch (TheSelection) do {
 
 Case 0:{_prat = Rank Player; if ((B_defensebudget<B_Plane_CAS_01_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Plane_CAS_01_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " ,B_maxrank,B_Plane_CAS_01_F]
             } else{
                 _MATV="B_Plane_CAS_01_F"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-B_Plane_CAS_01_F);    
@@ -938,7 +938,7 @@ Case 0:{_prat = Rank Player; if ((B_defensebudget<B_Plane_CAS_01_F) OR ( _prat !
         }; 
         
 Case 1:{_prat = Rank Player; if ((B_defensebudget<O_Plane_CAS_02_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Plane_CAS_02_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Plane_CAS_02_F]
             } else{
                 _MATV="O_Plane_CAS_02_F"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-O_Plane_CAS_02_F);    
@@ -953,7 +953,7 @@ Case 1:{_prat = Rank Player; if ((B_defensebudget<O_Plane_CAS_02_F) OR ( _prat !
         }; 
         
 Case 2:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvs ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Su25SM_vvs ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Su25SM_vvs ]
             } else{
                 _MATV="RHS_Su25SM_vvs"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Su25SM_vvs );    
@@ -968,7 +968,7 @@ Case 2:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvs ) OR ( _prat !=
         }; 
         
 Case 3:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvsc ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Su25SM_vvsc ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Su25SM_vvsc ]
             } else{
                 _MATV="RHS_Su25SM_vvsc"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Su25SM_vvsc );   
@@ -983,7 +983,7 @@ Case 3:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvsc ) OR ( _prat !
         }; 
         
 Case 4:{_prat = Rank Player; if ((B_defensebudget<rhs_a10 ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_a10 ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_a10 ]
             } else{
                 _MATV="rhs_a10"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_a10 );    
@@ -998,7 +998,7 @@ Case 4:{_prat = Rank Player; if ((B_defensebudget<rhs_a10 ) OR ( _prat != B_Maxr
         }; 
         
 Case 5:{_prat = Rank Player; if ((B_defensebudget<RHS_C130J ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_C130J ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_C130J ]
             } else{
                 _MATV="RHS_C130J"createVehicle (getMarkerPos"airspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_C130J );    
@@ -1022,7 +1022,7 @@ A3M_fnc_heli= {
 switch (TheSelection) do {
 
 Case 0:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Attack_01_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Heli_Attack_01_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Heli_Attack_01_F]
             } else {
                 _MATV="B_Heli_Attack_01_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-B_Heli_Attack_01_F);  
@@ -1037,7 +1037,7 @@ Case 0:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Attack_01_F) OR ( _prat 
         }; 
         
 Case 1:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Transport_01_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Heli_Transport_01_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Heli_Transport_01_F]
             } else {
                 _MATV="B_Heli_Transport_01_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-B_Heli_Transport_01_F);  
@@ -1052,7 +1052,7 @@ Case 1:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Transport_01_F) OR ( _pr
         }; 
         
 Case 2:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_armed_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Heli_Light_01_armed_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Heli_Light_01_armed_F]
             } else {
                 _MATV="B_Heli_Light_01_armed_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-B_Heli_Light_01_armed_F);  
@@ -1067,7 +1067,7 @@ Case 2:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_armed_F) OR ( _
         }; 
         
 Case 3:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Heli_Light_01_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Heli_Light_01_F]
             } else {
                 _MATV="B_Heli_Light_01_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-B_Heli_Light_01_F);  
@@ -1082,7 +1082,7 @@ Case 3:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_F) OR ( _prat !
         }; 
         
 Case 4:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_unarmed_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Heli_Light_02_unarmed_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Heli_Light_02_unarmed_F]
             } else {
                 _MATV="O_Heli_Light_02_unarmed_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-O_Heli_Light_02_unarmed_F);  
@@ -1097,7 +1097,7 @@ Case 4:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_unarmed_F) OR (
         }; 
         
 Case 5:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Heli_Light_02_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Heli_Light_02_F]
             } else {
                 _MATV="O_Heli_Light_02_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-O_Heli_Light_02_F); 
@@ -1112,7 +1112,7 @@ Case 5:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_F) OR ( _prat !
         }; 
         
 Case 6:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Heli_Attack_02_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Heli_Attack_02_F]
             } else {
                 _MATV="O_Heli_Attack_02_F"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-O_Heli_Attack_02_F);  
@@ -1127,7 +1127,7 @@ Case 6:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_F) OR ( _prat 
         }; 
             
 Case 7:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_black_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Heli_Attack_02_black_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Heli_Attack_02_black_F]
             } else {
                 _MATV="O_Heli_Attack_02_black_F"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-O_Heli_Attack_02_black_F);  
@@ -1142,7 +1142,7 @@ Case 7:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_black_F) OR ( 
         }; 
         
 Case 8:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd_10]
             } else {
                 _MATV="rhs_ah1z_wd_10"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd_10);  
@@ -1157,7 +1157,7 @@ Case 8:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_10) OR ( _prat != B
         }; 
         
 Case 9:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd_gs_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd_gs_10]
             } else {
                 _MATV="rhs_ah1z_wd_gs_10"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd_gs_10);  
@@ -1172,7 +1172,7 @@ Case 9:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs_10) OR ( _prat !
         }; 
         
 Case 10:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd_cs_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd_cs_10]
             } else {
                 _MATV="rhs_ah1z_wd_cs_10"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd_cs_10); 
@@ -1187,7 +1187,7 @@ Case 10:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs_10) OR ( _prat 
         }; 
         
 Case 11:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd]
             } else {
                 _MATV="rhs_ah1z_wd"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd); 
@@ -1202,7 +1202,7 @@ Case 11:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd) OR ( _prat != B_M
         }; 
         
 Case 12:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd_gs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd_gs]
             } else {
                 _MATV="rhs_ah1z_wd_gs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd_gs);  
@@ -1217,7 +1217,7 @@ Case 12:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs) OR ( _prat != 
         }; 
         
 Case 13:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah1z_wd_cs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah1z_wd_cs]
             } else {
                 _MATV="rhs_ah1z_wd_cs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah1z_wd_cs);  
@@ -1232,7 +1232,7 @@ Case 13:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs) OR ( _prat != 
         }; 
         
 Case 14:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64dgrey) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah64dgrey]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah64dgrey]
             } else {
                 _MATV="rhs_ah64dgrey"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah64dgrey); 
@@ -1247,7 +1247,7 @@ Case 14:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64dgrey) OR ( _prat != B
         }; 
         
 Case 15:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah64d_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah64d_wd]
             } else {
                 _MATV="rhs_ah64d_wd"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah64d_wd);  
@@ -1262,7 +1262,7 @@ Case 15:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd) OR ( _prat != B_
         }; 
         
 Case 16:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_gs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah64d_wd_gs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah64d_wd_gs]
             } else {
                 _MATV="rhs_ah64d_wd_gs"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-rhs_ah64d_wd_gs);  
@@ -1277,7 +1277,7 @@ Case 16:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_gs) OR ( _prat !=
         }; 
         
 Case 17:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_cs) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah64d_wd_cs]} else {
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah64d_wd_cs]} else {
             _MATV="rhs_ah64d_wd_cs"createVehicle (getMarkerPos"chspawn"); 
             B_defensebudget= (B_defensebudget-rhs_ah64d_wd_cs); 
             publicVariable"B_defensebudget"; 
@@ -1292,7 +1292,7 @@ Case 17:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_cs) OR ( _prat !=
     }; 
     
 Case 18:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_aa) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ah64d_wd_aa]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ah64d_wd_aa]
             } else {
                 _MATV="rhs_ah64d_wd_aa"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ah64d_wd_aa);  
@@ -1306,7 +1306,7 @@ Case 18:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_aa) OR ( _prat !=
         }; 
         
 Case 19:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ch_47f_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ch_47f_10]
             } else {
                 _MATV="rhs_ch_47f_10"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ch_47f_10);  
@@ -1321,7 +1321,7 @@ Case 19:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_10) OR ( _prat != B
         }; 
         
 Case 20:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ch_47f_light_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ch_47f_light_10]
             } else {
                 _MATV="rhs_ch_47f_light_10"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ch_47f_light_10);  
@@ -1336,7 +1336,7 @@ Case 20:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light_10) OR ( _pra
         }; 
         
 Case 21:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ch_47f]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ch_47f]
             } else {
                 _MATV="rhs_ch_47f"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ch_47f);  
@@ -1351,7 +1351,7 @@ Case 21:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f) OR ( _prat != B_Ma
         }; 
         
 Case 22:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ch_47f_light]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ch_47f_light]
             } else {
                 _MATV="rhs_ch_47f_light"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ch_47f_light);  
@@ -1366,7 +1366,7 @@ Case 22:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light) OR ( _prat !
         }; 
         
 Case 23:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh1y]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh1y]
             } else {
                 _MATV="rhs_uh1y"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh1y);  
@@ -1381,7 +1381,7 @@ Case 23:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y) OR ( _prat != B_Maxr
         }; 
         
 Case 24:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_ffar) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh1y_ffar]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh1y_ffar]
             } else {
                 _MATV="rhs_uh1y_ffar"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh1y_ffar);  
@@ -1396,7 +1396,7 @@ Case 24:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_ffar) OR ( _prat != B
         }; 
         
 Case 25:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_unarmed) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh1y_unarmed]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh1y_unarmed]
             } else {
                 _MATV="rhs_uh1y_unarmed"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh1y_unarmed);  
@@ -1411,7 +1411,7 @@ Case 25:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_unarmed) OR ( _prat !
         }; 
         
 Case 26:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh60m]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh60m]
             } else {
                 _MATV="rhs_uh60m"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh60m); 
@@ -1426,7 +1426,7 @@ Case 26:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m) OR ( _prat != B_Max
         }; 
         
 Case 27:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev2) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh60m_mev2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh60m_mev2]
             } else {
                 _MATV="rhs_uh60m_mev2"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh60m_mev2); 
@@ -1441,7 +1441,7 @@ Case 27:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev2) OR ( _prat != 
         }; 
         
 Case 28:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uh60m_mev]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uh60m_mev]
             } else {
                 _MATV="rhs_uh60m_mev"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_uh60m_mev);  
@@ -1456,7 +1456,7 @@ Case 28:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev) OR ( _prat != B
         }; 
         
 Case 29:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvs) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Ka52_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Ka52_vvs]
             } else {
                 _MATV="RHS_Ka52_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Ka52_vvs);  
@@ -1471,7 +1471,7 @@ Case 29:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvs) OR ( _prat != B_
         }; 
         
 Case 30:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvsc) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Ka52_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Ka52_vvsc]
             } else {
                 _MATV="RHS_Ka52_vvsc"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Ka52_vvsc);  
@@ -1486,7 +1486,7 @@ Case 30:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvsc) OR ( _prat != B
         }; 
         
 Case 31:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_grey) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ka60_grey]} else {
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ka60_grey]} else {
             _MATV="rhs_ka60_grey"createVehicle (getMarkerPos"chspawn"); 
             B_defensebudget= (B_defensebudget-rhs_ka60_grey); 
             publicVariable"B_defensebudget"; 
@@ -1501,7 +1501,7 @@ Case 31:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_grey) OR ( _prat != B
     }; 
     
 Case 32:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_c) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ka60_c]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ka60_c]
             } else {
                 _MATV="rhs_ka60_c"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_ka60_c);  
@@ -1516,7 +1516,7 @@ Case 32:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_c) OR ( _prat != B_Ma
         }; 
         
 Case 33:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24P_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24P_vdv]
             } else {
                 _MATV="RHS_Mi24P_vdv"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-RHS_Mi24P_vdv); 
@@ -1531,7 +1531,7 @@ Case 33:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vdv) OR ( _prat != B
         }; 
         
 Case 34:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24V_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24V_vdv]
             } else {
                 _MATV="RHS_Mi24V_vdv"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi24V_vdv); 
@@ -1546,7 +1546,7 @@ Case 34:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vdv) OR ( _prat != B
         }; 
         
 Case 35:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24P_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24P_vvs]
             } else {
                 _MATV="RHS_Mi24P_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi24P_vvs);  
@@ -1561,7 +1561,7 @@ Case 35:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvs) OR ( _prat != B
         }; 
         
 Case 36:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24V_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24V_vvs]
             } else {
                 _MATV="RHS_Mi24V_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi24V_vvs);  
@@ -1576,7 +1576,7 @@ Case 36:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvs) OR ( _prat != B
         }; 
         
 Case 37:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvsc) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24P_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24P_vvsc]
             } else {
                 _MATV="RHS_Mi24P_vvsc"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-RHS_Mi24P_vvsc);  
@@ -1591,7 +1591,7 @@ Case 37:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvsc) OR ( _prat != 
         }; 
         
 Case 38:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvsc) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi24V_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi24V_vvsc]
             } else {
                 _MATV="RHS_Mi24V_vvsc"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-RHS_Mi24V_vvsc);  
@@ -1606,7 +1606,7 @@ Case 38:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvsc) OR ( _prat != 
         }; 
         
 Case 39:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMT_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMT_vdv]
             } else {
                 _MATV="RHS_Mi8AMT_vdv"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMT_vdv); 
@@ -1621,7 +1621,7 @@ Case 39:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vdv) OR ( _prat != 
         }; 
         
 Case 40:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vdv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMTSh_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMTSh_vdv]
             } else {
                 _MATV="RHS_Mi8AMTSh_vdv"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMTSh_vdv);  
@@ -1636,7 +1636,7 @@ Case 40:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vdv) OR ( _prat !
         }; 
         
 Case 41:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMT_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMT_vvs]
             } else {
                 _MATV="RHS_Mi8AMT_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMT_vvs); 
@@ -1651,7 +1651,7 @@ Case 41:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvs) OR ( _prat != 
         }; 
         
 Case 42:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvs) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMTSh_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMTSh_vvs]
             } else {
                 _MATV="RHS_Mi8AMTSh_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMTSh_vvs);  
@@ -1666,7 +1666,7 @@ Case 42:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvs) OR ( _prat !
         }; 
         
 Case 43:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvsc) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMT_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMT_vvsc]
             } else {
                 _MATV="RHS_Mi8AMT_vvsc"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMT_vvsc);  
@@ -1681,7 +1681,7 @@ Case 43:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvsc) OR ( _prat !=
         }; 
         
 Case 44:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvsc) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8AMTSh_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8AMTSh_vvsc]
             } else {
                 _MATV="RHS_Mi8AMTSh_vvsc"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8AMTSh_vvsc);  
@@ -1696,7 +1696,7 @@ Case 44:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvsc) OR ( _prat 
         }; 
         
 Case 45:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8mt_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8mt_vdv]
             } else {
                 _MATV="RHS_Mi8mt_vdv"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8mt_vdv); 
@@ -1711,7 +1711,7 @@ Case 45:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vdv) OR ( _prat != B
         }; 
         
 Case 46:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vdv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8MTV3_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8MTV3_vdv]
             } else {
                 _MATV="RHS_Mi8MTV3_vdv"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8MTV3_vdv); 
@@ -1726,7 +1726,7 @@ Case 46:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vdv) OR ( _prat !=
         }; 
         
 Case 47:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvs) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8mt_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8mt_vvs]
             } else {
                 _MATV="RHS_Mi8mt_vvs"createVehicle (getMarkerPos"chspawn");
                 B_defensebudget= (B_defensebudget-RHS_Mi8mt_vvs);  
@@ -1741,7 +1741,7 @@ Case 47:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvs) OR ( _prat != B
         }; 
         
 Case 48:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vvs) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8MTV3_vvs]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8MTV3_vvs]
             } else {
                 _MATV="RHS_Mi8MTV3_vvs"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8MTV3_vvs);  
@@ -1756,7 +1756,7 @@ Case 48:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vvs) OR ( _prat !=
         }; 
         
 Case 49:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvsc) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8mt_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_Mi8mt_vvsc]
             } else {
                 _MATV="RHS_Mi8mt_vvsc"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8mt_vvsc);  
@@ -1771,7 +1771,7 @@ Case 49:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvsc) OR ( _prat != 
         }; 
         
 Case 50:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vvsc) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_Mi8MTV3_vvsc]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank, RHS_Mi8MTV3_vvsc]
             } else {
                 _MATV="RHS_Mi8MTV3_vvsc"createVehicle (getMarkerPos"chspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_Mi8MTV3_vvsc); 
@@ -1793,7 +1793,7 @@ default { hint"Something went wrong...Couldn't find case for selection!" };
 A3M_fnc_armor= {
 switch (TheSelection) do {
 Case 0:{_prat = Rank Player;if ((B_defensebudget<B_MBT_01_cannon_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_MBT_01_cannon_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_MBT_01_cannon_F]
             } else {
                 _MATV="B_MBT_01_cannon_F"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-B_MBT_01_cannon_F); 
@@ -1808,7 +1808,7 @@ Case 0:{_prat = Rank Player;if ((B_defensebudget<B_MBT_01_cannon_F) OR ( _prat !
         }; 
         
 Case 1:{_prat = Rank Player;if ((B_defensebudget<B_MBT_01_mlrs_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_MBT_01_mlrs_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_MBT_01_mlrs_F]
             } else {
                 _MATV="B_MBT_01_mlrs_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-B_MBT_01_mlrs_F); 
@@ -1823,7 +1823,7 @@ Case 1:{_prat = Rank Player;if ((B_defensebudget<B_MBT_01_mlrs_F) OR ( _prat != 
         }; 
         
 Case 2:{_prat = Rank Player;if ((B_defensebudget<B_APC_Wheeled_01_cannon_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_APC_Wheeled_01_cannon_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_APC_Wheeled_01_cannon_F]
             } else {
                 _MATV="B_APC_Wheeled_01_cannon_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-B_APC_Wheeled_01_cannon_F);
@@ -1838,7 +1838,7 @@ Case 2:{_prat = Rank Player;if ((B_defensebudget<B_APC_Wheeled_01_cannon_F) OR (
         }; 
         
 Case 3:{_prat = Rank Player;if ((B_defensebudget<B_APC_Tracked_01_rcws_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_APC_Tracked_01_rcws_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_APC_Tracked_01_rcws_F]
             } else {
                 _MATV="B_APC_Tracked_01_rcws_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-B_APC_Tracked_01_rcws_F);  
@@ -1853,7 +1853,7 @@ Case 3:{_prat = Rank Player;if ((B_defensebudget<B_APC_Tracked_01_rcws_F) OR ( _
         }; 
         
 Case 4:{_prat = Rank Player;if ((B_defensebudget<B_APC_Tracked_01_AA_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_APC_Tracked_01_AA_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_APC_Tracked_01_AA_F]
             } else {
                 _MATV="B_APC_Tracked_01_AA_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-B_APC_Tracked_01_AA_F);  
@@ -1868,7 +1868,7 @@ Case 4:{_prat = Rank Player;if ((B_defensebudget<B_APC_Tracked_01_AA_F) OR ( _pr
         }; 
         
 Case 5:{_prat = Rank Player;if ((B_defensebudget<O_MBT_02_cannon_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_MBT_02_cannon_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_MBT_02_cannon_F]
             } else {
                 _MATV="O_MBT_02_cannon_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-O_MBT_02_cannon_F);  
@@ -1883,7 +1883,7 @@ Case 5:{_prat = Rank Player;if ((B_defensebudget<O_MBT_02_cannon_F) OR ( _prat !
         }; 
         
 Case 6:{_prat = Rank Player;if ((B_defensebudget<O_MBT_02_arty_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_MBT_02_arty_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_MBT_02_arty_F]
             } else {
                 _MATV="O_MBT_02_arty_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-O_MBT_02_arty_F);  
@@ -1897,7 +1897,7 @@ Case 6:{_prat = Rank Player;if ((B_defensebudget<O_MBT_02_arty_F) OR ( _prat != 
         }; 
         
 Case 7:{_prat = Rank Player;if ((B_defensebudget<O_APC_Tracked_02_cannon_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_APC_Tracked_02_cannon_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_APC_Tracked_02_cannon_F]
             } else {
                 _MATV="O_APC_Tracked_02_cannon_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-O_APC_Tracked_02_cannon_F);  
@@ -1912,7 +1912,7 @@ Case 7:{_prat = Rank Player;if ((B_defensebudget<O_APC_Tracked_02_cannon_F) OR (
         }; 
         
 Case 8:{_prat = Rank Player;if ((B_defensebudget<O_APC_Wheeled_02_rcws_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_APC_Wheeled_02_rcws_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_APC_Wheeled_02_rcws_F]
             } else {
                 _MATV="O_APC_Wheeled_02_rcws_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-O_APC_Wheeled_02_rcws_F);  
@@ -1927,7 +1927,7 @@ Case 8:{_prat = Rank Player;if ((B_defensebudget<O_APC_Wheeled_02_rcws_F) OR ( _
         }; 
         
 Case 9:{_prat = Rank Player;if ((B_defensebudget<O_APC_Tracked_02_AA_F) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_APC_Tracked_02_AA_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_APC_Tracked_02_AA_F]
             } else {
                 _MATV="O_APC_Tracked_02_AA_F"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-O_APC_Tracked_02_AA_F); 
@@ -1942,7 +1942,7 @@ Case 9:{_prat = Rank Player;if ((B_defensebudget<O_APC_Tracked_02_AA_F) OR ( _pr
         }; 
         
 Case 10:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109_usarmy_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m109_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m109_usarmy_10]
             } else {
                 _MATV="rhsusf_m109_usarmy_10"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m109_usarmy_10);  
@@ -1957,7 +1957,7 @@ Case 10:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109_usarmy_10) OR ( _p
         }; 
         
 Case 11:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109d_usarmy_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m109d_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m109d_usarmy_10]
             } else {
                 _MATV="rhsusf_m109d_usarmy_10"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m109d_usarmy_10); 
@@ -1972,7 +1972,7 @@ Case 11:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109d_usarmy_10) OR ( _
         }; 
         
 Case 12:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m109_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m109_usarmy]
             } else {
                 _MATV="rhsusf_m109_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m109_usarmy); 
@@ -1987,7 +1987,7 @@ Case 12:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109_usarmy) OR ( _prat
         }; 
         
 Case 13:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109d_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m109d_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m109d_usarmy]
             } else {
                 _MATV="rhsusf_m109d_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m109d_usarmy); 
@@ -2002,7 +2002,7 @@ Case 13:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m109d_usarmy) OR ( _pra
         }; 
         
 Case 14:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m113_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m113_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m113_usarmy]
             } else {
                 _MATV="rhsusf_m113_usarmy"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhsusf_m113_usarmy);  
@@ -2016,7 +2016,7 @@ Case 14:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m113_usarmy) OR ( _prat
         }; 
         
 Case 15:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m113d_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m113d_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m113d_usarmy]
             } else {
                 _MATV="rhsusf_m113d_usarmy"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhsusf_m113d_usarmy); 
@@ -2031,7 +2031,7 @@ Case 15:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m113d_usarmy) OR ( _pra
         }; 
         
 Case 16:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aimwd_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1aimwd_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1aimwd_usarmy]
             } else {
                 _MATV="rhsusf_m1a1aimwd_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1aimwd_usarmy);  
@@ -2046,7 +2046,7 @@ Case 16:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aimwd_usarmy) OR ( 
         }; 
         
 Case 17:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aim_tuski_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1aim_tuski_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1aim_tuski_wd]
             } else {
                 _MATV="rhsusf_m1a1aim_tuski_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1aim_tuski_wd);  
@@ -2061,7 +2061,7 @@ Case 17:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aim_tuski_wd) OR ( 
         }; 
         
 Case 18:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1fep_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1fep_wd]
             } else {_MATV="rhsusf_m1a1fep_wd"createVehicle (getMarkerPos"vehspawn");
             B_defensebudget= (B_defensebudget-rhsusf_m1a1fep_wd);  
             publicVariable"B_defensebudget";  
@@ -2075,7 +2075,7 @@ Case 18:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_wd) OR ( _prat 
     }; 
     
 Case 19:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_od) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1fep_od]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1fep_od]
             } else {
                 _MATV="rhsusf_m1a1fep_od"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1fep_od);  
@@ -2090,7 +2090,7 @@ Case 19:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_od) OR ( _prat 
         }; 
         
 Case 20:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aimd_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1aimd_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1aimd_usarmy]
             } else {
                 _MATV="rhsusf_m1a1aimd_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1aimd_usarmy);
@@ -2105,7 +2105,7 @@ Case 20:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aimd_usarmy) OR ( _
         }; 
         
 Case 21:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aim_tuski_d) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1aim_tuski_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1aim_tuski_d]
             } else {
                 _MATV="rhsusf_m1a1aim_tuski_d"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1aim_tuski_d);  
@@ -2120,7 +2120,7 @@ Case 21:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1aim_tuski_d) OR ( _
         }; 
         
 Case 22:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_d) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a1fep_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a1fep_d]
             } else {
                 _MATV="rhsusf_m1a1fep_d"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a1fep_d); 
@@ -2135,7 +2135,7 @@ Case 22:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a1fep_d) OR ( _prat !
         }; 
         
 Case 23:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1wd_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a2sep1wd_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a2sep1wd_usarmy]
             } else {
                 _MATV="rhsusf_m1a2sep1wd_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a2sep1wd_usarmy); 
@@ -2150,7 +2150,7 @@ Case 23:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1wd_usarmy) OR (
         }; 
         
 Case 24:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1tuskiwd_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a2sep1tuskiwd_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a2sep1tuskiwd_usarmy]
             } else {
                 _MATV="rhsusf_m1a2sep1tuskiwd_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a2sep1tuskiwd_usarmy);  
@@ -2165,7 +2165,7 @@ Case 24:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1tuskiwd_usarmy)
         }; 
         
 Case 25:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1d_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a2sep1d_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a2sep1d_usarmy]
             } else {
                 _MATV="rhsusf_m1a2sep1d_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a2sep1d_usarmy);  
@@ -2180,7 +2180,7 @@ Case 25:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1d_usarmy) OR ( 
         }; 
         
 Case 26:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1tuskid_usarmy) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1a2sep1tuskid_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1a2sep1tuskid_usarmy]
             } else {
                 _MATV="rhsusf_m1a2sep1tuskid_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhsusf_m1a2sep1tuskid_usarmy); 
@@ -2195,7 +2195,7 @@ Case 26:{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1a2sep1tuskid_usarmy) 
         }; 
         
 Case 27:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m2a2_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m2a2_wd]
             } else {
                 _MATV="rhs_m2a2_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_m2a2_wd); 
@@ -2210,7 +2210,7 @@ Case 27:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_wd) OR ( _prat != B_M
         }; 
         
 Case 28:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_buski_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m2a2_buski_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m2a2_buski_wd]
             } else {
                 _MATV="rhs_m2a2_buski_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_m2a2_buski_wd);  
@@ -2224,7 +2224,7 @@ Case 28:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_buski_wd) OR ( _prat 
         }; 
         
 Case 29:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2) OR ( _prat != B_Maxrank)) then { 
-    hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m2a2]
+    hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m2a2]
         } else {
             _MATV="rhs_m2a2"createVehicle (getMarkerPos"vehspawn"); 
             B_defensebudget= (B_defensebudget-rhs_m2a2);  
@@ -2239,7 +2239,7 @@ Case 29:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2) OR ( _prat != B_Maxr
     }; 
     
 Case 30:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_buski) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m2a2_buski]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m2a2_buski]
             } else {
                 _MATV="rhs_m2a2_buski"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_m2a2_buski);  
@@ -2254,7 +2254,7 @@ Case 30:{_prat = Rank Player;if ((B_defensebudget<rhs_m2a2_buski) OR ( _prat != 
         }; 
         
 Case 31:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3_wd]
             } else {
                 _MATV="RHS_M2A3_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_M2A3_wd);  
@@ -2269,7 +2269,7 @@ Case 31:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_wd) OR ( _prat != B_M
         }; 
         
 Case 32:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKI_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3_BUSKI_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3_BUSKI_wd]
             } else {
                 _MATV="RHS_M2A3_BUSKI_wd"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-RHS_M2A3_BUSKI_wd); 
@@ -2284,7 +2284,7 @@ Case 32:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKI_wd) OR ( _prat 
         }; 
         
 Case 33:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKIII_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3_BUSKIII_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3_BUSKIII_wd]
             } else {
                 _MATV="RHS_M2A3_BUSKIII_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_M2A3_BUSKIII_wd);  
@@ -2299,7 +2299,7 @@ Case 33:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKIII_wd) OR ( _pra
         }; 
         
 Case 34:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3]
     } else {
         _MATV="RHS_M2A3"createVehicle (getMarkerPos"vehspawn"); 
         B_defensebudget= (B_defensebudget-RHS_M2A3);  
@@ -2313,7 +2313,7 @@ Case 34:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3) OR ( _prat != B_Maxr
     }; 
 }; 
 Case 35:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKI) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3_BUSKI]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3_BUSKI]
             } else {
                 _MATV="RHS_M2A3_BUSKI"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_M2A3_BUSKI);  
@@ -2328,7 +2328,7 @@ Case 35:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKI) OR ( _prat != 
         }; 
         
 Case 36:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKIII) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_M2A3_BUSKIII]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_M2A3_BUSKIII]
             } else {
                 _MATV="RHS_M2A3_BUSKIII"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_M2A3_BUSKIII);  
@@ -2342,7 +2342,7 @@ Case 36:{_prat = Rank Player;if ((B_defensebudget<RHS_M2A3_BUSKIII) OR ( _prat !
         }; 
         
 Case 37:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_wd_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m6_wd_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m6_wd_10]
             } else {
                 _MATV="rhs_m6_wd_10"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_m6_wd_10);  
@@ -2356,7 +2356,7 @@ Case 37:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_wd_10) OR ( _prat != B_
         }; 
         
 Case 38:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m6_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m6_wd]
             } else {
                 _MATV="rhs_m6_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_m6_wd);  
@@ -2372,7 +2372,7 @@ Case 38:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_wd) OR ( _prat != B_Max
         }; 
         
 Case 39:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_10) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m6_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m6_10]
             } else {
                 _MATV="rhs_m6_10"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_m6_10);  
@@ -2388,7 +2388,7 @@ Case 39:{_prat = Rank Player;if ((B_defensebudget<rhs_m6_10) OR ( _prat != B_Max
         }; 
         
 Case 40:{_prat = Rank Player;if ((B_defensebudget<rhs_m6) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_m6]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_m6]
             } else {
                 _MATV="rhs_m6"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_m6);  
@@ -2403,7 +2403,7 @@ Case 40:{_prat = Rank Player;if ((B_defensebudget<rhs_m6) OR ( _prat != B_Maxran
         }; 
         
 Case 41:{_prat = Rank Player;if ((B_defensebudget<rhs_sprut_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_sprut_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_sprut_vdv]
             } else {
                 _MATV="rhs_sprut_vdv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_sprut_vdv);  
@@ -2418,7 +2418,7 @@ Case 41:{_prat = Rank Player;if ((B_defensebudget<rhs_sprut_vdv) OR ( _prat != B
         }; 
         
 Case 42:{_prat = Rank Player;if ((B_defensebudget<rhs_2s3_tv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_2s3_tv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_2s3_tv]
             } else {
                 _MATV="rhs_2s3_tv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_2s3_tv);  
@@ -2433,7 +2433,7 @@ Case 42:{_prat = Rank Player;if ((B_defensebudget<rhs_2s3_tv) OR ( _prat != B_Ma
         }; 
         
 Case 43:{_prat = Rank Player;if ((B_defensebudget<RHS_BM21_MSV_01) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,RHS_BM21_MSV_01]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,RHS_BM21_MSV_01]
             } else {
                 _MATV="RHS_BM21_MSV_01"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-RHS_BM21_MSV_01);  
@@ -2447,7 +2447,7 @@ Case 43:{_prat = Rank Player;if ((B_defensebudget<RHS_BM21_MSV_01) OR ( _prat !=
         }; 
         
 Case 44:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd1]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd1]
             } else {
                 _MATV="rhs_bmd1"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd1);  
@@ -2462,7 +2462,7 @@ Case 44:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1) OR ( _prat != B_Maxr
         }; 
         
 Case 45:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1k) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd1k]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd1k]
             } else {
                 _MATV="rhs_bmd1k"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd1k);  
@@ -2477,7 +2477,7 @@ Case 45:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1k) OR ( _prat != B_Max
         }; 
         
 Case 46:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1p) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd1p]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd1p]
             } else {
                 _MATV="rhs_bmd1p"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd1p);  
@@ -2492,7 +2492,7 @@ Case 46:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1p) OR ( _prat != B_Max
         }; 
         
 Case 47:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1pk) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd1pk]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd1pk]
             } else {
                 _MATV="rhs_bmd1pk"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_bmd1pk);  
@@ -2507,7 +2507,7 @@ Case 47:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1pk) OR ( _prat != B_Ma
         }; 
         
 Case 48:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1r) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd1r]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd1r]
             } else {
                 _MATV="rhs_bmd1r"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_bmd1r);  
@@ -2522,7 +2522,7 @@ Case 48:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd1r) OR ( _prat != B_Max
         }; 
         
 Case 49:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd2]
             } else {
                 _MATV="rhs_bmd2"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd2);  
@@ -2537,7 +2537,7 @@ Case 49:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2) OR ( _prat != B_Maxr
         }; 
         
 Case 50:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2k) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd2k]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd2k]
             } else {
                 _MATV="rhs_bmd2k"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd2k);  
@@ -2552,7 +2552,7 @@ Case 50:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2k) OR ( _prat != B_Max
         }; 
         
 Case 51:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2m) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd2m]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd2m]
             } else {
                 _MATV="rhs_bmd2m"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd2m);  
@@ -2567,7 +2567,7 @@ Case 51:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd2m) OR ( _prat != B_Max
         }; 
         
 Case 52:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd4_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd4_vdv]
             } else {
                 _MATV="rhs_bmd4_vdv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_bmd4_vdv);  
@@ -2582,7 +2582,7 @@ Case 52:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4_vdv) OR ( _prat != B_
         }; 
         
 Case 53:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4m_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd4m_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd4m_vdv]
             } else {
                 _MATV="rhs_bmd4m_vdv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmd4m_vdv);  
@@ -2597,7 +2597,7 @@ Case 53:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4m_vdv) OR ( _prat != B
         }; 
         
 Case 54:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4ma_vdv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmd4ma_vdv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmd4ma_vdv]
             } else {
                 _MATV="rhs_bmd4ma_vdv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_bmd4ma_vdv);  
@@ -2613,7 +2613,7 @@ Case 54:{_prat = Rank Player;if ((B_defensebudget<rhs_bmd4ma_vdv) OR ( _prat != 
         }; 
         
 Case 55:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp1_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp1_VDV]
             } else {
                 _MATV="rhs_bmp1_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp1_VDV);  
@@ -2628,7 +2628,7 @@ Case 55:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1_VDV) OR ( _prat != B_
         }; 
         
 Case 56:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1p_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp1p_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp1p_VDV]
             } else {
                 _MATV="rhs_bmp1p_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp1p_VDV);  
@@ -2644,7 +2644,7 @@ Case 56:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1p_VDV) OR ( _prat != B
         }; 
         
 Case 57:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1k_VDV) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp1k_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp1k_VDV]
             } else {
                 _MATV="rhs_bmp1k_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp1k_VDV);  
@@ -2659,7 +2659,7 @@ Case 57:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1k_VDV) OR ( _prat != B
         }; 
         
 Case 58:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1d_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp1d_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp1d_VDV]
             } else {
                 _MATV="rhs_bmp1d_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp1d_VDV);  
@@ -2674,7 +2674,7 @@ Case 58:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp1d_VDV) OR ( _prat != B
         }; 
         
 Case 59:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2e_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp2e_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp2e_VDV]
             } else {
                 _MATV="rhs_bmp2e_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp2e_VDV);  
@@ -2689,7 +2689,7 @@ Case 59:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2e_VDV) OR ( _prat != B
         }; 
         
 Case 60:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp2_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp2_VDV]
             } else {
                 _MATV="rhs_bmp2_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp2_VDV);  
@@ -2704,7 +2704,7 @@ Case 60:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2_VDV) OR ( _prat != B_
         }; 
         
 Case 61:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2k_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp2k_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp2k_VDV]
             } else {
                 _MATV="rhs_bmp2k_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp2k_VDV);  
@@ -2718,7 +2718,7 @@ Case 61:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2k_VDV) OR ( _prat != B
         }; 
         
 Case 62:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2d_VDV) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_bmp2d_VDV]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_bmp2d_VDV]
             } else {
                 _MATV="rhs_bmp2d_VDV"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_bmp2d_VDV);  
@@ -2733,7 +2733,7 @@ Case 62:{_prat = Rank Player;if ((B_defensebudget<rhs_bmp2d_VDV) OR ( _prat != B
         }; 
         
 Case 63:{_prat = Rank Player;if ((B_defensebudget<rhs_brm1k_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_brm1k_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_brm1k_msv]
             } else {
                 _MATV="rhs_brm1k_msv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_brm1k_msv);  
@@ -2748,7 +2748,7 @@ Case 63:{_prat = Rank Player;if ((B_defensebudget<rhs_brm1k_msv) OR ( _prat != B
         }; 
         
 Case 64:{_prat = Rank Player;if ((B_defensebudget<rhs_btr60_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_btr60_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_btr60_msv]
             } else {
                 _MATV="rhs_btr60_msv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_btr60_msv);  
@@ -2763,7 +2763,7 @@ Case 64:{_prat = Rank Player;if ((B_defensebudget<rhs_btr60_msv) OR ( _prat != B
         }; 
         
 Case 65:{_prat = Rank Player;if ((B_defensebudget<rhs_btr70_msv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_btr70_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_btr70_msv]
             } else {
                 _MATV="rhs_btr70_msv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_btr70_msv);  
@@ -2780,7 +2780,7 @@ Case 65:{_prat = Rank Player;if ((B_defensebudget<rhs_btr70_msv) OR ( _prat != B
         }; 
         
 Case 66:{_prat = Rank Player;if ((B_defensebudget<rhs_btr80_msv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_btr80_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_btr80_msv]
             } else {
                 _MATV="rhs_btr80_msv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_btr80_msv);  
@@ -2795,7 +2795,7 @@ Case 66:{_prat = Rank Player;if ((B_defensebudget<rhs_btr80_msv) OR ( _prat != B
         }; 
         
 Case 67:{_prat = Rank Player;if ((B_defensebudget<rhs_btr80a_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_btr80a_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_btr80a_msv]
             } else {
                 _MATV="rhs_btr80a_msv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_btr80a_msv);  
@@ -2810,7 +2810,7 @@ Case 67:{_prat = Rank Player;if ((B_defensebudget<rhs_btr80a_msv) OR ( _prat != 
         }; 
         
 Case 68:{_prat = Rank Player;if ((B_defensebudget<rhs_prp3_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_prp3_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_prp3_msv]
             } else {
                 _MATV="rhs_prp3_msv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_prp3_msv);  
@@ -2825,7 +2825,7 @@ Case 68:{_prat = Rank Player;if ((B_defensebudget<rhs_prp3_msv) OR ( _prat != B_
         }; 
         
 Case 69:{_prat = Rank Player;if ((B_defensebudget<rhs_t72ba_tv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t72ba_tv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t72ba_tv]
             } else {
                 _MATV="rhs_t72ba_tv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_t72ba_tv); 
@@ -2840,7 +2840,7 @@ Case 69:{_prat = Rank Player;if ((B_defensebudget<rhs_t72ba_tv) OR ( _prat != B_
         }; 
         
 Case 70:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bb_tv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t72bb_tv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t72bb_tv]
             } else {
                 _MATV="rhs_t72bb_tv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t72bb_tv);  
@@ -2855,7 +2855,7 @@ Case 70:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bb_tv) OR ( _prat != B_
         }; 
         
 Case 71:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bc_tv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t72bc_tv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t72bc_tv]
             } else {
                 _MATV="rhs_t72bc_tv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t72bc_tv);  
@@ -2870,7 +2870,7 @@ Case 71:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bc_tv) OR ( _prat != B_
         }; 
         
 Case 72:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bd_tv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t72bd_tv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t72bd_tv]
             } else {
                 _MATV="rhs_t72bd_tv"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_t72bd_tv);  
@@ -2885,7 +2885,7 @@ Case 72:{_prat = Rank Player;if ((B_defensebudget<rhs_t72bd_tv) OR ( _prat != B_
         }; 
         
 Case 73:{_prat = Rank Player;if ((B_defensebudget<rhs_t80) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80]
             } else {
                 _MATV="rhs_t80"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80);  
@@ -2900,7 +2900,7 @@ Case 73:{_prat = Rank Player;if ((B_defensebudget<rhs_t80) OR ( _prat != B_Maxra
         }; 
         
 Case 74:{_prat = Rank Player;if ((B_defensebudget<rhs_t80a) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80a]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80a]
             } else {
                 _MATV="rhs_t80a"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80a);  
@@ -2915,7 +2915,7 @@ Case 74:{_prat = Rank Player;if ((B_defensebudget<rhs_t80a) OR ( _prat != B_Maxr
         }; 
         
 Case 75:{_prat = Rank Player;if ((B_defensebudget<rhs_t80b) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80b]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80b]
             } else {
                 _MATV="rhs_t80b"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80b);  
@@ -2930,7 +2930,7 @@ Case 75:{_prat = Rank Player;if ((B_defensebudget<rhs_t80b) OR ( _prat != B_Maxr
         }; 
         
 Case 76:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bk) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80bk]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80bk]
             } else {
                 _MATV="rhs_t80bk"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80bk);  
@@ -2945,7 +2945,7 @@ Case 76:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bk) OR ( _prat != B_Max
         }; 
         
 Case 77:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80bv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80bv]
             } else {
                 _MATV="rhs_t80bv"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80bv);  
@@ -2960,7 +2960,7 @@ Case 77:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bv) OR ( _prat != B_Max
         }; 
         
 Case 78:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bvk) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80bvk]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80bvk]
             } else {
                 _MATV="rhs_t80bvk"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget-rhs_t80bvk);  
@@ -2975,7 +2975,7 @@ Case 78:{_prat = Rank Player;if ((B_defensebudget<rhs_t80bvk) OR ( _prat != B_Ma
         }; 
         
 Case 79:{_prat = Rank Player;if ((B_defensebudget<rhs_t80u) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80u]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80u]
             } else {
                 _MATV="rhs_t80u"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80u);  
@@ -2990,7 +2990,7 @@ Case 79:{_prat = Rank Player;if ((B_defensebudget<rhs_t80u) OR ( _prat != B_Maxr
         }; 
         
 Case 80:{_prat = Rank Player;if ((B_defensebudget<rhs_t80ue1) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80ue1]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80ue1]
             } else {
                 _MATV="rhs_t80ue1"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80ue1);  
@@ -3005,7 +3005,7 @@ Case 80:{_prat = Rank Player;if ((B_defensebudget<rhs_t80ue1) OR ( _prat != B_Ma
         }; 
         
 Case 81:{_prat = Rank Player;if ((B_defensebudget<rhs_t80u45m) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80u45m]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80u45m]
             } else {
                 _MATV="rhs_t80u45m"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80u45m); 
@@ -3020,7 +3020,7 @@ Case 81:{_prat = Rank Player;if ((B_defensebudget<rhs_t80u45m) OR ( _prat != B_M
         }; 
         
 Case 82:{_prat = Rank Player;if ((B_defensebudget<rhs_t80um) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_t80um]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_t80um]
             } else {
                 _MATV="rhs_t80um"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_t80um);  
@@ -3035,7 +3035,7 @@ Case 82:{_prat = Rank Player;if ((B_defensebudget<rhs_t80um) OR ( _prat != B_Max
         }; 
         
 Case 83:{_prat = Rank Player;if ((B_defensebudget<rhs_zsu234_aa) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_zsu234_aa]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_zsu234_aa]
             } else {
                 _MATV="rhs_zsu234_aa"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget-rhs_zsu234_aa);  
@@ -3058,7 +3058,7 @@ default { hint"Something went wrong...Couldn't find case for selection!" };
 A3M_fnc_wheeled= {
 switch (TheSelection) do {
 Case 0:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_F ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_MRAP_01_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_MRAP_01_F ]
             } else {
                 _MATV="B_MRAP_01_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- B_MRAP_01_F );  
@@ -3073,7 +3073,7 @@ Case 0:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_F ) OR ( _prat != B_M
         };
         
 Case 1:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_hmg_F ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_MRAP_01_hmg_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_MRAP_01_hmg_F ]
             } else {
                 _MATV="B_MRAP_01_hmg_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- B_MRAP_01_hmg_F );  
@@ -3088,7 +3088,7 @@ Case 1:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_hmg_F ) OR ( _prat !=
         };
         
 Case 2:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_gmg_F ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_MRAP_01_gmg_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_MRAP_01_gmg_F ]
             } else {
                 _MATV="B_MRAP_01_gmg_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- B_MRAP_01_gmg_F );  
@@ -3103,7 +3103,7 @@ Case 2:{_prat = Rank Player;if ((B_defensebudget<B_MRAP_01_gmg_F ) OR ( _prat !=
         };
         
 Case 3:{_prat = Rank Player;if ((B_defensebudget<B_Truck_01_covered_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Truck_01_covered_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Truck_01_covered_F]
             } else {
                 _MATV="B_Truck_01_covered_F" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- B_Truck_01_covered_F );   
@@ -3118,7 +3118,7 @@ Case 3:{_prat = Rank Player;if ((B_defensebudget<B_Truck_01_covered_F) OR ( _pra
         };
         
 Case 4:{_prat = Rank Player;if ((B_defensebudget<B_Truck_01_transport_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Truck_01_transport_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Truck_01_transport_F]
             } else {
                 _MATV="B_Truck_01_transport_F" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- B_Truck_01_transport_F  ); 
@@ -3133,7 +3133,7 @@ Case 4:{_prat = Rank Player;if ((B_defensebudget<B_Truck_01_transport_F) OR ( _p
         };
         
 Case 5:{_prat = Rank Player;if ((B_defensebudget<B_Quadbike_01_F ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Quadbike_01_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Quadbike_01_F ]
             } else {
                 _MATV="B_Quadbike_01_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- B_Quadbike_01_F );  
@@ -3148,7 +3148,7 @@ Case 5:{_prat = Rank Player;if ((B_defensebudget<B_Quadbike_01_F ) OR ( _prat !=
         };
         
 Case 6:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_F ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_MRAP_02_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_MRAP_02_F ]
             } else {
                 _MATV="O_MRAP_02_F"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- O_MRAP_02_F ); 
@@ -3163,7 +3163,7 @@ Case 6:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_F ) OR ( _prat != B_M
         };
         
 Case 7:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_hmg_F ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_MRAP_02_hmg_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_MRAP_02_hmg_F ]
             } else {
                 _MATV="O_MRAP_02_hmg_F"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- O_MRAP_02_hmg_F );  
@@ -3178,7 +3178,7 @@ Case 7:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_hmg_F ) OR ( _prat !=
         };
         
 Case 8:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_gmg_F ) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_MRAP_02_gmg_F ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_MRAP_02_gmg_F ]
             } else {
                 _MATV="O_MRAP_02_gmg_F"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- O_MRAP_02_gmg_F );  
@@ -3193,7 +3193,7 @@ Case 8:{_prat = Rank Player;if ((B_defensebudget<O_MRAP_02_gmg_F ) OR ( _prat !=
         };
         
 Case 9:{_prat = Rank Player;if ((B_defensebudget<O_Truck_02_covered_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Truck_02_covered_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Truck_02_covered_F]
             } else {
                 _MATV="O_Truck_02_covered_F" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- O_Truck_02_covered_F );  
@@ -3208,7 +3208,7 @@ Case 9:{_prat = Rank Player;if ((B_defensebudget<O_Truck_02_covered_F) OR ( _pra
         };
         
 Case 10 :{_prat = Rank Player;if ((B_defensebudget<O_Truck_02_transport_F) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,O_Truck_02_transport_F]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,O_Truck_02_transport_F]
             } else {
                 _MATV="O_Truck_02_transport_F" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- O_Truck_02_transport_F ); 
@@ -3223,7 +3223,7 @@ Case 10 :{_prat = Rank Player;if ((B_defensebudget<O_Truck_02_transport_F) OR ( 
     };
     
 Case 11 :{_prat = Rank Player;if ((B_defensebudget<rhs_tigr_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_tigr_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_tigr_msv]
             } else {
                 _MATV="rhs_tigr_msv" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhs_tigr_msv   ); 
@@ -3238,7 +3238,7 @@ Case 11 :{_prat = Rank Player;if ((B_defensebudget<rhs_tigr_msv) OR ( _prat != B
         };
         
 Case 12 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_gaz66_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_gaz66_msv]
             } else {
                 _MATV="rhs_gaz66_msv" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhs_gaz66_msv);
@@ -3253,7 +3253,7 @@ Case 12 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_msv) OR ( _prat != 
         };
         
 Case 13 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66o_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_gaz66o_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_gaz66o_msv]
             } else {
                 _MATV="rhs_gaz66o_msv" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhs_gaz66o_msv); 
@@ -3268,7 +3268,7 @@ Case 13 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66o_msv) OR ( _prat !=
         };
         
 Case 14 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_r142_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_gaz66_r142_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_gaz66_r142_msv]
             } else {
                 _MATV="rhs_gaz66_r142_msv" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhs_gaz66_r142_msv); 
@@ -3283,7 +3283,7 @@ Case 14 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_r142_msv) OR ( _pra
         };
         
 Case 15 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_ap2_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_gaz66_ap2_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_gaz66_ap2_msv]
             } else {
                 _MATV="rhs_gaz66_ap2_msv"  createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhs_gaz66_ap2_msv  );
@@ -3298,7 +3298,7 @@ Case 15 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_ap2_msv) OR ( _prat
         };
         
 Case 16 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_repair_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_gaz66_repair_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_gaz66_repair_msv]
             } else {
                 _MATV="rhs_gaz66_repair_msv" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhs_gaz66_repair_msv );   
@@ -3313,7 +3313,7 @@ Case 16 :{_prat = Rank Player;if ((B_defensebudget<rhs_gaz66_repair_msv) OR ( _p
         };
         
 Case 17 :{_prat = Rank Player;if ((B_defensebudget<rhs_typhoon_vdv ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_typhoon_vdv ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_typhoon_vdv ]
             } else {
                 _MATV="rhs_typhoon_vdv" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhs_typhoon_vdv );  
@@ -3328,7 +3328,7 @@ Case 17 :{_prat = Rank Player;if ((B_defensebudget<rhs_typhoon_vdv ) OR ( _prat 
         };
         
 Case 18 :{_prat = Rank Player;if ((B_defensebudget<rhs_uaz_msv ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_uaz_msv ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_uaz_msv ]
             } else {
                 _MATV="rhs_uaz_vdv" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhs_uaz_msv );  
@@ -3343,7 +3343,7 @@ Case 18 :{_prat = Rank Player;if ((B_defensebudget<rhs_uaz_msv ) OR ( _prat != B
         };
         
 Case 19 :{_prat = Rank Player;if ((B_defensebudget<rhs_ural_msv) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ural_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ural_msv]
             } else {
                 _MATV="rhs_ural_msv" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhs_ural_msv );   
@@ -3359,7 +3359,7 @@ Case 19 :{_prat = Rank Player;if ((B_defensebudget<rhs_ural_msv) OR ( _prat != B
         };
         
 Case 20 :{_prat = Rank Player;if ((B_defensebudget<rhs_ural_open_msv) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_ural_open_msv]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_ural_open_msv]
             } else {
                 _MATV="rhs_ural_open_msv" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhs_ural_open_msv  );
@@ -3374,7 +3374,7 @@ Case 20 :{_prat = Rank Player;if ((B_defensebudget<rhs_ural_open_msv) OR ( _prat
         };
         
 Case 21 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_w]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_w]
             } else {
                 _MATV="rhsusf_m1025_w" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_w); 
@@ -3389,7 +3389,7 @@ Case 21 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w) OR ( _prat !=
         };
         
 Case 22 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_d]
             } else {
                 _MATV="rhsusf_m1025_d" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_d  );
@@ -3404,7 +3404,7 @@ Case 22 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d) OR ( _prat !=
         };
         
 Case 23 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_w_s]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_w_s]
             } else {
                 _MATV="rhsusf_m1025_w_s" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_w_s );   
@@ -3419,7 +3419,7 @@ Case 23 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s) OR ( _prat 
         };
         
 Case 24 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_w_s]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_w_s]
             } else {
                 _MATV="rhsusf_m1025_w_s" createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_w_s );   
@@ -3435,7 +3435,7 @@ Case 24 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s) OR ( _prat 
         };
         
 Case 25 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_m2) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_w_m2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_w_m2]
             } else {
                 _MATV="rhsusf_m1025_w_m2" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_w_m2  );
@@ -3450,7 +3450,7 @@ Case 25 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_m2) OR ( _prat
         };
         
 Case 26 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d_m2) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_d_m2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_d_m2]
             } else {
                 _MATV="rhsusf_m1025_d_m2" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_d_m2);
@@ -3465,7 +3465,7 @@ Case 26 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d_m2) OR ( _prat
         };
         
 Case 27 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s_m2) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_w_s_m2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_w_s_m2]
             } else {
                 _MATV="rhsusf_m1025_w_s_m2"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_w_s_m2);  
@@ -3480,7 +3480,7 @@ Case 27 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_w_s_m2) OR ( _pr
         };
         
 Case 28 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d_s_m2) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m1025_d_s_m2]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m1025_d_s_m2]
             } else {
                 _MATV="rhsusf_m1025_d_s_m2"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m1025_d_s_m2);  
@@ -3497,7 +3497,7 @@ Case 28 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m1025_d_s_m2) OR ( _pr
         ;
 Case 29 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_fmtv_usarmy) OR ( _prat != B_Maxrank)) then {
 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_wd_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_wd_fmtv_usarmy]
         } else {
             _MATV="rhsusf_M1078A1P2_wd_fmtv_usarmy"createVehicle (getMarkerPos"vehspawn");
             B_defensebudget= (B_defensebudget-rhsusf_M1078A1P2_wd_fmtv_usarmy); 
@@ -3512,7 +3512,7 @@ Case 29 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_fmtv_usar
     };
     
 Case 30 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_open_fmtv_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_wd_open_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_wd_open_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_wd_open_fmtv_usarmy" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_wd_open_fmtv_usarmy );   
@@ -3527,7 +3527,7 @@ Case 30 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_open_fmtv
         };
         
 Case 31 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy);  
@@ -3542,7 +3542,7 @@ Case 31 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_wd_flatbed_f
         };
         
 Case 32 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_fmtv_usarmy) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_wd_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_wd_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_wd_fmtv_usarmy"  createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_wd_fmtv_usarmy  );
@@ -3557,7 +3557,7 @@ Case 32 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_fmtv_us
         };
         
 Case 33 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy  );
@@ -3572,7 +3572,7 @@ Case 33 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_open_fm
         };
         
 Case 34 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy"  createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_wd_flatbed_fmtv_usarmy );
@@ -3587,7 +3587,7 @@ Case 34 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_wd_flatbed
         };
         
 Case 35 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy );   
@@ -3602,7 +3602,7 @@ Case 35 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_fmtv
         };
         
 Case 36 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy"  createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy  );
@@ -3617,7 +3617,7 @@ Case 36 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_open
         };
         
 Case 37 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy]
             } else {
                 _MATV="rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy ); 
@@ -3632,7 +3632,7 @@ Case 37 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1078A1P2_B_M2_wd_flat
         };
         
 Case 38 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_wd_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_wd_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_wd_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_wd_fmtv_usarmy_10  ); 
@@ -3647,7 +3647,7 @@ Case 38 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_fmtv_usar
         };
         
 Case 39 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_open_fmtv_usarmy_10 ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_wd_open_fmtv_usarmy_10 ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_wd_open_fmtv_usarmy_10 ]
             } else {
                 _MATV=" rhsusf_M1083A1P2_wd_open_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_wd_open_fmtv_usarmy_10 );  
@@ -3662,7 +3662,7 @@ Case 39 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_open_fmtv
         };
         
 Case 40 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy_10  );
@@ -3677,7 +3677,7 @@ Case 40 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_wd_flatbed_f
         };
         
 Case 41 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_wd_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_wd_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_B_wd_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_wd_fmtv_usarmy_10 );   
@@ -3692,7 +3692,7 @@ Case 41 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_fmtv_us
         };
         
 Case 42 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy_10  );
@@ -3707,7 +3707,7 @@ Case 42 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_open_fm
         };
         
 Case 43 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy_10 );   
@@ -3722,7 +3722,7 @@ Case 43 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_wd_flatbed
         };
         
 Case 44 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy_10 ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy_10 ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy_10 ]
                 } else {
                     _MATV="rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy_10"createVehicle (getMarkerPos"vehspawn"); 
                     B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy_10 );  
@@ -3737,7 +3737,7 @@ Case 44 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_fmtv
             };
             
 Case 45 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn");  
                     B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy_10 );   
@@ -3752,7 +3752,7 @@ Case 45 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_open
             };
             
 Case 46 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy_10) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy_10]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy_10]
             } else {
                 _MATV="rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy_10" createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy_10);  
@@ -3767,7 +3767,7 @@ Case 46 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_M1083A1P2_B_M2_wd_flat
         };
         
 Case 47 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_4dr]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_4dr]
             } else {
                 _MATV="rhsusf_m998_w_4dr"  createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_4dr  );
@@ -3782,7 +3782,7 @@ Case 47 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr) OR ( _prat
         };
         
 Case 48 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_4dr]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_4dr]
             } else {
                 _MATV="rhsusf_m998_d_4dr" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_4dr  );
@@ -3797,7 +3797,7 @@ Case 48 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr) OR ( _prat
         };
         
 Case 49 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr_halftop) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_4dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_4dr_halftop]
             } else {
                 _MATV="rhsusf_m998_w_4dr_halftop" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_4dr_halftop  );
@@ -3812,7 +3812,7 @@ Case 49 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr_halftop) OR
         };
         
 Case 50 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr_halftop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_4dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_4dr_halftop]
             } else {
                 _MATV="rhsusf_m998_d_4dr_halftop"  createVehicle (getMarkerPos"vehspawn");  
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_4dr_halftop  );
@@ -3827,7 +3827,7 @@ Case 50 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr_halftop) OR
         };
         
 Case 51 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr_fulltop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_4dr_fulltop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_4dr_fulltop]
             } else {
                 _MATV="rhsusf_m998_w_4dr_fulltop"  createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_4dr_fulltop  );
@@ -3842,7 +3842,7 @@ Case 51 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_4dr_fulltop) OR
         };
         
 Case 52 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr_fulltop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_4dr_fulltop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_4dr_fulltop]
             } else {
                 _MATV="rhsusf_m998_d_4dr_fulltop" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_4dr_fulltop  );
@@ -3857,7 +3857,7 @@ Case 52 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_4dr_fulltop) OR
         };
         
 Case 53 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_2dr]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_2dr]
             } else {
                 _MATV="rhsusf_m998_w_s_2dr"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_2dr);  
@@ -3872,7 +3872,7 @@ Case 53 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr) OR ( _pr
         };
         
 Case 54 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_2dr ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_2dr ]
             } else {
                 _MATV="rhsusf_m998_d_s_2dr"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_2dr );  
@@ -3886,7 +3886,7 @@ Case 54 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr ) OR ( _p
         };
         
 Case 55 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr_halftop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_2dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_2dr_halftop]
             } else {
                 _MATV="rhsusf_m998_w_s_2dr_halftop"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_2dr_halftop);  
@@ -3902,7 +3902,7 @@ Case 55 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr_halftop) 
         };
         
 Case 56 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr_halftop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_2dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_2dr_halftop]
             } else {
                 _MATV="rhsusf_m998_d_s_2dr_halftop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_2dr_halftop); 
@@ -3917,7 +3917,7 @@ Case 56 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr_halftop) 
         };
         
 Case 57 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr_fulltop ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_2dr_fulltop ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_2dr_fulltop ]
             } else {
                 _MATV="rhsusf_m998_w_s_2dr_fulltop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_2dr_fulltop );  
@@ -3932,7 +3932,7 @@ Case 57 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_2dr_fulltop )
         };
         
 Case 58 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr_fulltop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_2dr_fulltop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_2dr_fulltop]
             } else {
                 _MATV="rhsusf_m998_d_s_2dr_fulltop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_2dr_fulltop); 
@@ -3947,7 +3947,7 @@ Case 58 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_2dr_fulltop) 
         };
         
 Case 59 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_4dr]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_4dr]
             } else {
                 _MATV="rhsusf_m998_w_s_4dr"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_4dr);  
@@ -3962,7 +3962,7 @@ Case 59 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr) OR ( _pr
         };
         
 Case 60 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_4dr ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_4dr ]
             } else {
                 _MATV="rhsusf_m998_d_s_4dr"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_4dr );  
@@ -3977,7 +3977,7 @@ Case 60 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr ) OR ( _p
         };
         
 Case 61 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr_halftop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_4dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_4dr_halftop]
             } else {
                 _MATV="rhsusf_m998_w_s_4dr_halftop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_4dr_halftop);  
@@ -3992,7 +3992,7 @@ Case 61 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr_halftop) 
         };
         
 Case 62 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr_halftop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_4dr_halftop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_4dr_halftop]
             } else {
                 _MATV="rhsusf_m998_d_s_4dr_halftop"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_4dr_halftop);  
@@ -4007,7 +4007,7 @@ Case 62 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr_halftop) 
         };
         
 Case 63 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr_fulltop) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_w_s_4dr_fulltop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_w_s_4dr_fulltop]
             } else {
                 _MATV="rhsusf_m998_w_s_4dr_fulltop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_w_s_4dr_fulltop);  
@@ -4022,7 +4022,7 @@ Case 63 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_w_s_4dr_fulltop) 
         };
         
 Case 64 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr_fulltop) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_m998_d_s_4dr_fulltop]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_m998_d_s_4dr_fulltop]
             } else {
                 _MATV="rhsusf_m998_d_s_4dr_fulltop"createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_m998_d_s_4dr_fulltop); 
@@ -4037,7 +4037,7 @@ Case 64 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_m998_d_s_4dr_fulltop) 
         };
         
 Case 65 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_wd) OR ( _prat != B_Maxrank)) then {
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_wd]
             } else {
                 _MATV="rhsusf_rg33_wd" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_wd  ); 
@@ -4052,7 +4052,7 @@ Case 65 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_wd) OR ( _prat !=
         };
         
 Case 66 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_m2_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_m2_wd]
             } else {
                 _MATV="rhsusf_rg33_m2_wd"  createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_m2_wd  );
@@ -4067,7 +4067,7 @@ Case 66 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_wd) OR ( _prat
         };
         
 Case 67 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_wd ) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_usmc_wd ]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_usmc_wd ]
             } else {
                 _MATV="rhsusf_rg33_usmc_wd"createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_usmc_wd );  
@@ -4082,7 +4082,7 @@ Case 67 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_wd ) OR ( _p
         };
         
 Case 68 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_usmc_wd) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_m2_usmc_wd]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_m2_usmc_wd]
             } else {
                 _MATV="rhsusf_rg33_m2_usmc_wd" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_m2_usmc_wd );
@@ -4096,7 +4096,7 @@ Case 68 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_usmc_wd) OR ( 
         };
         
 Case 69 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_d) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_d]
             } else {
                 _MATV="rhsusf_rg33_d" createVehicle (getMarkerPos"vehspawn");   
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_d  );
@@ -4111,7 +4111,7 @@ Case 69 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_d) OR ( _pra
         };
         
 Case 70 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_usmc_d) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_m2_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_m2_d]
         } else {
             _MATV="rhsusf_rg33_m2_d" createVehicle (getMarkerPos"vehspawn"); 
             B_defensebudget= (B_defensebudget- rhsusf_rg33_m2_d );   
@@ -4126,7 +4126,7 @@ Case 70 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_usmc_d) OR ( _
     };
     
 Case 71 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_d) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_usmc_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_usmc_d]
             } else {
                 _MATV="rhsusf_rg33_usmc_d" createVehicle (getMarkerPos"vehspawn");
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_usmc_d); 
@@ -4141,7 +4141,7 @@ Case 71 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_usmc_d) OR ( _pra
         };
         
 Case 72 :{_prat = Rank Player;if ((B_defensebudget<rhsusf_rg33_m2_usmc_d) OR ( _prat != B_Maxrank)) then { 
-        hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_rg33_m2_usmc_d]
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_rg33_m2_usmc_d]
             } else {
                 _MATV="rhsusf_rg33_m2_usmc_d" createVehicle (getMarkerPos"vehspawn"); 
                 B_defensebudget= (B_defensebudget- rhsusf_rg33_m2_usmc_d );   
@@ -4168,7 +4168,7 @@ A3M_Fnc_Robotics = {
 			_prat = Rank Player;
 			
 			if ((B_defensebudget<UAV_Drakon ) OR ( _prat != B_Maxrank)) then {
-			hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,UAV_Drakon ]
+			hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,UAV_Drakon ]
             } else {
                 RoboGroup = createGroup west; 
 				Robo = createVehicle ['UAV_Drakon',getMarkerPos "AAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4199,7 +4199,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<rq11_zerlegt ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rq11_zerlegt ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rq11_zerlegt ]
 						} else {
 							Robo = createVehicle ['rq11_zerlegt',getMarkerPos "SGAutSpwn", [], 0, 'CAN_COLLIDE']; 
 							Deliveries AddItemCargoGlobal["B_UavTerminal", 1];
@@ -4220,7 +4220,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<rq11b_zerlegt ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rq11b_zerlegt ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rq11b_zerlegt ]
 						} else {
 							Robo = createVehicle ['rq11b_zerlegt',getMarkerPos "SGAutSpwn", [], 0, 'CAN_COLLIDE']; 
 							Deliveries AddItemCargoGlobal["B_UavTerminal", 1];
@@ -4241,7 +4241,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<rq11_camera ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rq11_camera ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rq11_camera ]
 						} else {
 							Robo = createVehicle ['rq11_camera',getMarkerPos "SGAutSpwn", [], 0, 'CAN_COLLIDE'];  
 							Deliveries AddItemCargoGlobal["B_UavTerminal", 1];
@@ -4261,7 +4261,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<rq11b_camera ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rq11b_camera ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rq11b_camera ]
 						} else {
 							Robo = createVehicle ['rq11b_camera',getMarkerPos "SGAutSpwn", [], 0, 'CAN_COLLIDE']; 
 							Deliveries AddItemCargoGlobal["B_UavTerminal", 1];
@@ -4285,7 +4285,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<B_UAV_01_F ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_UAV_01_F ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_UAV_01_F ]
 						} else {
 							RoboGroup = createGroup west; 
 							Robo = createVehicle ['B_UAV_01_F',getMarkerPos "SGAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4310,7 +4310,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<B_UGV_01_F ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_UGV_01_F ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_UGV_01_F ]
 						} else {
 							RoboGroup = createGroup west; 
 							Robo = createVehicle ['B_UGV_01_F',getMarkerPos "GAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4335,7 +4335,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<B_UGV_01_rcws_F ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_UGV_01_rcws_F ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_UGV_01_rcws_F ]
 						} else {
 							RoboGroup = createGroup west; 
 							Robo = createVehicle ['B_UGV_01_rcws_F',getMarkerPos "GAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4359,7 +4359,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<B_UAV_02_F ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_UAV_02_F ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_UAV_02_F ]
 						} else {
 							RoboGroup = createGroup west; 
 							Robo = createVehicle ['B_UAV_02_F',getMarkerPos "AAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4384,7 +4384,7 @@ A3M_Fnc_Robotics = {
 						_prat = Rank Player;
 			
 						if ((B_defensebudget<B_UAV_02_CAS_F ) OR ( _prat != B_Maxrank)) then {
-						hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_UAV_02_CAS_F ]
+						hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_UAV_02_CAS_F ]
 						} else {
 							RoboGroup = createGroup west; 
 							Robo = createVehicle ['B_UAV_02_CAS_F',getMarkerPos "AAutSpwn", [], 0, 'CAN_COLLIDE']; 
@@ -4453,7 +4453,7 @@ if (Ace3_Enabled == 1) then {
 							publicVariable"B_defensebudget"; 
 							B_totalcost= (B_totalcost+ACE_Box_Ammo);
 							publicVariable"B_totalcost";
-							hint format ["You have purchased a Spare Track for $%1 \n \n It will be delivered to the Vehicle Service Location at the C-12 Facility. ",ACE_Box_Ammo ]; 
+							hint format ["You have purchased a box of ACE Match Grade Ammunition (Assorted) for $%1 \n \n It will be delivered to the Operational Readiness Area at the C-12 Facility. ",ACE_Box_Ammo ]; 
                 
 						[] call doBudget; 
 						[] call DoTotal; 
@@ -4470,7 +4470,7 @@ if (Ace3_Enabled == 1) then {
 							publicVariable"B_defensebudget"; 
 							B_totalcost= (B_totalcost+ACE_medicalSupplyCrate_advanced );
 							publicVariable"B_totalcost";
-							hint format ["You have purchased a Spare Track for $%1 \n \n It will be delivered to the Vehicle Service Location at the C-12 Facility. ",ACE_medicalSupplyCrate_advanced ]; 
+							hint format ["You have purchased an ACE Advanced Medical Supply Crate for $%1 \n \n It will be delivered to the Operational Readiness Area at the C-12 Facility. ",ACE_medicalSupplyCrate_advanced ]; 
                 
 						[] call doBudget; 
 						[] call DoTotal; 
@@ -4487,13 +4487,31 @@ if (Ace3_Enabled == 1) then {
 							publicVariable"B_defensebudget"; 
 							B_totalcost= (B_totalcost+ACE_Item_Sandbag_empty );
 							publicVariable"B_totalcost";
-							hint format ["You have purchased a Spare Track for $%1 \n \n It will be delivered to the Vehicle Service Location at the C-12 Facility. ",ACE_Item_Sandbag_empty ]; 
+							hint format ["You have purchased a Single Sandbag for $%1 \n \n It will be delivered to the Operational Readiness Area at the C-12 Facility. ",ACE_Item_Sandbag_empty ]; 
                 
 						[] call doBudget; 
 						[] call DoTotal; 
 						}; 
 				
 				};
+				
+				Case 5: {
+					if (B_defensebudget < ACE_Box_Misc ) then {
+						hint format ["Your company does not have sufficient money (Costs $%) to do this.", ACE_Item_Sandbag_empty];
+							} else {
+							_SpareTrack= "ACE_Box_Misc" createVehicle (getMarkerPos "ArmrySpwn"); 
+							B_defensebudget= (B_defensebudget- ACE_Box_Misc );  
+							publicVariable"B_defensebudget"; 
+							B_totalcost= (B_totalcost+ACE_Box_Misc );
+							publicVariable"B_totalcost";
+							hint format ["You have purchased an ACE Misc Supply Crate (Tactical Office Supplies) for $%1 \n \n It will be delivered to the Operational Readiness Area at the C-12 Facility. ",ACE_Box_Misc ]; 
+                
+						[] call doBudget; 
+						[] call DoTotal; 
+						}; 
+				
+				};
+				
 			}; 
 
 		} else {
@@ -4503,9 +4521,9 @@ if (Ace3_Enabled == 1) then {
 				Case 0: {
 				_prat = Rank Player;
 				if ((B_defensebudget < USS_Iowa_Battleship) OR ( _prat != B_Maxrank)) then {
-					hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,USS_Iowa_Battleship];
+					hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,USS_Iowa_Battleship];
 						} else {
-							_MATV="USS_Iowa_Battleship"createVehicle (getMarkerPos"ShipSpawn");
+							_MATV="USS_Iowa_Battleship"createVehicle (getMarkerPos "ShipSpawn");
 							B_defensebudget= (B_defensebudget-USS_Iowa_Battleship); 
 							publicVariable"B_defensebudget"; 
 							B_totalcost= (B_totalcost+USS_Iowa_Battleship); 
@@ -4524,7 +4542,7 @@ if (Ace3_Enabled == 1) then {
 						Case 0: {
 							_prat = Rank Player;
 							if ((B_defensebudget < SMA_Weapon_Box) OR ( _prat != B_Maxrank)) then {
-							hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,SMA_Weapon_Box]
+							hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,SMA_Weapon_Box]
 								} else {
 									_SMABox = "SMA_Weapon_Box" createVehicle (getMarkerPos "ArmrySpwn");
 									B_defensebudget= (B_defensebudget-SMA_Weapon_Box); 
@@ -4544,7 +4562,7 @@ if (Ace3_Enabled == 1) then {
 									Case 0: {	
 										_prat = Rank Player;
 										if ((B_defensebudget<HLC_MP5_ammobox) OR ( _prat != B_Maxrank)) then {
-										hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,HLC_MP5_ammobox]
+										hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,HLC_MP5_ammobox]
 											} else {								
 												_SMABox = "HLC_MP5_ammobox" createVehicle (getMarkerPos "ArmrySpwn");
 												B_defensebudget= (B_defensebudget-HLC_MP5_ammobox); 
@@ -4564,7 +4582,7 @@ if (Ace3_Enabled == 1) then {
 											Case 0: {
 												_prat = Rank Player;
 												if ((B_defensebudget<rhs_weapon_crate) OR ( _prat != B_Maxrank)) then {
-												hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhs_weapon_crate]
+												hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhs_weapon_crate]
 													} else {	
 													_SMABox = "rhs_weapon_crate" createVehicle (getMarkerPos "ArmrySpwn");
 													B_defensebudget= (B_defensebudget-rhs_weapon_crate); 
@@ -4580,7 +4598,7 @@ if (Ace3_Enabled == 1) then {
 											Case 1: {
 											_prat = Rank Player;
 											if ((B_defensebudget<rhsusf_weapon_crate) OR ( _prat != B_Maxrank)) then {
-											hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,rhsusf_weapon_crate]
+											hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,rhsusf_weapon_crate]
 											} else {	
 												_SMABox = "rhsusf_weapon_crate" createVehicle (getMarkerPos"ArmrySpwn");
 												B_defensebudget= (B_defensebudget-rhsusf_weapon_crate); 
@@ -4599,7 +4617,7 @@ if (Ace3_Enabled == 1) then {
 											Case 0: {
 												_prat = Rank Player;
 													if ((B_defensebudget<B_Truck_01_fuel_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Truck_01_fuel_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Truck_01_fuel_F]
 														} else {	
 															_SMABox = "B_Truck_01_fuel_F" createVehicle (getMarkerPos "VehSpawn");
 															B_defensebudget= (B_defensebudget-B_Truck_01_fuel_F); 
@@ -4615,7 +4633,7 @@ if (Ace3_Enabled == 1) then {
 													Case 1: {
 													_prat = Rank Player;
 													if ((B_defensebudget<Box_NATO_Ammo_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,Box_NATO_Ammo_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,Box_NATO_Ammo_F]
 														} else {	
 														_SMABox = "Box_NATO_Ammo_F" createVehicle (getMarkerPos "ArmrySpwn");
 														B_defensebudget= (B_defensebudget-Box_NATO_Ammo_F); 
@@ -4631,7 +4649,7 @@ if (Ace3_Enabled == 1) then {
 													Case 2: {
 													_prat = Rank Player;
 													if ((B_defensebudget<Box_NATO_Wps_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,Box_NATO_Wps_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,Box_NATO_Wps_F]
 														} else {	
 														_SMABox = "Box_NATO_Wps_F" createVehicle (getMarkerPos "ArmrySpwn");
 														B_defensebudget= (B_defensebudget-Box_NATO_Wps_F); 
@@ -4647,7 +4665,7 @@ if (Ace3_Enabled == 1) then {
 													Case 3: {
 													_prat = Rank Player;
 													if ((B_defensebudget<B_Boat_Armed_01_minigun_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Boat_Armed_01_minigun_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Boat_Armed_01_minigun_F]
 														} else {	
 															_Boat = "B_Boat_Armed_01_minigun_F" createVehicle (getMarkerPos "SBoatSpawn");
 															B_defensebudget= (B_defensebudget-B_Boat_Armed_01_minigun_F); 
@@ -4663,7 +4681,7 @@ if (Ace3_Enabled == 1) then {
 													Case 4: {
 													_prat = Rank Player;
 													if ((B_defensebudget<B_Boat_Transport_01_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_Boat_Transport_01_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Boat_Transport_01_F]
 														} else {	
 														_SBoat = "B_Boat_Transport_01_F" createVehicle (getMarkerPos "SBoatSpawn");
 														B_defensebudget= (B_defensebudget-B_Boat_Transport_01_F); 
@@ -4679,7 +4697,7 @@ if (Ace3_Enabled == 1) then {
 													Case 5: {
 													_prat = Rank Player;
 													if ((B_defensebudget<B_SDV_01_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You do not have sufficient rank (Min Rank %1) or money (Costs $%2) to do this.", B_maxrank,B_SDV_01_F]
+													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_SDV_01_F]
 														} else {	
 														_Boat = "B_SDV_01_F" createVehicle (getMarkerPos "SBoatSpawn");
 														B_defensebudget= (B_defensebudget-B_SDV_01_F); 

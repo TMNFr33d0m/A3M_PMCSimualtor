@@ -321,7 +321,7 @@ T9trg= createTrigger ["EmptyDetector", getMarkerPos "T9"];
 T9trg setTriggerArea [35, 35, 0, false]; 
 T9trg setTriggerActivation ["WEST", "PRESENT", false]; 
 T9trg setTriggerType "NONE";
-T9trg setTriggerStatements ["_this","['','A3M_MP_T9Shift',True,False] call BIS_fnc_MP; ['', 'A3M_fnc_SelectIncident', false, false, false] call bis_fnc_MP;",""]; 
+T9trg setTriggerStatements ["This","['','A3M_MP_T9Shift',True,False] call BIS_fnc_MP; ['', 'A3M_fnc_SelectIncident', false, false, false] call bis_fnc_MP;",""]; 
 }; 
 // Protestors Incident
 A3M_fnc_Protest = {

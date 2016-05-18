@@ -38,4 +38,4 @@ _Basepos = Getpos Player;
 
 ["A3M", "PMC Simulator", "Operations HQ","West Altis"] spawn BIS_fnc_infoText;
 
-hintSilent parseText format["<img size = 15 image='images\Orion_Logo2.paa'/> <br/> <br/> <t size='1.25' font='TahomaB' color='#ff0000'>Welcome to Orion Private Security Group. We're glad to have you aboard!</t> <br/> <br/>  Access the Internet via a Laptop to Access Email, Banking (And Time Submission...to get paid!!), Online Shopping and more! <br/> <br/> <t color='#ffff00'>General Communications:</t>  <br/> <br/>Radio Channel 76 <br/> <br/>Please remember to operate responsibly. <br/> <br/> -OPSG HR</t>"]
+hintSilent parseText format["<img size = 15 image='images\Orion_Logo2.paa'/> <br/> <br/> <t size='1.25' font='TahomaB' color='#ff0000'>Welcome to Orion Private Security Group. We're glad to have you aboard!</t> <br/> <br/>  Access the Internet via a Laptop to Access Email, Banking (And Time Submission...to get paid!!), Online Shopping and more! <br/> <br/> <t color='#ffff00'>Coming Soon</t>  <br/> <br/>L.E.O. Mod! Be a Cop! See Website for details! www.a3milsim.com<br/> <br/>Please remember to operate responsibly. <br/> <br/> -OPSG HR</t>"]

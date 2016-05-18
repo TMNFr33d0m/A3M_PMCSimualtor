@@ -1,0 +1,273 @@
+/*
+  /$$$$$$   /$$$$$$  /$$      /$$       /$$$$$$$  /$$      /$$  /$$$$$$         /$$$$$$  /$$                         /$$             /$$                        
+ /$$__  $$ /$$__  $$| $$$    /$$$      | $$__  $$| $$$    /$$$ /$$__  $$       /$$__  $$|__/                        | $$            | $$                        
+| $$  \ $$|__/  \ $$| $$$$  /$$$$      | $$  \ $$| $$$$  /$$$$| $$  \__/      | $$  \__/ /$$ /$$$$$$/$$$$  /$$   /$$| $$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+| $$$$$$$$   /$$$$$/| $$ $$/$$ $$      | $$$$$$$/| $$ $$/$$ $$| $$            |  $$$$$$ | $$| $$_  $$_  $$| $$  | $$| $$ |____  $$|_  $$_/   /$$__  $$ /$$__  $$
+| $$__  $$  |___  $$| $$  $$$| $$      | $$____/ | $$  $$$| $$| $$             \____  $$| $$| $$ \ $$ \ $$| $$  | $$| $$  /$$$$$$$  | $$    | $$  \ $$| $$  \__/
+| $$  | $$ /$$  \ $$| $$\  $ | $$      | $$      | $$\  $ | $$| $$    $$       /$$  \ $$| $$| $$ | $$ | $$| $$  | $$| $$ /$$__  $$  | $$ /$$| $$  | $$| $$      
+| $$  | $$|  $$$$$$/| $$ \/  | $$      | $$      | $$ \/  | $$|  $$$$$$/      |  $$$$$$/| $$| $$ | $$ | $$|  $$$$$$/| $$|  $$$$$$$  |  $$$$/|  $$$$$$/| $$      
+|__/  |__/ \______/ |__/     |__/      |__/      |__/     |__/ \______/        \______/ |__/|__/ |__/ |__/ \______/ |__/ \_______/   \___/   \______/ |__/      
+                                                                                                                                                                                                                                                                                                                             
+
+
+Admin Panel V 1.0 by Cody Salazar AKA Fr33d0m 
+www.A3MilSim.com
+
+License:
+
+You can do whatever you were going to do anyway. Just give me the credit i'm due, and don't steal my shit. I'll be pissed. 
+If you want to repay me for all my hard work, come and play arma with me! I hang out at a MilSim unit known as A3M (A3 MilSim) 
+Come and visit us at ts3.a3milsim.com
+
+www.A3MilSim.com (A3 MilSim)
+All Rights Reserved
+
+For Information and Inquiries, EMAIL: salazar@a3milsim.com
+
+Credits & Thanks: 
+
+My wife, for not only supporting my modding ventures, but actually jumping in and helping with mods when she can. What a gal! 
+
+Sgt. Lucht and Sgt. Scanlon, of the U.S. Army, for realism consulting. 
+
+All my patient internal testers!!
+
+And last, but definitely not least, the A3 community, who through over 250+ encouraging messages highly encouraged me to continue this project. I'm glad you like it, 
+and I hope you enjoy the things I have in the works! 
+
+
+################################## LET US BEGIN #################################### */
+
+
+overviewText = "A3M PMC Simulator is a multiplayer mode designed to simulate working as a Private Military Contractor in a conflict zone. You will be required to carry out security and paramilitary operations pursuant to your contracts with OPSG, and you will be paid based on performance per operation.";
+overviewTextLocked = "If this mission is locked, something is wrong!";
+overviewPicture = "images\Loadimg.paa";
+
+author = "Cody S. AkA. TMN Fr33d0m";
+OnLoadName = "A3M | PMC Simulator Mod"; 
+OnLoadMission = "Takistan Edition"; 
+onLoadIntro = "Full Gameplay Manual Available in briefing!"; 
+
+respawn = 3;
+respawnDelay = 10;
+
+disabledAI = 1;
+
+enableDebugConsole = 1;
+scriptedPlayer = 1;
+
+loadscreen = "images\Loadimg.paa"; 
+
+class Header
+{
+	gameType = Sandbox;
+	minPlayers = 1;
+	maxPlayers = 42;
+};
+
+#include "dialogs\A3M_Normals.hpp"
+#include "dialogs\FleetMgmt.hpp"
+#include "dialogs\MissionSelector.hpp"
+#include "dialogs\Gunstore_Dialog.hpp" 
+#include "dialogs\BankAccount.hpp"
+#include "dialogs\AdminPanel.hpp"
+#include "dialogs\2ABCT_M4R.hpp"
+#include "dialogs\HomePage.hpp"
+#include "dialogs\WpnLkr.hpp"
+#include "dialogs\A3M_AIR.hpp"
+#include "dialogs\PrgBar.hpp"
+
+
+class Params {
+
+class DTimer { 
+//ParamsArray Select 0 
+title= "Payout Multiplier (Personal Accounts)";
+values[]= {0.5, 1, 2, 3}; 
+texts[]= {"Half of Rating Points (Subtraction)", "No Multiplier", "Double", "Triple"}; 
+default= 2;
+}; 
+
+class OpBudget { 
+//ParamsArray select 1
+title= "Operation Budget:";
+values[]= {0, 1, 5000000, 12000000, 25000000, 50000000, 75000000, 120000000}; 
+texts[]= {"Broke", "ALiVE Persist (From Previous Session)", "5 Million", "12 Million", "25 Million", "50 Million", "75 Million", "120 Million"}; 
+default= 12000000;
+}; 
+
+class RBLength {
+// ParamsArray select 2
+title = "Roadblock Shift Length:"; 
+values[]= {10, 15, 20, 25, 30}; 
+texts[] = {"Ten Cars", "Fifteen Cars", "Twenty Cars", "Twenty Five Cars", "Thirty Cars"}; 
+default= 10; 
+}; 
+
+class DeliveryTime {
+// ParamsArray select 3
+title = "Online Order Delivery Time:"; 
+values[]= {10, 30, 60, 120, 180, 240, 300}; 
+texts[] = {"10 Seconds", "30 Seconds", "1 Minute", "2 Minutes", "3 Minutes", "4 Minutes", "5 Minutes"}; 
+default= 10; 
+}; 
+
+class FuelCost {
+// ParamsArray select 4
+title = "Gas Prices (Cost Per Gallon - Vehicle Refuelling):"; 
+values[]= {2, 4, 6, 7, 8, 10, 12}; 
+texts[] = {"$2.00 / Gallon", "$4.00 / Gallon", "$6.00 / Gallon", "$8.00 / Gallon", "$10.00 / Gallon", "$12.00 / Gallon", "$14.00 / Gallon"}; 
+default= 2; 
+}; 
+
+class RepairPrice {
+// ParamsArray select 5
+title = "Repair / Labor Prices (Multiplier - Vehicle Repair):"; 
+values[]= {20, 40, 60, 70, 80, 100, 120}; 
+texts[] = {"$20.00 / Hr", "$40.00 / Hr", "$60.00 / Hr", "$80.00 / Hr", "$100.00 / Hr", "$120.00 / Hr", "$140.00 / Hr"}; 
+default= 20; 
+}; 
+
+class JetFuelCost {
+// ParamsArray select 6
+title = "Jet Fuel (Cost Per LB - Aircraft Refuelling):"; 
+values[]= {8, 10, 12, 15, 17, 20, 25}; 
+texts[] = {"$8.00 / Lb", "$10.00 / Lb", "$12.00 / Lb", "$15.00 / Lb", "$17.00 / Lb", "$20.00 / Lb", "$25.00 / Lb"}; 
+default= 8; 
+}; 
+
+class DefaultRecruiting {
+// ParamsArray select 7
+title = "Allow AIRecruit rights to any player"; 
+values[]= {1,0}; 
+texts[] = {"Yes", "No"}; 
+default= 0; 
+}; 
+
+class InsuranceDeductible {
+// ParamsArray select 8
+title = "Medical Insurance Deductible (Cost for respawning)"; 
+values[]= {0,100,200,300,400,500}; 
+texts[] = {"Off ($0.00)","$100.00", "$200.00", "$300.00", "$400.00", "$500.00"}; 
+default= 200; 
+}; 
+
+}; 
+
+class CfgNotifications
+{
+	class Default
+	{
+		title = ""; // Tile displayed as text on black background. Filled by arguments.
+		iconPicture = ""; // Small icon displayed in left part. Colored by "color", filled by arguments.
+		iconText = ""; // Short text displayed over the icon. Colored by "color", filled by arguments.
+		description = ""; // Brief description displayed as structured text. Colored by "color", filled by arguments.
+		color[] = {1,1,1,1}; // Icon and text color
+		duration = 5; // How many seconds will the notification be displayed
+		priority = 0; // Priority; higher number = more important; tasks in queue are selected by priority
+		difficulty[] = {}; // Required difficulty settings. All listed difficulties has to be enabled
+	};
+	
+	class TaskAssigned
+	{
+		title = "Contract Accepted"; // Tile displayed as text on black background. Filled by arguments.
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIcon_ca.paa"; // Small icon displayed in left part. Colored by "color", filled by arguments.
+		description = "%1"; // Brief description displayed as structured text. Colored by "color", filled by arguments.
+		color[] = {1,1,1,1}; // Icon and text color
+		priority = 0;
+				
+	};
+	
+		class TaskFailed
+	{
+		title = "Breach of Contract";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
+		description = "%1";
+		color[] = {1,0,0,1}; // Icon and text color
+		priority = 0;
+	};
+	
+		class TaskDone
+	{
+		title = "Contract Fulfilled";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
+		description = "%1";
+		color[] = {0,1,0,1}; // Icon and text color
+		priority = 0;
+	};
+	
+		class InformationRed
+	{
+		title = "Information";
+		iconPicture = "\A3\ui_f\data\map\markers\handdrawn\warning_ca.paa";
+		description = "%1";
+		color[] = {0.69,0.13,0.13,1}; // Icon and text color
+		priority = 1;
+	};
+	
+	
+		class InformationGreen
+	{
+		title = "Information";
+		iconPicture = "\A3\ui_f\data\map\markers\handdrawn\warning_ca.paa";
+		description = "%1";
+		color[] = {0.13,0.54,0.13,1}; // Icon and text color
+		priority = 1;
+	};
+	
+	class ScoreAdded
+	{
+		title = "RP Earned";
+		iconText = "+%2";
+		description = "%1";
+		color[] = {1,0,1,1};
+		priority = 2;
+	};
+};
+
+class RscTitles 
+{
+	class A3M_ProgressBar 
+	{
+		idd = -1; 
+		onLoad = "uiNamespace setVariable [""A3M_ProgressBar"", _this select 0];";   
+		duration = 999999999;
+		movingEnable = false; 
+		class controls 
+		{	
+			class HGF_UI_ProgressBarBackground: IGUIBack
+			{
+				idc = 22200;
+				x = 0.259375 * safezoneW + safezoneX;
+				y = 0.247042 * safezoneH + safezoneY;
+				w = 0.48125 * safezoneW;
+				h = "1 * ((((safezoneW / safezoneH) min 1.2) / 0.9) / 25)";
+				colorBackground[] = {"0.0745","0.0863","0.1059",0.8};
+			}; 
+			class A3M_UI_ProgressBar: RscProgress
+			{
+				idc = 22202;
+				text = "";
+				x = 0.259375 * safezoneW + safezoneX;
+				y = 0.247042 * safezoneH + safezoneY;
+				w = 0.48125 * safezoneW;
+				zzh = 0.032 * safezoneH;
+				h = "1 * ((((safezoneW / safezoneH) min 1.2) / 0.9) / 25)";
+				colorFrame[] = {0,0,0,1};
+				colorBar[]={"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])","(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
+				texture = "#(argb,8,8,3)color(1,1,1,1)";
+			}; 
+			class A3M_UI_ProgressBarText: RscText
+			{
+				idc = 22201;
+				text = "";
+				x = 0.259375 * safezoneW + safezoneX;
+				y = 0.247042 * safezoneH + safezoneY;
+				w = 0.48125 * safezoneW;
+				h = "1 * ((((safezoneW / safezoneH) min 1.2) / 1.05) / 25)";
+				sizeEx = "2 * (0.021)";
+				style = ST_CENTER;
+			}; 
+		};
+	};
+};

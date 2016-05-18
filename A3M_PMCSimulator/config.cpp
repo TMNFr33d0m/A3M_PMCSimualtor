@@ -218,9 +218,9 @@ class CfgMissions
 {
 	class MPMissions
 		{
-			class MP_A3M_PMC_Simulator
+			class MP_A3M_PMC_Simulator_Altis
 			{
-				briefingName = "A3M | PMC Simulator (Persist COOP 42)";
+				briefingName = "A3M | PMC Simulator (Total Modification) (Persistent COOP 42)";
 				directory = "A3M_PMCSimulator\A3M_PMC_Simulator.Altis";
 				author = "Cody S. AKA TMN_Fr33d0m";
 				overviewScript = "\A3M_PMCSimulator\overviewScript.sqf";
@@ -228,6 +228,17 @@ class CfgMissions
 				overviewText = "A3M PMC Simulator is a multiplayer mode designed to simulate working as a Private Military Contractor in a conflict zone. You will be required to carry out security and paramilitary operations pursuant to your contracts with OPSG, and you will be paid based on performance per operation.";
 				
 			};
+			class MP_A3M_PMCSimulator_Taki
+			{
+				briefingName = "A3M | PMC Simulator Takistan Edition (Total Modification ) (Persistent COOP 42)";
+				directory = "A3M_PMCSimulator\A3M_PMCSimulator_Taki.Takistan";
+				author = "Cody S. AKA TMN_Fr33d0m";
+				overviewScript = "\A3M_PMCSimulator\overviewScript.sqf";
+				overviewPicture = "\A3M_PMCSimulator\Loadimg.paa";
+				overviewText = "A3M PMC Simulator is a multiplayer mode designed to simulate working as a Private Military Contractor in a conflict zone. You will be required to carry out security and paramilitary operations pursuant to your contracts with OPSG, and you will be paid based on performance per operation.";
+				
+			};
+			
 		}; 	
 }; 
 		

@@ -733,7 +733,29 @@ CMDTVON = 1;
 while {CMDTVON == 1} do {
 
 if (CMDTVON == 1) then {
-CMD_TV setObjectTexture [0, "images\Television1.paa"]; 
+
+_object = CMD_TV;
+_caller = player;
+
+
+sleep 2;
+
+with uiNamespace do {
+     disableserialization; //thank you so much tankbuster
+    _object setObjectTexture [0,"\A3M_PMCSimulator\video\NFLVid1.ogv"]; 
+    1100 cutRsc ["RscMissionScreen","PLAIN"];
+    _scr = BIS_RscMissionScreen displayCtrl 1100;
+    _scr ctrlSetPosition [-10,-10,0,0];
+    _scr ctrlSetText "\A3M_PMCSimulator\video\NFLVid1.ogv";
+    _scr ctrlAddEventHandler ["VideoStopped", {
+        (uiNamespace getVariable "BIS_RscMissionScreen") closeDisplay 1;
+    }];
+    _scr ctrlCommit 0;
+};
+
+}; 
+/* Ye Olde Waye
+CMD_TV setObjectTexture [0, "\A3M_PMCSimulator\video\AuthVid2.ogv"]; 
 sleep 3; } else {CMD_TV setObjectTexture [0, "images\TVNoise.paa"];};
 
 if (CMDTVON == 1) then {
@@ -747,6 +769,8 @@ sleep 3;   } else {CMD_TV setObjectTexture [0, "images\TVNoise.paa"]; };
 if (CMDTVON == 1) then {
 CMD_TV setObjectTexture [0, "images\Television4.paa"]; 
 sleep 3;  } else { CMD_TV setObjectTexture [0, "images\TVNoise.paa"];  };
+
+*/
 }; 
 
 }; 
@@ -754,6 +778,7 @@ DRI_ABCT2_DHQTVOFF = {
 CMDTVON = 0; 
 CMD_TV setObjectTexture [0, "images\TVNoise.paa"];
 }; 
+
 DRI_ABCT2_MPTV = { 
 
 MPTVON = 1;
@@ -761,6 +786,29 @@ MPTVON = 1;
 
 while {MPTVON == 1} do {
 
+if (MPTVON == 1) then {
+
+_object = MP_TV;
+_caller = player;
+sleep 2;
+
+with uiNamespace do {
+     disableserialization; //thank you so much tankbuster
+    _object setObjectTexture [0,"\A3M_PMCSimulator\video\NFLVid1.ogv"]; 
+    1100 cutRsc ["RscMissionScreen","PLAIN"];
+    _scr = BIS_RscMissionScreen displayCtrl 1100;
+    _scr ctrlSetPosition [-10,-10,0,0];
+    _scr ctrlSetText "\A3M_PMCSimulator\video\NFLVid1.ogv";
+    _scr ctrlAddEventHandler ["VideoStopped", {
+        (uiNamespace getVariable "BIS_RscMissionScreen") closeDisplay 1;
+    }];
+    _scr ctrlCommit 0;
+};
+
+
+
+}; 
+/* ye olde way 
 if (MPTVON == 1) then {
 MP_TV setObjectTexture [0, "images\Television1.paa"];
 sleep 3;} else {MP_TV setObjectTexture [0, "images\TVNoise.paa"]; };
@@ -776,6 +824,7 @@ sleep 3;} else  {MP_TV setObjectTexture [0, "images\TVNoise.paa"]; };
 if (MPTVON == 1) then {
 MP_TV setObjectTexture [0, "images\Television4.paa"]; 
 sleep 3;} else {MP_TV setObjectTexture [0, "images\TVNoise.paa"]; };
+*/ 
 
 }; 
 
@@ -785,6 +834,7 @@ DRI_ABCT2_MPTVOFF = {
 MPTVON = 0; 
 MP_TV setObjectTexture [0, "images\TVNoise.paa"];
 }; 
+
 // Rifle Range Pre-Defines
 // 
 M4RR_A_ChkScore = {

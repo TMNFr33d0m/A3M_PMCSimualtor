@@ -4,7 +4,7 @@ class CfgPatches
 {
 	class A3M_CP
 	{
-		units[] = {"A3M_Hbed","A3M_H_Table", "A3M_MedCabinet", "A3M_MedBox", "A3M_SmallServerRack","A3M_Sofa","A3M_SatDish","A3M_CocaineBrick","A3M_WaterCooler","A3M_Dildo","A3M_WeapLocker","A3M_Stage"};
+		units[] = {"A3M_Hbed","A3M_H_Table", "A3M_MedCabinet", "A3M_MedBox", "A3M_SmallServerRack","A3M_Sofa","A3M_SatDish","A3M_CocaineBrick","A3M_WaterCooler","A3M_Dildo","A3M_WeapLocker","A3M_Stage", "A3M_Syringe", "A3M_NarcoBail", "A3M_Coca_ProPl", "A3M_MicroScope", "A3M_NarcoLightTable"};
 		requiredAddons[] = {"A3_Structures_F_Civ_Lamps"}; 
 		weapons[] = {};
 		requiredVersion = 1.00;
@@ -133,16 +133,8 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
-
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
-		
+			
 		class A3M_MedCabinet : Static {
 		scope = 2;
 		scopeCurator= public;
@@ -158,15 +150,7 @@ class Static;
 		armor = 200;
 		damageResistance = 0.004;
 		canBeShot = true;
-		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 0; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		
 		};
 		
@@ -185,15 +169,7 @@ class Static;
 		armor = 200;
 		damageResistance = 0.004;
 		canBeShot = true;
-		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		
 		};
 		
@@ -216,14 +192,6 @@ class Static;
 		canBeShot = true;
 		destrType = "DestructEngine";	// smoke only
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
-
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_Sofa : Static {
@@ -242,14 +210,10 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
-
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
+		ace_sitting_canSit = 1;  // Enable sitting
+        ace_sitting_sitDirection = 180;  // Direction relative to object
+        ace_sitting_sitPosition[] = {0, -0.1, -0.45};  // Position relative to object (may behave weird with certain objects)   
+		
 		};
 		
 		class A3M_SatDish : Static {
@@ -267,15 +231,7 @@ class Static;
 		armor = 200;
 		damageResistance = 0.004;
 		canBeShot = true;
-		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_CocaineBrick : Static {
@@ -294,14 +250,7 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_WaterCooler : Static {
@@ -320,14 +269,7 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_Dildo : Static {
@@ -346,14 +288,7 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_WeapLocker : Static {
@@ -372,14 +307,7 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 		
 		class A3M_Snowman : Static {
@@ -398,14 +326,7 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = false;
 		
-		// ACE Settings
-		ace_dragging_canDrag = 1; // can this object be dragged?; 1 yes, 0 no (0 default)
-        ace_dragging_dragPosition[] = {0,1.2,0}; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-        ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
 
-        ace_dragging_canCarry = 1; // can this object be carried?; 1 yes, 0 no (0 default)
-        ace_dragging_carryPosition[] = {0,1.2,0}; // Same as drag, but for carrying objects
-        ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
 		};
 
 		class A3M_Stage : Static {
@@ -424,15 +345,177 @@ class Static;
 			damageResistance = 0.004;
 			canBeShot = true;
 
-			// ACE Settings
-			ace_dragging_canDrag = 0; // can this object be dragged?; 1 yes, 0 no (0 default)
-			ace_dragging_dragPosition[] = { 0, 1.2, 0 }; // Offset of the model from the body while dragging, comparable to the offset in attachTo (It's the same actually)
-			ace_dragging_dragDirection = 0;  // how much degrees is the model rotatated after dragging it (a global setDir after attachTo)
-
-			ace_dragging_canCarry = 0; // can this object be carried?; 1 yes, 0 no (0 default)
-			ace_dragging_carryPosition[] = { 0, 1.2, 0 }; // Same as drag, but for carrying objects
-			ace_dragging_carryDirection = 0; // Same as drag, but for carrying objects
+	
 		};
+		
+		class A3M_Syringe : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Syringe.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Nacotic Syringe";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_MicroScope : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Microscope.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Microscope";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_NarcoBail : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_NarcoBail.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Bail of Narcotics";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Coca_ProPl : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Coca_ProPl.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Coca Extraction Pool";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_NarcoLightTable : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_LightTable.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Coca Drying Table";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		class Reflectors {//new
+			class Light_1 {
+				ambient[] = {10,10,11};
+				color[] = {1000,1000,1100};
+				size = 1;
+				dayLight = 1;
+				useFlare = 0;
+				intensity = 1;
+				coneFadeCoef = 2;
+				innerAngle = 270;
+				outerAngle = 270;
+				position = "LightSource";
+				direction = "LightDir";
+				hitpoint = "LightSource";
+				selection = "LightSource";
+ 
+				class Attenuation {//https://community.bistudio.com/wiki/setLightAttenuation
+					start = 0;
+					constant = 0;
+					linear = 0;
+					quadratic = 0;
+					hardLimitStart = 9;
+					hardLimitEnd = 10;
+				};
+			};
+
+			class Light_2 {
+				ambient[] = {10,10,11};
+				color[] = {1000,1000,1100};
+				size = 1;
+				dayLight = 1;
+				useFlare = 0;
+				intensity = 1;
+				coneFadeCoef = 2;
+				innerAngle = 270;
+				outerAngle = 270;
+				position = "LightSource2";
+				direction = "LightDir2";
+				hitpoint = "LightSource2";
+				selection = "LightSource2";
+ 
+				class Attenuation {//https://community.bistudio.com/wiki/setLightAttenuation
+					start = 0;
+					constant = 0;
+					linear = 0;
+					quadratic = 0;
+					hardLimitStart = 9;
+					hardLimitEnd = 10;
+				};
+			};
+			class Light_3 {
+				ambient[] = {10,10,11};
+				color[] = {1000,1000,1100};
+				size = 1;
+				dayLight = 1;
+				useFlare = 0;
+				intensity = 1;
+				coneFadeCoef = 2;
+				innerAngle = 270;
+				outerAngle = 270;
+				position = "LightSource3";
+				direction = "LightDir3";
+				hitpoint = "LightSource3";
+				selection = "LightSource3";
+ 
+				class Attenuation {//https://community.bistudio.com/wiki/setLightAttenuation
+					start = 0;
+					constant = 0;
+					linear = 0;
+					quadratic = 0;
+					hardLimitStart = 9;
+					hardLimitEnd = 10;
+				};
+			};
+		
+		
+		};
+		
 			
-}; 
+		};
+
+};  
 		

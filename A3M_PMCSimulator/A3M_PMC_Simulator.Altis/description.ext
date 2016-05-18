@@ -44,13 +44,15 @@ overviewTextLocked = "If this mission is locked, something is wrong!";
 overviewPicture = "images\Loadimg.paa";
 
 author = "Cody S. AkA. TMN Fr33d0m";
-OnLoadName = "A3M | PMC Simulator"; 
+OnLoadName = "A3M | PMC Simulator Mod"; 
 OnLoadMission = "Orion Private Security Group"; 
-onLoadIntro = "Req. @A3M_PMCSimulator, @ALiVE, @RHS Esc, @ACE3, @Leights OPFOR and @TFAR"; 
+onLoadIntro = "Full Gameplay Manual Available in briefing!"; 
+
 respawn = 3;
 respawnDelay = 10;
 
 disabledAI = 1;
+
 enableDebugConsole = 1;
 scriptedPlayer = 1;
 
@@ -62,9 +64,6 @@ class Header
 	minPlayers = 1;
 	maxPlayers = 42;
 };
-
-disableChannels[]={0,1,2,3,6};
-
 
 #include "dialogs\A3M_Normals.hpp"
 #include "dialogs\FleetMgmt.hpp"
