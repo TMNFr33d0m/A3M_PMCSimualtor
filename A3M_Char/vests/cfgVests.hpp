@@ -1,4 +1,4 @@
-class VestItem: InventoryItem_Base_F
+/* class VestItem: InventoryItem_Base_F
 {
 	type = VEST_SLOT;			/// vests fit into vest slot
 	hiddenSelections[] = {};	/// no changeable selections by default
@@ -37,3 +37,4 @@ class A3M_PoliceBelt_A: Vest_Camo_Base
 		overlaySelectionsInfo[] = {"ghillie_hide"}; /// name of selections to be hidden while wearing certain uniforms
 	};
 };
+*/

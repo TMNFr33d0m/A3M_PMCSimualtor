@@ -21,9 +21,10 @@ enum {
 class DefaultEventhandlers;
 
 
-class CfgPatches {
+class CfgPatches 
+{
 	class A3M_Char_F {
-		units[] = {"A3M_PoliceOfficer1","Astral_VIP_0","A3M_OPSG_Unarmed","A3M_OPSG_CQB","A3M_OPSG_Assault_Light","A3M_OPSG_Assault","A3M_OPSG_Assault_Heavy","A3M_OPSG_Grenadier","A3M_OPSG_Autorifleman","A3M_OPSG_Marksman","A3M_OPSG_Pilot","A3M_OPSG_Medic","A3M_OPSG_Medic_Unarmed","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_Rifleman_AT","A3M_APFC_ME_Rifleman_2","A3M_APFC_ME_AutoRifleman","A3M_APFC_ME_Rifleman_Elite"};
+		units[] = {"Astral_VIP_0","A3M_OPSG_Unarmed","A3M_OPSG_CQB","A3M_OPSG_Assault_Light","A3M_OPSG_Assault","A3M_OPSG_Assault_Heavy","A3M_OPSG_Grenadier","A3M_OPSG_Autorifleman","A3M_OPSG_Marksman","A3M_OPSG_Pilot","A3M_OPSG_Medic","A3M_OPSG_Medic_Unarmed","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_Rifleman_AT","A3M_APFC_ME_Rifleman_2","A3M_APFC_ME_AutoRifleman","A3M_APFC_ME_Rifleman_Elite"};
 		weapons[] = {"A3M_MXM_Black_F"};
 		requiredVersion = 0.1;
 		requiredAddons[] = {"A3_Characters_F","A3_Weapons_F_Rifles_MX"};
@@ -41,7 +42,6 @@ class CfgFactionClasses
 		side = 1; // Blufor
 	};
 	
-	
 	class Astral_faction
 	{
 		displayName = "Astral Corporation";
@@ -51,16 +51,7 @@ class CfgFactionClasses
 		side = 2; // Civilian
 	};
 	
-	class A3MPD_faction
-	{
-		displayName = "Police";
-		author = "Cody Salazar (Fr33d0m)";
-		icon = ""; // Needs to be 16x16 in resolution and it needs to be in the form of a PAA.
-		priority = 1;
-		side = 2; // Civilian
-	};
-	
-		class apfc_faction
+	class apfc_faction
 	{
 		displayName = "Altian Peoples Freedom Corps";
 		author = "Cody Salazar (Fr33d0m)";
@@ -83,11 +74,6 @@ class CfgVehicleClasses
 	{
 		displayName = "VIPs"; // Rename to what you want the sub group of the faction will be. You can have multiple subfactions (VehicleClasses) as long as the class name of the VehicleClass is different. Makes it work with zeus
 	};
-	class A3MPD_units
-	{
-		displayName = "Police Officers"; // Rename to what you want the sub group of the faction will be. You can have multiple subfactions (VehicleClasses) as long as the class name of the VehicleClass is different. Makes it work with zeus
-	};
-	
 	class apfc_units
 	{
 		displayName = "Freedom Fighters"; // Rename to what you want the sub group of the faction will be. You can have multiple subfactions (VehicleClasses) as long as the class name of the VehicleClass is different. Makes it work with zeus
@@ -381,38 +367,10 @@ class CfgVehicles
 		
 		};
 		
-		class A3M_PoliceOfficer1 : Civilian_F {
-		author = "Cody Salazar (Fr33d0m)";
-		_generalMacro = "A3M_PoliceOfficer1"; 
-		scope = 2;
-		displayName = "Police Officer (Fkn BROKEN)"; // In-game name of unit
-		faction = astral_faction; // Puts unit under new faction
-		vehicleClass = "A3MPD_faction"; // Puts unit in the vehicleclass
-		icon = "iconMan";
-		model 			= "\A3M_Char\A3M_PoliceUni_A.p3d"; /// path to model
-		modelSides[] 	= {3, 1}; 				/// what sides could use this uniform, means civilians and BLUFOR can use it
-		camouflage		= 1.4; 					/// how easy is to spot soldier -> bigger means better spotable, used by uniform
-		nakedUniform = "U_BasicBody";  
-		uniformClass = "A3M_PoliceUni_A";  // Uniform Class
-		backpack = ""; // Backpack Class
-		linkedItems[] = {"ItemMap"}; // Item's added to the unit. 
-		respawnLinkedItems[] = {"ItemMap"};  // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {}; // Weapons added to the unit.
-		respawnweapons[] = {}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {};
-		Respawnmagazines[] = {};
-		
-		hiddenSelections[] = {"Camo", "insiginia"}; /// selection defined in sections of model that may have texture and materials changed by setObjectTexture or next parameter
-		hiddenSelectionsTextures[] = {"\A3M_Char\uniforms\Police_Uni_co.paa"}; /// what texture does this soldier use for camo selection
-		hideProxySelections[] = {"ghillie_hide"}; /// names of selections hidden on proxies (used in vest in this case, see overlaySelectionsInfo[])
-
-		
-		};
-		
 	class O_Soldier_base_F; 
 	// Altian Peoples Freedom Corps // // apfc_faction // //
 		
-		class A3M_APFC_ME_Rifleman_1 : O_Soldier_base_F {
+	class A3M_APFC_ME_Rifleman_1 : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
 		scope = 2;
 		displayName = "Freedom Fighter (Rifleman)"; // In-game name of unit
@@ -436,7 +394,7 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {"\A3M_Char\uniforms\A3M_APFC_ME_1_co.paa"}; /// what texture does this soldier use for camo selection
 		hideProxySelections[] = {"ghillie_hide"}; /// names of selections hidden on proxies (used in vest in this case, see overlaySelectionsInfo[])
 		};
-		class A3M_APFC_ME_Rifleman_2 : O_Soldier_base_F {
+	class A3M_APFC_ME_Rifleman_2 : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
 		scope = 2;
 		displayName = "Freedom Fighter (Rifleman II)"; // In-game name of unit
@@ -460,7 +418,7 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {"\A3M_Char\uniforms\A3M_APFC_ME_2_co.paa"}; /// what texture does this soldier use for camo selection
 		hideProxySelections[] = {"ghillie_hide"}; /// names of selections hidden on proxies (used in vest in this case, see overlaySelectionsInfo[])
 		};
-		class A3M_APFC_ME_Rifleman_AT : O_Soldier_base_F {
+	class A3M_APFC_ME_Rifleman_AT : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
 		scope = 2;
 		displayName = "Freedom Fighter (AT Rifleman)"; // In-game name of unit
@@ -477,7 +435,7 @@ class CfgVehicles
 		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
 		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
 		};	
-		class A3M_APFC_ME_AutoRifleman : O_Soldier_base_F {
+	class A3M_APFC_ME_AutoRifleman : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
 		scope = 2;
 		displayName = "Freedom Fighter (Autorifleman)"; // In-game name of unit
@@ -494,8 +452,7 @@ class CfgVehicles
 		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","HandGrenade","HandGrenade"};
 		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","HandGrenade","HandGrenade"};
 		};
-
-		class A3M_APFC_ME_Rifleman_Elite : O_Soldier_base_F {
+	class A3M_APFC_ME_Rifleman_Elite : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
 		scope = 2;
 		displayName = "Freedom Fighter (Elite)"; // In-game name of unit
@@ -511,9 +468,8 @@ class CfgVehicles
 		respawnweapons[] = {"A3M_AK47_Norinco_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
 		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
 		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
-		};
-		
-		class A3M_APFC_ME_Criminal : O_Soldier_base_F {
+		};	
+	class A3M_APFC_ME_Criminal : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	 
 		scope = 2;
 		displayName = "Freedom Fighter (Criminal)"; // In-game name of unit
@@ -530,7 +486,6 @@ class CfgVehicles
 		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
 		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
 		};
-
 	class O_G_medic_F : O_Soldier_base_F {}; 
 	class A3M_APFC_ME_Medic : O_G_medic_F   {
 		
@@ -541,14 +496,13 @@ class CfgVehicles
 		vehicleClass = "apfc_units"; // Puts unit in the vehicleclass
 		uniformClass = "A3M_APFC_ME_uni_2";  // Uniform Class
 		backpack = "B_FieldPack_ocamo_Medic"; // Backpack Class
-		linkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
-		respawnLinkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
+		linkedItems[] = {"V_BandollierB_blk", "A3M_APFC_A9Mask", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
+		respawnLinkedItems[] = {"V_BandollierB_blk", "A3M_APFC_A9Mask", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
 		weapons[] = {"A3M_DSA_SA58_FAL","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
 		respawnweapons[] = {"A3M_DSA_SA58_FAL","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
 		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
 		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
-			}; 
-			
+			}; 			
 	class O_G_engineer_F: O_Soldier_base_F {}; 
 	class A3M_APFC_ME_Engineer: O_G_engineer_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
@@ -566,9 +520,8 @@ class CfgVehicles
 		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
 			
 			
-		};
-		
-		}; 	
+		};	
+}; 	
 		
 class CfgGroups
 {

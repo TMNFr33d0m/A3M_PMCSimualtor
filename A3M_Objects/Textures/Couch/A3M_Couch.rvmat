@@ -9,7 +9,7 @@ VertexShaderID = "Super";
 
 class Stage1
 {
-	texture = "\A3M_Objects\Textures\Couch\A3M_couch_nohq.paa"; 
+	texture = "A3M_Objects\Textures\Couch\A3M_couch_nohq.paa"; 
 	uvSource = "tex";
 	class uvTransform
 	{
@@ -57,7 +57,7 @@ class Stage4
 };
 class Stage5
 {
-	texture = "\A3M_Objects\Textures\Couch\A3M_couch_smdi.paa"; 
+	texture = "A3M_Objects\Textures\Couch\A3M_couch_smdi.paa"; 
 	uvSource = "tex";
 	class uvTransform
 	{

@@ -280,7 +280,7 @@ class CfgWeapons
 		displayName = "DSA SA-58 FAL"; /// some name
 		model = "\A3M_FNFAL\A3M_FN_FAL.p3d"; /// path to model
 
-		picture = "\Samples_f\Test_weapon_01\Data\UI\gear_test_weapon_01_X_CA.paa"; /// different accessories have M, S, T instead of X
+		picture = "\A3\weapons_f_epb\rifles\mx_black\data\ui\gear_mx_cqc_black_m_ca.paa"; /// different accessories have M, S, T instead of X
 		UiPicture = "\A3\Weapons_F\Data\UI\icon_gl_CA.paa"; /// weapon with grenade launcher should be marked such way
 
 		weaponInfoType = "RscWeaponZeroing"; /// display with zeroing is good for iron sights
@@ -298,7 +298,7 @@ class CfgWeapons
 		displayName = "DSA SA-58 FAL (Modded Sear)"; /// some name
 		model = "\A3M_FNFAL\A3M_FN_FAL.p3d"; /// path to model
 
-		picture = "\Samples_f\Test_weapon_01\Data\UI\gear_test_weapon_01_X_CA.paa"; /// different accessories have M, S, T instead of X
+		picture = "\A3\weapons_f_epb\rifles\mx_black\data\ui\gear_mx_cqc_black_m_ca.paa"; /// different accessories have M, S, T instead of X
 		UiPicture = "\A3\Weapons_F\Data\UI\icon_gl_CA.paa"; /// weapon with grenade launcher should be marked such way
 
 		weaponInfoType = "RscWeaponZeroing"; /// display with zeroing is good for iron sights
