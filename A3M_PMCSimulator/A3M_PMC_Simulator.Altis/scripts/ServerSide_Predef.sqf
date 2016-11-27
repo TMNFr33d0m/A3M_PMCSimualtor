@@ -30,7 +30,7 @@ EnPres= EnChance select floor random count EnChance;
 
 // Create Cadre on Random Chance (Contains Leights Opfor)
 if (EnPres == 1) then {
-_HVTen= [getMarkerPos "PublicDestination", EAST, ["A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF1", "A3M_APFC_FF5"]] call BIS_fnc_spawnGroup;
+_HVTen= [getMarkerPos "PublicDestination", EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_Rifleman_AT"]] call BIS_fnc_spawnGroup;
 [_HVTen, getMarkerPos "PublicDestination"] call BIS_fnc_taskDefend; 
 }; 
 
@@ -84,7 +84,7 @@ EnChance = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0];
 EnPres= EnChance select floor random count EnChance;
 
 if (EnPres == 1) then {
-_HVTen= [getMarkerPos "PubDelDestination", EAST, ["A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF1", "A3M_APFC_FF5"]] call BIS_fnc_spawnGroup;
+_HVTen= [getMarkerPos "PubDelDestination", EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_Rifleman_AT"]] call BIS_fnc_spawnGroup;
 [_HVTen, getMarkerPos "PubDelDestination"] call BIS_fnc_taskDefend; 
 }; 
 
@@ -151,10 +151,10 @@ SAResc setTriggerStatements ["SAR1 in ThisList", "[] call A3M_svr_SESucceeded;",
 // Random Select Hostage 
 RandomVIP2= ["Astral_VIP_0","C_Nikos_aged","C_scientist_F" ];
 RandomVIPSel2= RandomVIP2 select floor random count RandomVIP2;
-
-RandomVIPSel2 createUnit [getMarkerPos PublicLoc, group CO, "SAR1 = this", 0.9, "COLONEL" ];
+CO = createGroup civilian; 
+RandomVIPSel2 createUnit [getMarkerPos PublicLoc, CO, "SAR1 = this", 0.9, "COLONEL" ];
 sleep 1; 
-(group SAR1) setBehaviour "CARELESS"; 
+CO setBehaviour "CARELESS"; 
 sleep 0.5; 
 
 RescueAction = SAR1 addAction ["Rescue" , {
@@ -169,20 +169,20 @@ RescueAction = SAR1 addAction ["Rescue" , {
 sleep 1; 
 
 // Create Hostage Takers / Captors (Contains Leights Opfor)
-_HSTF= [getPos SAR1, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_HSTF= [getPos SAR1, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_HSTF, getPos SAR1] call BIS_fnc_taskDefend; 
 
 _bluNums = west countSide allPlayers;
 
 if (_bluNums > 10) then {
-_HSTF2= [getPos SAR1, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_HSTF2= [getPos SAR1, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_HSTF2, getPos SAR1, 200] call BIS_fnc_taskPatrol; 
 
-_HSTF3= [getPos SAR1, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_HSTF3= [getPos SAR1, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_HSTF3, getPos SAR1, 200] call BIS_fnc_taskPatrol; 
 };
 if (_bluNums > 20) then {
-_HSTF4= [getPos SAR1, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_HSTF4= [getPos SAR1, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_HSTF4, getPos SAR1] call BIS_fnc_taskDefend; 
 }; 
 
@@ -202,25 +202,25 @@ publicVariable "raid1Active";
 _bluNums = west countSide allPlayers;
 
 // Create Enemy Presence (Contains Leights Opfor)
-_GH1tm= [getMarkerPos "GH1", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH1tm= [getMarkerPos "GH1", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH1tm, getMarkerPos "GH1"] call BIS_fnc_taskDefend; 
 
-_GH2tm= [getMarkerPos "GH2", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH2tm= [getMarkerPos "GH2", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH2tm, getMarkerPos "GH2"] call BIS_fnc_taskDefend; 
 
 if (_bluNums > 10) then {
-_GH3tm= [getMarkerPos "GH3", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH3tm= [getMarkerPos "GH3", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH3tm, getMarkerPos "GH3"] call BIS_fnc_taskDefend; 
 
-_GH4tm= [getMarkerPos "GH4", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH4tm= [getMarkerPos "GH4", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH4tm, getMarkerPos "sg1"] call BIS_fnc_taskDefend; 
 };
 
 if (_bluNums > 20) then {
-_GH5tm= [getMarkerPos "GH5", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH5tm= [getMarkerPos "GH5", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH5tm, getMarkerPos "GH5", 200] call BIS_fnc_taskPatrol; 
 
-_GH6tm= [getMarkerPos "GH6", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH6tm= [getMarkerPos "GH6", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH6tm, getMarkerPos "GH6", 200] call BIS_fnc_taskPatrol; 
 };
 
@@ -244,25 +244,25 @@ publicVariable "raid1Active";
 _bluNums = west countSide allPlayers;
 
 // Create Enemy Presence (Contains Leights Opfor)
-_GH1tm= [getMarkerPos "RO1", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH1tm= [getMarkerPos "RO1", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH1tm, getMarkerPos "RO1"] call BIS_fnc_taskDefend; 
 
-_GH2tm= [getMarkerPos "RO2", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH2tm= [getMarkerPos "RO2", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH2tm, getMarkerPos "RO2"] call BIS_fnc_taskDefend; 
 
 if (_bluNums > 10) then {
-_GH3tm= [getMarkerPos "RO3", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH3tm= [getMarkerPos "RO3", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH3tm, getMarkerPos "RO3"] call BIS_fnc_taskDefend; 
 
-_GH4tm= [getMarkerPos "RO4", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH4tm= [getMarkerPos "RO4", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH4tm, getMarkerPos "sg2"] call BIS_fnc_taskDefend; 
 };
 
 if (_bluNums > 20) then {
-_GH5tm= [getMarkerPos "RO5", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH5tm= [getMarkerPos "RO5", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH5tm, getMarkerPos "RO5"] call BIS_fnc_taskDefend; 
 
-_GH6tm= [getMarkerPos "RO6", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+_GH6tm= [getMarkerPos "RO6", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 [_GH6tm, getMarkerPos "RO6"] call BIS_fnc_taskDefend; 
 };
 
@@ -346,7 +346,7 @@ A3M_fnc_AttackT9 = {
 T9HostArray= ["T9_HostL1", "T9_HostL2", "T9_HostL3", "T9_HostL4"]; 
 T9EnSource= T9HostArray select floor random count T9HostArray; 
 
-T9EF= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5"]] call BIS_fnc_spawnGroup;
+T9EF= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT"]] call BIS_fnc_spawnGroup;
 _wpE1 = T9EF addWaypoint [getMarkerPos "T9", 0]; 
 _wpE1 setWaypointType "SAD"; 
 _wpE1 setWaypointFormation "DIAMOND";
@@ -364,7 +364,7 @@ A3M_fnc_dblAttackT9 = {
 T9HostArray= ["T9_HostL1", "T9_HostL2", "T9_HostL3", "T9_HostL4"]; 
 T9EnSource= T9HostArray select floor random count T9HostArray; 
 
-T9EF2= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5"]] call BIS_fnc_spawnGroup;
+T9EF2= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT"]] call BIS_fnc_spawnGroup;
 _wpE2 = T9EF2 addWaypoint [getMarkerPos "T9", 0]; 
 _wpE2 setWaypointType "SAD"; 
 _wpE2 setWaypointFormation "DIAMOND";
@@ -378,7 +378,7 @@ T9wpE2 setTriggerStatements ["({alive _x} count units T9EF2) < 1", "[ '','A3M_MP
 T9HostArray= ["T9_HostL1", "T9_HostL2", "T9_HostL3", "T9_HostL4"]; 
 T9EnSource= T9HostArray select floor random count T9HostArray; 
 
-T9EF3= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5"]] call BIS_fnc_spawnGroup;
+T9EF3= [getMarkerPos T9EnSource, EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT"]] call BIS_fnc_spawnGroup;
 _wpE3 = T9EF3 addWaypoint [getMarkerPos "T9", 0]; 
 _wpE3 setWaypointType "SAD"; 
 _wpE3 setWaypointFormation "DIAMOND";
@@ -535,21 +535,21 @@ _bluNums = west countSide allPlayers;
 
 if (_bluNums < 10) then {
 PC_QRFveh1= "O_Truck_02_covered_F" createVehicle GetMarkerPos "Hack_EQRF";
-PC_QRFinf1= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+PC_QRFinf1= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 PC_QRFcrew = [PC_QRFveh1, PC_QRFinf1] call BIS_fnc_spawnCrew;
 [PC_QRFinf1, getMarkerPos "Hack1"] call BIS_fnc_taskAttack;
 }; 
 
 if (_bluNums > 10) then {
 PC_QRFveh2= "O_Truck_02_covered_F" createVehicle GetMarkerPos "Hack_EQRF"; 
-PC_QRFinf2= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+PC_QRFinf2= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 PC_QRFcrew = [PC_QRFveh2, PC_QRFinf2] call BIS_fnc_spawnCrew;
 [PC_QRFinf2, getMarkerPos "Hack1"] call BIS_fnc_taskAttack;
 };
 
 if (_bluNums > 20) then {
 PC_QRFveh3= "O_Truck_02_covered_F" createVehicle GetMarkerPos "Hack_EQRF"; 
-PC_QRFinf3= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF2", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF1"]] call BIS_fnc_spawnGroup;
+PC_QRFinf3= [getMarkerPos "Hack_EQRF", EAST, ["A3M_APFC_ME_Rifleman_2", "A3M_APFC_ME_AutoRifleman", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_AT", "A3M_APFC_ME_Rifleman_2"]] call BIS_fnc_spawnGroup;
 PC_QRFcrew = [PC_QRFveh3, PC_QRFinf3] call BIS_fnc_spawnCrew;
 [PC_QRFinf3, getMarkerPos "Hack1"] call BIS_fnc_taskAttack;
 }; 
@@ -663,7 +663,7 @@ newGroupA = createGroup EAST;
 	 newGroupA setSpeedMode 'NORMAL';
  
  newGroupB = createGroup EAST; 
-	 newUnitB = newGroupB createUnit ['A3M_APFC_FF1', [19340.1,13236.9,0.00143814], [], 0, 'CAN_COLLIDE']; 
+	 newUnitB = newGroupB createUnit ['A3M_APFC_ME_Rifleman_2', [19340.1,13236.9,0.00143814], [], 0, 'CAN_COLLIDE']; 
 	 newUnitB setSkill 0.5; 
 	 newUnitB setRank 'PRIVATE'; 
 	 newUnitB setFormDir 139.441; 
@@ -675,7 +675,7 @@ newGroupA = createGroup EAST;
 	 newGroupB setSpeedMode 'NORMAL';
  
  newGroupC = createGroup EAST; 
-	 newUnitC = newGroupC createUnit ['A3M_APFC_FF5', [19338.4,13233.1,0.00144196], [], 0, 'CAN_COLLIDE']; 
+	 newUnitC = newGroupC createUnit ['A3M_APFC_ME_Rifleman_AT', [19338.4,13233.1,0.00144196], [], 0, 'CAN_COLLIDE']; 
 	 newUnitC setSkill 0.5; 
 	 newUnitC setRank 'PRIVATE'; 
 	 newUnitC setFormDir 222.274; 
@@ -687,7 +687,7 @@ newGroupA = createGroup EAST;
 	 newGroupC setSpeedMode 'NORMAL';
  
  newGroupD = createGroup EAST; 
-	 newUnitD = newGroupD createUnit ['A3M_APFC_FF3', [19343.4,13233,0.0014267], [], 0, 'CAN_COLLIDE']; 
+	 newUnitD = newGroupD createUnit ['A3M_APFC_ME_Rifleman_1', [19343.4,13233,0.0014267], [], 0, 'CAN_COLLIDE']; 
 	 newUnitD setSkill 0.5; 
 	 newUnitD setRank 'PRIVATE'; 
 	 newUnitD setFormDir 269.201; 

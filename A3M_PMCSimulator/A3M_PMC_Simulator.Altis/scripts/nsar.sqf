@@ -77,7 +77,7 @@ NSAR move Getmarkerpos NSARDestNo;
 EnChance = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0];
 EnPres= EnChance select floor random count EnChance;
 		if (EnPres == 1) then {
-		SARWen= [getMarkerPos NSARDestNo, EAST, ["A3M_APFC_FF1", "A3M_APFC_FF1", "A3M_APFC_FF4", "A3M_APFC_FF4","A3M_APFC_FF2","A3M_APFC_FF3","A3M_APFC_FF3","A3M_APFC_FF2"]] call BIS_fnc_spawnGroup;
+		SARWen= [getMarkerPos NSARDestNo, EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_Elite","A3M_APFC_ME_AutoRifleman","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_AutoRifleman"]] call BIS_fnc_spawnGroup;
 		[SARWen, getPos NSARlead] call BIS_fnc_taskAttack;
 		}; 
 
@@ -115,7 +115,7 @@ sleep 1;
 NSARlead = NSAR createUnit ["B_officer_F", getMarkerPos NSARPickedNo, [], 0, "FORM"];
 sleep 1; 
 
-NSARen= [getMarkerPos "oreo", EAST, ["A3M_APFC_FF1", "A3M_APFC_FF1", "A3M_APFC_FF4", "A3M_APFC_FF4","A3M_APFC_FF2","A3M_APFC_FF3","A3M_APFC_FF3","A3M_APFC_FF2"]] call BIS_fnc_spawnGroup;
+NSARen= [getMarkerPos "oreo", EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_ME_Rifleman_Elite","A3M_APFC_ME_AutoRifleman","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_Rifleman_1","A3M_APFC_ME_AutoRifleman"]] call BIS_fnc_spawnGroup;
 [NSARen, getMarkerPos NSARPickedNo] call BIS_fnc_taskAttack;
 
 while {(NSARActive == 1)} do {

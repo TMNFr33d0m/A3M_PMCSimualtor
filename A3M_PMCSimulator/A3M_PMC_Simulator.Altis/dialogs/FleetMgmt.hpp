@@ -47,7 +47,7 @@ class Controls
 
 
 ////////////////////////////////////////////////////////
-// GUI EDITOR OUTPUT START (by TMNFr33d0m, v1.063, #Kojyqa)
+// GUI EDITOR OUTPUT START (by A3MFr33d0m, v1.063, #Kojyqa)
 ////////////////////////////////////////////////////////
 
 class A3M_StoreFrame: RscFrame
@@ -103,7 +103,7 @@ class A3M_TotalTitle: RscText
 };
 class A3M_TotalBalance: RscStructuredText
 {
-	idc = 1101;
+	idc = 1171;
 	x = 0.75789 * safezoneW + safezoneX;
 	y = 0.143511 * safezoneH + safezoneY;
 	w = 0.114601 * safezoneW;

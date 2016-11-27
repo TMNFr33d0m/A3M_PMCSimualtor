@@ -74,7 +74,7 @@ RCPickedNumber= RCRandomNumber select floor random count RCRandomNumber;
 		EnChance = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0];
 		EnPres= EnChance select floor random count EnChance;
 		if (EnPres == 1) then {
-		_RBen= [getMarkerPos "ENStage1", EAST, ["A3M_APFC_FF3", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF2"]] call BIS_fnc_spawnGroup;
+		_RBen= [getMarkerPos "ENStage1", EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_FF5", "A3M_APFC_ME_AutoRifleman"]] call BIS_fnc_spawnGroup;
 		[_RBen, getMarkerPos "RBC"] call BIS_fnc_taskAttack; 
 		EnPres = nil; 			
 						}; 
@@ -96,7 +96,7 @@ RCPickedNumber= RCRandomNumber select floor random count RCRandomNumber;
 		EnChance = [1, 0, 0, 0, 0, 0, 0, 1, 0, 0];
 		EnPres= EnChance select floor random count EnChance;
 		if (EnPres == 1) then {
-		_RBen= [getMarkerPos "ENStage1", EAST, ["A3M_APFC_FF3", "A3M_APFC_FF3", "A3M_APFC_FF4", "A3M_APFC_FF5", "A3M_APFC_FF2"]] call BIS_fnc_spawnGroup;
+		_RBen= [getMarkerPos "ENStage1", EAST, ["A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_1", "A3M_APFC_ME_Rifleman_Elite", "A3M_APFC_FF5", "A3M_APFC_ME_AutoRifleman"]] call BIS_fnc_spawnGroup;
 		[_RBen, getMarkerPos "RBC"] call BIS_fnc_taskAttack; 
 		EnPres = nil; 	
 							}; 

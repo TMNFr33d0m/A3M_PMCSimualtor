@@ -18,10 +18,6 @@ www.A3MilSim.com
 
 License:
 You can do whatever you were going to do anyway. Just give me the credit i'm due, and don't steal my shit. I'll be pissed. 
-If you want to repay me for all my hard work, come and play arma with me! I hang out at a MilSim unit known as A3M (A3 MilSim) 
-Come and visit us at ts3.a3milsim.com:1911
-
-WE LOVE JOINT OPS WITH OTHER UNITS!! 
 
 www.A3MilSim.com (A3 MilSim)
 All Rights Reserved
@@ -40,6 +36,7 @@ and I hope you enjoy the things I have in the works!
 
 // Set Initial Variable - Dedi Server Detection 
 DediPresent = 0; 
+AlivePersistBudget = paramsArray select 1; 
 
 if (isDedicated) then {
 	
@@ -75,9 +72,7 @@ if (isDedicated) then {
 		[[[],"scripts\T9staff.sqf"],"BIS_fnc_execVM",true,true] spawn BIS_fnc_MP;
 		
 		// Retrive Company Budget from ALiVE Servers, if selected from mission params. 
-		
-				AlivePersistBudget = paramsArray select 1; 
-		
+			
 				if (AlivePersistBudget == 1) then {
 					B_DefenseBudget = ["P_DefenseBudget"] call ALiVE_fnc_getData;
 					
@@ -165,7 +160,7 @@ if (isDedicated) then {
 		initphase = 0; 
 
 		systemChat "Loading Phase * A3M PMC Simulator * 100% Complete...";
-		systemChat "A3M PMC Simulator ~ By Cody Salazar AKA TMN Fr33d0m ";
+		systemChat "A3M PMC Simulator ~ By Cody Salazar AKA A3M Fr33d0m ";
 		systemChat "WARNING: THIS MISSION IS MADE FOR A DEDICATED SERVER!"; 
 		systemChat "WARNING: CLIENT HOST DETECTED, PERFORMANCE MAY BE DEGRADED!"; 
 		systemChat "FOR MORE INFORMATION PLEASE VISIT http://www.a3milsim.com"; 
@@ -236,7 +231,7 @@ if (isDedicated) then {
 
 		systemChat "Loading Phase * A3M PMC Simulator * 100% Complete...";
 		systemChat "                                                         "; 
-		systemChat "A3M PMC Simulator ~ By Cody Salazar AKA TMN Fr33d0m ";
+		systemChat "A3M PMC Simulator ~ By Cody Salazar AKA A3M Fr33d0m ";
 		systemChat "                                                        "; 
 		systemChat "             http://www.a3milsim.com                "; 
 		};

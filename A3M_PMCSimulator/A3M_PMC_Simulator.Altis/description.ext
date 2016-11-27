@@ -43,7 +43,7 @@ overviewText = "A3M PMC Simulator is a multiplayer mode designed to simulate wor
 overviewTextLocked = "If this mission is locked, something is wrong!";
 overviewPicture = "images\Loadimg.paa";
 
-author = "Cody S. AkA. TMN Fr33d0m";
+author = "Cody S. AkA. A3M Fr33d0m";
 OnLoadName = "A3M | PMC Simulator Mod"; 
 OnLoadMission = "Orion Private Security Group"; 
 onLoadIntro = "Full Gameplay Manual Available in briefing!"; 

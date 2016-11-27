@@ -65,7 +65,7 @@ B_maxrank ="MAJOR";
 RHS_Support_Enabled = 0;
 Ace3_Enabled = 0;
 Apex_Enabled = 0;
-Iowa_Enabled = 0;
+// Iowa_Enabled = 0;
 SMA_Enabled = 0;
 HLC_Enabled = 0;
 
@@ -328,9 +328,9 @@ rq11b_camera=8400;
 B_Truck_01_fuel_F=	1200000;		// HEMTT Fuel Truck 
 Box_NATO_Ammo_F=6720;		// Basic Ammo (NATO) 
 Box_NATO_Wps_F=	91800;		// Basic Weapons (NATO) 
-B_Boat_Armed_01_minigun_F=	1275000;		//Patrol Boat w/ Minigun 
-B_Boat_Transport_01_F=	1275;		//RHIB Boat 
-B_SDV_01_F=	1200000;		//SDV (NATO) 	
+// B_Boat_Armed_01_minigun_F=	1275000;		//Patrol Boat w/ Minigun 
+// B_Boat_Transport_01_F=	1275;		//RHIB Boat 
+// B_SDV_01_F=	1200000;		//SDV (NATO) 	
 
 ACE_Wheel=525;		//Spare Tire
 ACE_Track=175;		//Spare Track
@@ -339,7 +339,7 @@ ACE_medicalSupplyCrate_advanced=9895;		//Medical Supply Crate
 ACE_Item_Sandbag_empty=	1;		//Empty Sandbag
 ACE_Box_Misc=526593; 				// Ace Misc Supply Box
 
-USS_Iowa_Battleship=100000000; //Iowa-class battleship (U.S. Navy) 
+// USS_Iowa_Battleship=100000000; //Iowa-class battleship (U.S. Navy) 
 
 SMA_Weapon_Box=2185995;		// 120 Assorted Weapons, Ammo, Accessories
 
@@ -352,6 +352,7 @@ rhsusf_weapon_crate=6900000;		// 460  Assorted U.S. Weapons / Ammunition
 
 
 // Base Upgrades, Safehouse Upgrades
+AI_UH60_Transport = 22500000;
 
 if (isNil"_MATV") then {_MATV ="";};
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -420,6 +421,22 @@ _ChildControl3 ctrlSetStructuredText parseText format ["Rank is %1<br />Rating i
 };
 };
 [] call DoRankChk;
+
+A3M_handle_number={
+private ["_number","_mod","_digots","_digitsCount","_modBase","_numberText"];
+_number = [_this,0,0,[0]] call bis_fnc_param;
+_mod = [_this,1,3,[0]] call bis_fnc_param;
+_digits = _number call bis_fnc_numberDigits;
+_digitsCount = count _digits - 1;
+_modBase = _digitsCount % _mod;
+_numberText ="";
+{
+_numberText = _numberText + str _x;
+if ((_foreachindex - _modBase) % (_mod) == 0 && _foreachindex != _digitsCount) then {_numberText = _numberText +",";};
+} foreach _digits;
+_numberText
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Supported Modifications:
 _indexSM0= lbAdd [2175,"Stock A3"];
@@ -720,19 +737,19 @@ UpgradesOn = 0;
 lbClear 1575;
 
 	if (Apex_Enabled == 1) then {
-		_index0 =   lbAdd   [1575,"Apex Drakon                                                                  Price:   $15,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "UAV_Drakon">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+		_index0 =   lbAdd   [1575,"Apex Drakon                                                                							  Price:   $15,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "UAV_Drakon">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
 		} else {
 			if (RHS_Support_Enabled == 1) then { 
-			_index0 =   lbAdd   [1575,"RHS RQ-11 A Blanket                                                          Price:   $232,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rq11_zerlegt">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-			_index1 =   lbAdd   [1575,"RHS RQ-11 B Blanket                                                          Price:   $232,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rq11b_zerlegt">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-			_index2 =   lbAdd   [1575,"RQ-11 A Camera Package                                                       Price:   $8,400.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "rq11_camera">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-			_index3 =   lbAdd   [1575,"RQ-11 B Camera Package                                                       Price:   $8,400.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "rq11b_camera">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
+			_index0 =   lbAdd   [1575,"RHS RQ-11 A Blanket                                                      						    Price:   $232,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rq11_zerlegt">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+			_index1 =   lbAdd   [1575,"RHS RQ-11 B Blanket                                                        					  Price:   $232,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rq11b_zerlegt">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];	
+			_index2 =   lbAdd   [1575,"RQ-11 A Camera Package                                                      					 Price:   $8,400.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "rq11_camera">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+			_index3 =   lbAdd   [1575,"RQ-11 B Camera Package                                                    				   Price:   $8,400.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "rq11b_camera">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
 				} else {
 					_index0 =   lbAdd   [1575,"AR-2 Darter                                                                         Price:   $369.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "B_UAV_01_F">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-					_index1 =   lbAdd   [1575,"UGV Stomper                                                                         Price:   $3,210,526.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "B_UGV_01_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-					_index2 =   lbAdd   [1575,"UGV Stomper RCWS                                                                    Price:   $3,225,550.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "B_UGV_01_rcws_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-					_index3 =   lbAdd   [1575,"Yabhon R3                                                                           Price:   $16,900,000.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "B_UAV_02_F">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
-					_index4 =   lbAdd   [1575,"Yabhon R3 (CAS)                                                                     Price:   $17,300,000.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "B_UAV_02_CAS_F">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
+						_index1 =   lbAdd   [1575,"UGV Stomper                                                                         Price:   $3,210,526.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "B_UGV_01_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
+							_index2 =   lbAdd   [1575,"UGV Stomper RCWS                                                                    Price:   $3,225,550.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "B_UGV_01_rcws_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+								_index3 =   lbAdd   [1575,"Yabhon R3                                                                           Price:   $16,900,000.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "B_UAV_02_F">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
+									_index4 =   lbAdd   [1575,"Yabhon R3 (CAS)                                                                     Price:   $17,300,000.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "B_UAV_02_CAS_F">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
 				};
 	
 			};
@@ -752,43 +769,36 @@ lbClear 1575;
 
 	if (Ace3_Enabled == 1) then {
 		_index0 =   lbAdd   [1575,"Replacement Wheel                                                                                                      Price:   $525.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "ACE_Wheel">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-		_index1 =   lbAdd   [1575,"Replacement Track                                                                                                      Price:   $175.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "ACE_Track">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-		_index2 =   lbAdd   [1575,"Match Grade Ammo Crate (Small Ammo Shipment)                                                                           Price:   $392,378.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "ACE_Box_Ammo">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-		_index3 =   lbAdd   [1575,"Medical Supply Shipment                                                                                                Price:   $9,895.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "ACE_medicalSupplyCrate_advanced">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
-		_index4 =   lbAdd   [1575,"Empty Sandbag                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Item_Sandbag_empty">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
-		_index5 =   lbAdd   [1575,"ACE Misc Items (Office Supplies)                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Box_Misc">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
-		
-		} else {
-			if (Iowa_Enabled == 1) then { 
-			_index0 =   lbAdd   [1575,"Iowa Class Battleship                                                                                              Price:   $100,000,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "USS_Iowa_Battleship">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-				} else {
-					if (SMA_Enabled == 1) then { 
-						_index0 =   lbAdd   [1575,"120 + Assorted Weapons, Ammo, Accessories (SMA)                                                        Price:   $2,185,995.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "SMA_Weapon_Box">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
-						} else {
-							if (HLC_Enabled == 1) then { 
-							_index0 =   lbAdd   [1575,"180 HK MP5 Submachineguns, Accessories, Ammo (HLC)                                                 Price:   $6,340,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "HLC_MP5_ammobox">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
+			_index1 =   lbAdd   [1575,"Replacement Track                                                                                                      Price:   $175.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "ACE_Track">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
+				_index2 =   lbAdd   [1575,"Match Grade Ammo Crate (Small Ammo Shipment)                                                                           Price:   $392,378.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "ACE_Box_Ammo">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+					_index3 =   lbAdd   [1575,"Medical Supply Shipment                                                                                                Price:   $9,895.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "ACE_medicalSupplyCrate_advanced">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
+						_index4 =   lbAdd   [1575,"Empty Sandbag                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Item_Sandbag_empty">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
+							_index5 =   lbAdd   [1575,"ACE Misc Items (Office Supplies)                                                                                                          Price:   $1.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "ACE_Box_Misc">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
 								} else {
-									if (RHS_Support_Enabled == 1) then { 
-										_index0 =   lbAdd   [1575,"330 Assorted Russian Weapons / Ammunition                                               Price:   $2,106,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rhs_weapon_crate">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-										_index1 =   lbAdd   [1575,"460 Assorted U.S. Weapons / Ammunition                                                  Price:   $6,900,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rhsusf_weapon_crate">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];	
+									if (SMA_Enabled == 1) then { 
+										_index0 =   lbAdd   [1575,"120 + Assorted Weapons, Ammo, Accessories (SMA)                                                        Price:   $2,185,995.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "SMA_Weapon_Box">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
 										} else {
-											_index0 =   lbAdd   [1575,"HEMTT A4 M978A4 Fuel Servicing Truck (Tanker)                                       Price:   $1,200,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "B_Truck_01_fuel_F">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
-											_index1 =   lbAdd   [1575,"Assorted Small Ammo Shipment (NATO)                                                 Price:   $6,720.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "Box_NATO_Ammo_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
-											_index2 =   lbAdd   [1575,"Assorted Small Weapons Shipment (NATO)                                              Price:   $91,800.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> "Box_NATO_Wps_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
-											_index3 =   lbAdd   [1575,"Patrol Boat w/ Minigun                                                              Price:   $1,275,000.00"]; _Pic4= getText( configFile  >> "CfgVehicles">> "B_Boat_Armed_01_minigun_F">> "picture");    lbSetPicture    [1575, 3    , _Pic4   ];  lbSetPictureColor   [1575, 3 ,[0.738,0.714,0.417,1 ]];
-											_index4 =   lbAdd   [1575,"RHIB Boat                                                                           Price:   $1,275.00"]; _Pic5= getText( configFile  >> "CfgVehicles">> "B_Boat_Transport_01_F">> "picture");  lbSetPicture    [1575, 4    , _Pic5   ];  lbSetPictureColor   [1575, 4 ,[0.738,0.714,0.417,1 ]];
-											_index5 =   lbAdd   [1575,"SDV (NATO)                                                                          Price:   $1,200,000.00"]; _Pic6= getText( configFile  >> "CfgVehicles">> "B_SDV_01_F">> "picture");  lbSetPicture    [1575, 5    , _Pic6   ];  lbSetPictureColor   [1575, 5 ,[0.738,0.714,0.417,1 ]];
-										}; 
-				
-								};
-						};
-	
-				};
+											if (HLC_Enabled == 1) then { 
+											_index0 =   lbAdd   [1575,"180 HK MP5 Submachineguns, Accessories, Ammo (HLC)                                                 Price:   $6,340,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "HLC_MP5_ammobox">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];					
+												} else {
+													if (RHS_Support_Enabled == 1) then { 
+														_index0 =   lbAdd   [1575,"330 Assorted Russian Weapons / Ammunition                                               Price:   $2,106,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "rhs_weapon_crate">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+														_index1 =   lbAdd   [1575,"460 Assorted U.S. Weapons / Ammunition                                                  Price:   $6,900,000.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "rhsusf_weapon_crate">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];	
+														} else {
+															_index0 =   lbAdd   [1575,"HEMTT A4 M978A4 Fuel Servicing Truck (Tanker)                                       Price:   $1,200,000.00"]; _Pic1= getText( configFile  >> "CfgVehicles">> "B_Truck_01_fuel_F">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+																_index1 =   lbAdd   [1575,"Assorted Small Ammo Shipment (NATO)                                                 Price:   $6,720.00"]; _Pic2= getText( configFile  >> "CfgVehicles">> "Box_NATO_Ammo_F">> "picture"); lbSetPicture    [1575, 1    , _Pic2   ];  lbSetPictureColor   [1575, 1 ,[0.738,0.714,0.417,1 ]];
+																	_index2 =   lbAdd   [1575,"Assorted Small Weapons Shipment (NATO)                                              Price:   $91,800.00"]; _Pic3= getText( configFile  >> "CfgVehicles">> 			"Box_NATO_Wps_F">> "picture"); lbSetPicture    [1575, 2    , _Pic3   ];  lbSetPictureColor   [1575, 2 ,[0.738,0.714,0.417,1 ]];
+																		
+																}; 
+								
+														};
+												};
+					
+									};
 
 
-		};
+	};
 
-}; 
 		
 DoAddUpgrades = {
 wheelson = 0;
@@ -800,7 +810,7 @@ SupportOn = 0;
 UpgradesOn = 1; 
 lbClear 1575;
 
-_index0 =   lbAdd   [1575,"Base Upgrades Coming Soon! "]; _Pic1= getText( configFile  >> "CfgVehicles">> "Replace_me">> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
+_index0 =   lbAdd   [1575,"ALiVE AI Transport UH-60M                       Price: $22,500,000.00 "]; _Pic1= getText( configFile  >> "CfgVehicles">> "rhs_uh60m" >> "picture"); lbSetPicture    [1575, 0    , _Pic1   ];  lbSetPictureColor   [1575, 0 ,[0.738,0.714,0.417,1 ]];
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -930,7 +940,7 @@ Case 0:{_prat = Rank Player; if ((B_defensebudget<B_Plane_CAS_01_F) OR ( _prat !
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+B_Plane_CAS_01_F); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) A-164 Wipeout Anti-Tank Aircraft for $%1, your aircraft will be delivered to the Molos Airfield.", B_Plane_CAS_01_F]; 
+                hint format ["You have purchased (a/an) A-164 Wipeout Anti-Tank Aircraft for $%1, your aircraft will be delivered to the C-12 Airfield.", B_Plane_CAS_01_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -945,7 +955,7 @@ Case 1:{_prat = Rank Player; if ((B_defensebudget<O_Plane_CAS_02_F) OR ( _prat !
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+O_Plane_CAS_02_F); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) To-199 Neophronfor $%1, your aircraft will be delivered to the Molos Airfield.", O_Plane_CAS_02_F]; 
+                hint format ["You have purchased (a/an) To-199 Neophronfor $%1, your aircraft will be delivered to the C-12 Airfield.", O_Plane_CAS_02_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -960,7 +970,7 @@ Case 2:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvs ) OR ( _prat !=
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+RHS_Su25SM_vvs ); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) RUS (VVS grey)  Su-25SMfor $%1, your aircraft will be delivered to the Molos Airfield.", RHS_Su25SM_vvs ]; 
+                hint format ["You have purchased (a/an) RUS (VVS grey)  Su-25SMfor $%1, your aircraft will be delivered to the C-12 Airfield.", RHS_Su25SM_vvs ]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -975,7 +985,7 @@ Case 3:{_prat = Rank Player; if ((B_defensebudget<RHS_Su25SM_vvsc ) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Su25SM_vvsc ); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) RUS (VVS camo)  Su-25SMfor $%1, your aircraft will be delivered to the Molos Airfield.", RHS_Su25SM_vvsc ];
+                hint format ["You have purchased (a/an) RUS (VVS camo)  Su-25SMfor $%1, your aircraft will be delivered to the C-12 Airfield.", RHS_Su25SM_vvsc ];
 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -990,7 +1000,7 @@ Case 4:{_prat = Rank Player; if ((B_defensebudget<rhs_a10 ) OR ( _prat != B_Maxr
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+rhs_a10 ); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) A-10A Thunderbolt IIfor $%1, your aircraft will be delivered to the Molos Airfield.", rhs_a10 ]; 
+                hint format ["You have purchased (a/an) A-10A Thunderbolt IIfor $%1, your aircraft will be delivered to the C-12 Airfield.", rhs_a10 ]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1005,7 +1015,7 @@ Case 5:{_prat = Rank Player; if ((B_defensebudget<RHS_C130J ) OR ( _prat != B_Ma
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+RHS_C130J ); 
                 publicVariable"B_totalcost"; 
-                hint format ["You have purchased (a/an) Hercules C-130Jfor $%1, your aircraft will be delivered to the Molos Airfield.", RHS_C130J ]; 
+                hint format ["You have purchased (a/an) Hercules C-130Jfor $%1, your aircraft will be delivered to the C-12 Airfield.", RHS_C130J ]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1029,7 +1039,7 @@ Case 0:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Attack_01_F) OR ( _prat 
                 publicVariable"B_defensebudget";
                 B_totalcost= (B_totalcost+B_Heli_Attack_01_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) AH-99 Blackfoot Attack Helicopter for $%1, your aircraft will be delivered to the Molos Airfield.",B_Heli_Attack_01_F]; 
+                hint format ["You have purchased (a/an) AH-99 Blackfoot Attack Helicopter for $%1, your aircraft will be delivered to the C-12 Airfield.",B_Heli_Attack_01_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1044,7 +1054,7 @@ Case 1:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Transport_01_F) OR ( _pr
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+B_Heli_Transport_01_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) UH-80 Ghosthawk Combat Transport Helicopter for $%1, your aircraft will be delivered to the Molos Airfield.",B_Heli_Transport_01_F]; 
+                hint format ["You have purchased (a/an) UH-80 Ghosthawk Combat Transport Helicopter for $%1, your aircraft will be delivered to the C-12 Airfield.",B_Heli_Transport_01_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1059,7 +1069,7 @@ Case 2:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_armed_F) OR ( _
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+B_Heli_Light_01_armed_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) AH-9 Pawnee Combat Support Helicopter for $%1, your aircraft will be delivered to the Molos Airfield.",B_Heli_Light_01_armed_F]; 
+                hint format ["You have purchased (a/an) AH-9 Pawnee Combat Support Helicopter for $%1, your aircraft will be delivered to the C-12 Airfield.",B_Heli_Light_01_armed_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1074,7 +1084,7 @@ Case 3:{_prat = Rank Player;if ((B_defensebudget<B_Heli_Light_01_F) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+B_Heli_Light_01_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) MH-9 Hummingbird Light Transport Helicopter for $%1, your aircraft will be delivered to the Molos Airfield.",B_Heli_Light_01_F]; 
+                hint format ["You have purchased (a/an) MH-9 Hummingbird Light Transport Helicopter for $%1, your aircraft will be delivered to the C-12 Airfield.",B_Heli_Light_01_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1089,7 +1099,7 @@ Case 4:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_unarmed_F) OR (
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+O_Heli_Light_02_unarmed_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) PO-30 Orca (Black) for $%1, your aircraft will be delivered to the Molos Airfield.",O_Heli_Light_02_unarmed_F]; 
+                hint format ["You have purchased (a/an) PO-30 Orca (Black) for $%1, your aircraft will be delivered to the C-12 Airfield.",O_Heli_Light_02_unarmed_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1104,7 +1114,7 @@ Case 5:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Light_02_F) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+O_Heli_Light_02_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) PO-30 Orca for $%1, your aircraft will be delivered to the Molos Airfield.",O_Heli_Light_02_F]; 
+                hint format ["You have purchased (a/an) PO-30 Orca for $%1, your aircraft will be delivered to the C-12 Airfield.",O_Heli_Light_02_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1119,7 +1129,7 @@ Case 6:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_F) OR ( _prat 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+O_Heli_Attack_02_F);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) Mi-48 Kajman for $%1, your aircraft will be delivered to the Molos Airfield.",O_Heli_Attack_02_F]; 
+                hint format ["You have purchased (a/an) Mi-48 Kajman for $%1, your aircraft will be delivered to the C-12 Airfield.",O_Heli_Attack_02_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1134,7 +1144,7 @@ Case 7:{_prat = Rank Player;if ((B_defensebudget<O_Heli_Attack_02_black_F) OR ( 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+O_Heli_Attack_02_black_F); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) Mi-48 Kajman (Black) for $%1, your aircraft will be delivered to the Molos Airfield.",O_Heli_Attack_02_black_F]; 
+                hint format ["You have purchased (a/an) Mi-48 Kajman (Black) for $%1, your aircraft will be delivered to the C-12 Airfield.",O_Heli_Attack_02_black_F]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1149,7 +1159,7 @@ Case 8:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_10) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd_10); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Multi-Role) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd_10]; 
+                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Multi-Role) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd_10]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1164,7 +1174,7 @@ Case 9:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs_10) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd_gs_10);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Ground-Suppression) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd_gs_10]; 
+                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Ground-Suppression) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd_gs_10]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1179,7 +1189,7 @@ Case 10:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs_10) OR ( _prat 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd_cs_10); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Close-Support) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd_cs_10];
+                hint format ["You have purchased (a/an) USA (USMC 2010) AH-1Z (Close-Support) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd_cs_10];
 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1194,7 +1204,7 @@ Case 11:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd) OR ( _prat != B_M
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Multi-Role) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd]; 
+                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Multi-Role) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1209,7 +1219,7 @@ Case 12:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_gs) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd_gs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Ground-Suppression) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd_gs]; 
+                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Ground-Suppression) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd_gs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1224,7 +1234,7 @@ Case 13:{_prat = Rank Player;if ((B_defensebudget<rhs_ah1z_wd_cs) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah1z_wd_cs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Close-Support) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah1z_wd_cs]; 
+                hint format ["You have purchased (a/an) USA (USMC 2014) AH-1Z (Close-Support) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah1z_wd_cs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1239,7 +1249,7 @@ Case 14:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64dgrey) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah64dgrey); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2010) AH-64D (grey) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah64dgrey];
+                hint format ["You have purchased (a/an) USA (Army 2010) AH-64D (grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah64dgrey];
 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1254,7 +1264,7 @@ Case 15:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd) OR ( _prat != B_
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah64d_wd); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Multi-Role) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah64d_wd]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Multi-Role) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah64d_wd]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1269,7 +1279,7 @@ Case 16:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_gs) OR ( _prat !=
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah64d_wd_gs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Ground-Suppression) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah64d_wd_gs];
+                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Ground-Suppression) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah64d_wd_gs];
 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1283,7 +1293,7 @@ Case 17:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_cs) OR ( _prat !=
             publicVariable"B_defensebudget"; 
             B_totalcost= (B_totalcost+rhs_ah64d_wd_cs); 
             publicVariable"B_totalcost";
-            hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Close-Support) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah64d_wd_cs];
+            hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (Close-Support) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah64d_wd_cs];
 
             [] call doBudget; 
             [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1299,7 +1309,7 @@ Case 18:{_prat = Rank Player;if ((B_defensebudget<rhs_ah64d_wd_aa) OR ( _prat !=
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ah64d_wd_aa);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (AA) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ah64d_wd_aa]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) AH-64D (AA) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ah64d_wd_aa]; 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
             }; 
@@ -1313,7 +1323,7 @@ Case 19:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_10) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ch_47f_10);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2010) CH-47 for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ch_47f_10]; 
+                hint format ["You have purchased (a/an) USA (Army 2010) CH-47 for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ch_47f_10]; 
                 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1328,7 +1338,7 @@ Case 20:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light_10) OR ( _pra
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ch_47f_light_10);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2010) CH-47 (D) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ch_47f_light_10]; 
+                hint format ["You have purchased (a/an) USA (Army 2010) CH-47 (D) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ch_47f_light_10]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1343,7 +1353,7 @@ Case 21:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f) OR ( _prat != B_Ma
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ch_47f); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) CH-47 for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ch_47f]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) CH-47 for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ch_47f]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1358,7 +1368,7 @@ Case 22:{_prat = Rank Player;if ((B_defensebudget<rhs_ch_47f_light) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ch_47f_light);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) CH-47 (D) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ch_47f_light]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) CH-47 (D) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ch_47f_light]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1373,7 +1383,7 @@ Case 23:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y) OR ( _prat != B_Maxr
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh1y); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (FFAR/MG) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh1y];
+                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (FFAR/MG) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh1y];
 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1388,7 +1398,7 @@ Case 24:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_ffar) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh1y_ffar); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (FFAR) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh1y_ffar]; 
+                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (FFAR) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh1y_ffar]; 
                 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1403,7 +1413,7 @@ Case 25:{_prat = Rank Player;if ((B_defensebudget<rhs_uh1y_unarmed) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh1y_unarmed); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (Unarmed) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh1y_unarmed]; 
+                hint format ["You have purchased (a/an) USA (USMC 2010) UH-1Y (Unarmed) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh1y_unarmed]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1418,7 +1428,7 @@ Case 26:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m) OR ( _prat != B_Max
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh60m); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh60m]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh60m]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1433,7 +1443,7 @@ Case 27:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev2) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh60m_mev2); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M MEV for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh60m_mev2]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M MEV for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh60m_mev2]; 
                 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1448,7 +1458,7 @@ Case 28:{_prat = Rank Player;if ((B_defensebudget<rhs_uh60m_mev) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_uh60m_mev); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M MEV (ESSS)for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_uh60m_mev]; 
+                hint format ["You have purchased (a/an) USA (Army 2014) UH-60M MEV (ESSS)for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_uh60m_mev]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1463,7 +1473,7 @@ Case 29:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvs) OR ( _prat != B_
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Ka52_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Ka-52 (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Ka52_vvs]; 
+                hint format ["You have purchased (a/an) RUS Ka-52 (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Ka52_vvs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1478,7 +1488,7 @@ Case 30:{_prat = Rank Player;if ((B_defensebudget<RHS_Ka52_vvsc) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Ka52_vvsc); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Ka-52 (Camo) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Ka52_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Ka-52 (Camo) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Ka52_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1492,7 +1502,7 @@ Case 31:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_grey) OR ( _prat != B
             publicVariable"B_defensebudget"; 
             B_totalcost= (B_totalcost+rhs_ka60_grey); 
             publicVariable"B_totalcost";
-            hint format ["You have purchased (a/an) RUS Ka-60 (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ka60_grey]; 
+            hint format ["You have purchased (a/an) RUS Ka-60 (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ka60_grey]; 
             
             [] call doBudget; 
             [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1508,7 +1518,7 @@ Case 32:{_prat = Rank Player;if ((B_defensebudget<rhs_ka60_c) OR ( _prat != B_Ma
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+rhs_ka60_c);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Ka-60 (Camo) for $%1, your aircraft will be delivered to the Molos Airfield.",rhs_ka60_c]; 
+                hint format ["You have purchased (a/an) RUS Ka-60 (Camo) for $%1, your aircraft will be delivered to the C-12 Airfield.",rhs_ka60_c]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1523,7 +1533,7 @@ Case 33:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vdv) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24P_vdv); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24P for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24P_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-24P for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24P_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1538,7 +1548,7 @@ Case 34:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vdv) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24V_vdv); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24V for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24V_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-24V for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24V_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1553,7 +1563,7 @@ Case 35:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvs) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24P_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24P (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24P_vvs];
+                hint format ["You have purchased (a/an) RUS Mi-24P (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24P_vvs];
 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1568,7 +1578,7 @@ Case 36:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvs) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24V_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24V (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24V_vvs]; 
+                hint format ["You have purchased (a/an) RUS Mi-24V (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24V_vvs]; 
                 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1583,7 +1593,7 @@ Case 37:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24P_vvsc) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24P_vvsc); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24P (Camo)for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24P_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Mi-24P (Camo)for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24P_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1598,7 +1608,7 @@ Case 38:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi24V_vvsc) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi24V_vvsc);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-24V (Camo)for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi24V_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Mi-24V (Camo)for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi24V_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1613,7 +1623,7 @@ Case 39:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vdv) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMT_vdv);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMT for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMT_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-8AMT for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMT_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1628,7 +1638,7 @@ Case 40:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vdv) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMTSh_vdv);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMTSh for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMTSh_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-8AMTSh for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMTSh_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1643,7 +1653,7 @@ Case 41:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvs) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMT_vvs);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMT (Grey)for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMT_vvs];
+                hint format ["You have purchased (a/an) RUS Mi-8AMT (Grey)for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMT_vvs];
                  
                  [] call doBudget; 
                  [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1658,7 +1668,7 @@ Case 42:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvs) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMTSh_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMTSh (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMTSh_vvs]; 
+                hint format ["You have purchased (a/an) RUS Mi-8AMTSh (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMTSh_vvs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1673,7 +1683,7 @@ Case 43:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMT_vvsc) OR ( _prat !=
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMT_vvsc); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMT (Camo) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMT_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Mi-8AMT (Camo) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMT_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1688,7 +1698,7 @@ Case 44:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8AMTSh_vvsc) OR ( _prat 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8AMTSh_vvsc); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8AMTSh (Camo) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8AMTSh_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Mi-8AMTSh (Camo) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8AMTSh_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1703,7 +1713,7 @@ Case 45:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vdv) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8mt_vdv); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8MT for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8mt_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-8MT for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8mt_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1718,7 +1728,7 @@ Case 46:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vdv) OR ( _prat !=
                 publicVariable"B_defensebudget";  
                 B_totalcost= (B_totalcost+RHS_Mi8MTV3_vdv); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8MTV-3for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8MTV3_vdv]; 
+                hint format ["You have purchased (a/an) RUS Mi-8MTV-3for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8MTV3_vdv]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1733,7 +1743,7 @@ Case 47:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvs) OR ( _prat != B
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8mt_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an)  RUS Mi-8MT (Grey)for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8mt_vvs]; 
+                hint format ["You have purchased (a/an)  RUS Mi-8MT (Grey)for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8mt_vvs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1748,7 +1758,7 @@ Case 48:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vvs) OR ( _prat !=
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8MTV3_vvs); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8MTV-3 (Grey) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8MTV3_vvs]; 
+                hint format ["You have purchased (a/an) RUS Mi-8MTV-3 (Grey) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8MTV3_vvs]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1763,7 +1773,7 @@ Case 49:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8mt_vvsc) OR ( _prat != 
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8mt_vvsc); 
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8MT (Camo)for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8mt_vvsc]; 
+                hint format ["You have purchased (a/an) RUS Mi-8MT (Camo)for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8mt_vvsc]; 
                 
                 [] call doBudget; 
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -1778,7 +1788,7 @@ Case 50:{_prat = Rank Player;if ((B_defensebudget<RHS_Mi8MTV3_vvsc) OR ( _prat !
                 publicVariable"B_defensebudget"; 
                 B_totalcost= (B_totalcost+RHS_Mi8MTV3_vvsc);
                 publicVariable"B_totalcost";
-                hint format ["You have purchased (a/an) RUS Mi-8MTV-3 (Camo) for $%1, your aircraft will be delivered to the Molos Airfield.",RHS_Mi8MTV3_vvsc];
+                hint format ["You have purchased (a/an) RUS Mi-8MTV-3 (Camo) for $%1, your aircraft will be delivered to the C-12 Airfield.",RHS_Mi8MTV3_vvsc];
 
                 [] call doBudget;
                 [] call DoTotal; clearWeaponCargoGlobal _MATV; clearMagazineCargoGlobal _MATV; 
@@ -4515,29 +4525,7 @@ if (Ace3_Enabled == 1) then {
 			}; 
 
 		} else {
-			if (Iowa_Enabled == 1) then { 
-				switch (TheSelection) do {
-				
-				Case 0: {
-				_prat = Rank Player;
-				if ((B_defensebudget < USS_Iowa_Battleship) OR ( _prat != B_Maxrank)) then {
-					hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,USS_Iowa_Battleship];
-						} else {
-							_MATV="USS_Iowa_Battleship"createVehicle (getMarkerPos "ShipSpawn");
-							B_defensebudget= (B_defensebudget-USS_Iowa_Battleship); 
-							publicVariable"B_defensebudget"; 
-							B_totalcost= (B_totalcost+USS_Iowa_Battleship); 
-							publicVariable"B_totalcost";
-							hint format ["You have purchased an Iowa Class Battleship for $%1 \n \n It will be delivered to the Pefkas Bay.",USS_Iowa_Battleship]; 
-							
-								[] call doBudget; 
-								[] call DoTotal;
-						}; 
-				
-					};
-				}; 
-			} else {
-					if (SMA_Enabled == 1) then { 
+			if (SMA_Enabled == 1) then { 
 					switch (TheSelection) do {
 						Case 0: {
 							_prat = Rank Player;
@@ -4628,8 +4616,8 @@ if (Ace3_Enabled == 1) then {
 						
 																[] call doBudget; 
 																[] call DoTotal;
-													};
-												}; 	
+														};
+													}; 	
 													Case 1: {
 													_prat = Rank Player;
 													if ((B_defensebudget<Box_NATO_Ammo_F) OR ( _prat != B_Maxrank)) then {
@@ -4644,8 +4632,8 @@ if (Ace3_Enabled == 1) then {
 									
 														[] call doBudget; 
 														[] call DoTotal;
-													};
-												}; 	
+														};
+													}; 	
 													Case 2: {
 													_prat = Rank Player;
 													if ((B_defensebudget<Box_NATO_Wps_F) OR ( _prat != B_Maxrank)) then {
@@ -4660,8 +4648,8 @@ if (Ace3_Enabled == 1) then {
 									
 														[] call doBudget; 
 														[] call DoTotal;
-													};
-												}; 	
+															};
+													}; 	
 													Case 3: {
 													_prat = Rank Player;
 													if ((B_defensebudget<B_Boat_Armed_01_minigun_F) OR ( _prat != B_Maxrank)) then {
@@ -4676,56 +4664,42 @@ if (Ace3_Enabled == 1) then {
 									
 														[] call doBudget; 
 														[] call DoTotal;
-													};
-												}; 	
-													Case 4: {
-													_prat = Rank Player;
-													if ((B_defensebudget<B_Boat_Transport_01_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_Boat_Transport_01_F]
-														} else {	
-														_SBoat = "B_Boat_Transport_01_F" createVehicle (getMarkerPos "SBoatSpawn");
-														B_defensebudget= (B_defensebudget-B_Boat_Transport_01_F); 
-														publicVariable "B_defensebudget"; 
-														B_totalcost= (B_totalcost+B_Boat_Transport_01_F); 
-														publicVariable "B_totalcost";
-														hint format ["You have purchased a RHIB for $%1 \n \n It will be delivered to the C-12 Facility Port.",B_Boat_Transport_01_F]; 
-									
-														[] call doBudget; 
-														[] call DoTotal;
-													};
-												}; 	
-													Case 5: {
-													_prat = Rank Player;
-													if ((B_defensebudget<B_SDV_01_F) OR ( _prat != B_Maxrank)) then {
-													hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " , B_maxrank,B_SDV_01_F]
-														} else {	
-														_Boat = "B_SDV_01_F" createVehicle (getMarkerPos "SBoatSpawn");
-														B_defensebudget= (B_defensebudget-B_SDV_01_F); 
-														publicVariable "B_defensebudget"; 
-														B_totalcost= (B_totalcost+B_SDV_01_F); 
-														publicVariable "B_totalcost";
-														hint format ["You have purchased an SDV for $%1 \n \n It will be delivered to the C-12 Facility Port.",B_SDV_01_F]; 
-									
-														[] call doBudget; 
-														[] call DoTotal;
 															};
-												
-													}; 												
+													}; 	
+													
+																						
 												}; 		
 											}; 
 				
 									};
 						};
 	
-					};
-
-
 				};
-}; 
+
+
+	}; 
 
 A3M_Fnc_Upgrades = {
 switch (TheSelection) do {
 
+Case 0:{_prat = Rank Player; if ((B_defensebudget<AI_UH60_Transport) OR ( _prat != B_Maxrank)) then {
+        hint format ["You cannot do this, either due to financial reasons (Cost of This Item is %2) or due to the fact that you are not authorized to spend from the company account. Items in fleet management can only be purchased by company officers. " ,B_maxrank,AI_UH60_Transport]
+            } else{
+                
+				["TRANSPORT",[getMarkerPos "AI_HeliSpawn",60,"B_Heli_Transport_01_camo_F","VICTOR 1","",""]] Call ALiVE_fnc_combatSupportAdd;
+				B_defensebudget= (B_defensebudget-AI_UH60_Transport);    
+                publicVariable"B_defensebudget";  
+                B_totalcost= (B_totalcost+AI_UH60_Transport); 
+                publicVariable"B_totalcost"; 
+                hint format ["You have purchased (a/an) Base Upgrade! For $%1, your ALiVE AI Manned Transport Aircraft will be delivered to the C-12 Airfield.", AI_UH60_Transport]; 
+                
+                [] call doBudget; 
+                [] call DoTotal; 
+
+                }; 
+        }; 
+		
+		
 
 }; 
 };
