@@ -4,12 +4,92 @@ class CfgPatches
 {
 	class A3M_CP
 	{
-		units[] = {"A3M_Hbed","A3M_H_Table", "A3M_MedCabinet", "A3M_MedBox", "A3M_SmallServerRack","A3M_Sofa","A3M_SatDish","A3M_CocaineBrick","A3M_WaterCooler","A3M_Dildo","A3M_WeapLocker","A3M_Stage", "A3M_Syringe", "A3M_NarcoBail", "A3M_Coca_ProPl", "A3M_MicroScope", "A3M_NarcoLightTable"};
+		units[] = {"A3M_Hbed","A3M_H_Table", "A3M_MedCabinet", "A3M_MedBox", "A3M_SmallServerRack","A3M_Sofa","A3M_SatDish","A3M_CocaineBrick","A3M_WaterCooler","A3M_Dildo","A3M_WeapLocker","A3M_Stage", "A3M_Syringe", "A3M_NarcoBail", "A3M_Coca_ProPl", "A3M_MicroScope", "A3M_NarcoLightTable","A3M_MarijuanaJoint", "A3M_Saguaro_A", "A3M_Saguaro_B", "A3M_Saguaro_C","A3M_YuccaPlant", "A3M_BathroomSink", "A3M_Shitter", "A3M_Safe", "A3M_Fridge", "A3M_Bed","A3M_Shower"};
 		requiredAddons[] = {"A3_Structures_F_Civ_Lamps"}; 
 		weapons[] = {};
 		requiredVersion = 1.00;
 	};
 };
+
+class CfgSounds 
+{
+	sounds[] = {
+		A3M_Snort,
+		A3M_Gulp,
+		A3M_NarcoCorrido_A,
+		A3M_NarcoConvo_A,
+		A3M_Env_Crickets,
+		A3M_Eng_M1Intro
+	};
+	
+	class A3M_Gulp
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] Water Gulp";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\wgulp.ogg", 0.70, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+	
+	class A3M_Snort
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] Coke Snort";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\csnort.ogg", 0.70, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+	
+	class A3M_NarcoCorrido_A
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] La suburban dorada - Los Huracanes del Norte";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\NC1.ogg", 0.50, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+		
+	class A3M_NarcoConvo_A
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] Narco Conversation A";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\ESP_Convo1.ogg", 0.70, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+	
+	class A3M_Env_Crickets
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] Environment - Crickets";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\Crickets.ogg", 0.50, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+	
+	class A3M_Eng_M1Intro
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "[A3M] Mission 1 - Radio Intro";
+		// filename, volume, pitch
+		sound[] = {"A3M_Objects\Sounds\Mission1_IntroRT.ogg", 1, 1};
+		// subtitle delay in seconds, subtitle text 
+		// titles[] = {1, "All Right, Move Out!"};
+		titles[] = {}; 
+	};
+	
+		
+};		
 
 class CfgVehicleClasses
 {
@@ -112,12 +192,12 @@ class cfgVehicles
      
 	 
 // Begin Static Object Classes	
-class Static;
+class Static;	
+class thingx; 	
 	
+// A3M Medical Assets 
 		
-		// A3M Medical Assets 
-		
-		class A3M_H_Table : Static {
+	class A3M_H_Table : Static {
 		scope = 2;
 		scopeCurator= public;
 		icon = "iconObject_1x1";
@@ -133,9 +213,9 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
-		};
+	};
 			
-		class A3M_MedCabinet : Static {
+	class A3M_MedCabinet : Static {
 		scope = 2;
 		scopeCurator= public;
 		icon = "iconObject_1x1";
@@ -152,9 +232,9 @@ class Static;
 		canBeShot = true;
 
 		
-		};
+	};
 		
-		class A3M_MedBox : Static {
+	class A3M_MedBox : Static {
 		scope = 2;
 		scopeCurator= public;
 		icon = "iconObject_1x1";
@@ -169,9 +249,7 @@ class Static;
 		armor = 200;
 		damageResistance = 0.004;
 		canBeShot = true;
-
-		
-		};
+	};
 		
 // A3M Objects	
 	
@@ -194,7 +272,8 @@ class Static;
 		
 		};
 		
-		class A3M_Sofa : Static {
+
+		class A3M_Sofa : thingx {
 		scope = 2;
 		scopeCurator= public;
 		icon = "iconObject_1x1";
@@ -250,6 +329,38 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
+		class UserActions {
+			
+			class UseCocaine
+			{
+				displayNameDefault = "Use Cocaine (1 Gram)";
+				priority = 2;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Use Cocaine (1 Gram)";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[this, player] execVM ""A3M_Objects\Scripts\SnortCoke.sqf""";
+			};
+			
+			class Confiscate
+			{
+				displayNameDefault = "Confiscate";
+				priority = 1;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Confiscate";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[this, player, 1] execVM ""A3M_Objects\Scripts\Confiscation.sqf""";
+			};
+ 
+		};
+		
 
 		};
 		
@@ -269,6 +380,23 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = true;
 		
+		class UserActions {
+			
+			class DrinkWater
+			{
+				displayNameDefault = "Drink Water";
+				priority = 1;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Drink Water";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[player] execVM ""A3M_Objects\Scripts\DrinkWater.sqf""";
+			};			
+			
+		};
 
 		};
 		
@@ -364,6 +492,38 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = false;
 		
+		class UserActions {
+			
+			class UseCocaine
+			{
+				displayNameDefault = "Use Cocaine (1 Gram)";
+				priority = 2;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Inject Cocaine (1 Gram)";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[player] execVM ""A3M_Objects\Scripts\SnortCoke.sqf""";
+			};
+			
+			class Confiscate
+			{
+				displayNameDefault = "Confiscate";
+				priority = 1;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Confiscate";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[this, player, .1] execVM ""A3M_Objects\Scripts\Confiscation.sqf""";
+			};	
+			
+		};
+		
 		};
 		
 		class A3M_MicroScope : Static {
@@ -400,6 +560,42 @@ class Static;
 		damageResistance = 0.004;
 		canBeShot = false;
 		
+		class UserActions {
+			
+			class UseCocaine
+			{
+				displayNameDefault = "Use Cocaine (1 Gram)";
+				priority = 2;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Use Cocaine (1 Gram)";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[player] execVM ""A3M_Objects\Scripts\SnortCoke.sqf""";
+			};
+			
+			class Confiscate
+			{
+				displayNameDefault = "Confiscate";
+				priority = 1;
+				showWindw = 1;
+				hideOnUse = 1;
+				displayName = "Confiscate";
+				radius= 2;
+				position = "camera";
+				onlyForPlayer = 1;
+				condition = "(alive this)";
+				statement = "[this, player, 10] execVM ""A3M_Objects\Scripts\Confiscation.sqf""";
+			};
+ 
+			
+			
+			
+			
+		};
+		
 		};
 		
 		class A3M_Coca_ProPl : Static {
@@ -419,6 +615,206 @@ class Static;
 		canBeShot = false;
 		
 		};
+		
+		class A3M_MarijuanaJoint : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_MarijuanaJoint.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "1g Marijuana Joint";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_YuccaPlant : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_YuccaPlant.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Yucca Tree";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+	    class A3M_Saguaro_A : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\Saguaro_A.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Saguaro Cactus A";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Saguaro_B : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\Saguaro_B.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Saguaro Cactus B";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Saguaro_C : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\Saguaro_C.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Saguaro Cactus C";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Sink : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_BathroomSink.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Bathroom Sink";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Shitter : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Shitter.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Shitter";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Safe : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Safe.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Safe";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Bed : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Bed.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Bed";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		class A3M_Fridge : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Fridge.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Fridge";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
+		
+		class A3M_Shower : Static {
+		scope = 2;
+		scopeCurator= public;
+		icon = "iconObject_1x1";
+		picture = "iconObject_1x1";
+		model="\A3M_Objects\Models\A3M_Shower.p3d";
+		faction	= CIV_F;
+		placement = "vertical";
+		vehicleClass =  "A3M_Obj";
+		displayName = "Shower";
+		mapSize = 0.1;
+		animated = False;
+		armor = 200;
+		damageResistance = 0.004;
+		canBeShot = false;
+		
+		};
+		
 		
 		class A3M_NarcoLightTable : Static {
 		scope = 2;
@@ -518,4 +914,4 @@ class Static;
 		};
 
 };  
-		
+

@@ -385,10 +385,10 @@ class CfgVehicles
 		backpack = ""; // Backpack Class
 		linkedItems[] = {"V_BandollierB_khk", "H_Shemag_olive", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_khk", "H_Shemag_olive", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_AK47_Norinco","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_AK47_Norinco","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
+		weapons[] = {"arifle_AK12_F","hgun_Pistol_01_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"arifle_AK12_F","hgun_Pistol_01_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"30Rnd_762x39_Mag_F","10Rnd_9x21_Mag","10Rnd_9x21_Mag","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"30Rnd_762x39_Mag_F","10Rnd_9x21_Mag","10Rnd_9x21_Mag","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade"};
 		
 		hiddenSelections[] = {"Camo", "insiginia"}; /// selection defined in sections of model that may have texture and materials changed by setObjectTexture or next parameter
 		hiddenSelectionsTextures[] = {"\A3M_Char\uniforms\A3M_APFC_ME_1_co.paa"}; /// what texture does this soldier use for camo selection
@@ -409,10 +409,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_cbr"; // Backpack Class
 		linkedItems[] = {"V_Chestrig_blk", "A3M_APFC_Tbn", "G_Bandanna_blk","ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_Chestrig_blk", "A3M_APFC_Tbn", "G_Bandanna_blk","ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_AK47_Norinco_Mod1","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_AK47_Norinco_Mod1","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
+		weapons[] = {"arifle_AKM_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"arifle_AKM_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade"};
 		
 		hiddenSelections[] = {"Camo", "insiginia"}; /// selection defined in sections of model that may have texture and materials changed by setObjectTexture or next parameter
 		hiddenSelectionsTextures[] = {"\A3M_Char\uniforms\A3M_APFC_ME_2_co.paa"}; /// what texture does this soldier use for camo selection
@@ -430,10 +430,10 @@ class CfgVehicles
 		backpack = "B_TacticalPack_blk"; // Backpack Class
 		linkedItems[] = {"V_BandollierB_khk", "H_ShemagOpen_khk", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_khk", "H_ShemagOpen_khk", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_AK_Norinco","Binocular","launch_RPG32_F","hgun_Rook40_snds_F"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_AK_Norinco","Binocular","launch_RPG32_F","hgun_Rook40_snds_F"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
-		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
+		weapons[] = {"arifle_AKM_F","Binocular","launch_RPG32_F","hgun_Rook40_snds_F"}; // Weapons added to the unit.
+		respawnweapons[] = {"arifle_AKM_F","Binocular","launch_RPG32_F","hgun_Rook40_snds_F"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
+		Respawnmagazines[] = {"30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","30Rnd_762x39_Mag_F","HandGrenade","HandGrenade","RPG32_F","RPG32_F"};
 		};	
 	class A3M_APFC_ME_AutoRifleman : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
@@ -447,10 +447,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_cbr"; // Backpack Class
 		linkedItems[] = {"V_BandollierB_khk", "G_Bandanna_aviator", "A3M_APFC_Tbn","ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_khk", "G_Bandanna_aviator", "A3M_APFC_Tbn","ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_DSA_SA58_FAL_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_DSA_SA58_FAL_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","A3M_100rnd_FAL","HandGrenade","HandGrenade"};
+		weapons[] = {"LMG_03_F","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"LMG_03_F","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","200Rnd_556x45_Box_F","HandGrenade","HandGrenade"};
 		};
 	class A3M_APFC_ME_Rifleman_Elite : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	
@@ -464,10 +464,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_blk"; // Backpack Class
 		linkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_AK47_Norinco_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_AK47_Norinco_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
+		weapons[] = {"arifle_ARX_blk_F","hgun_Rook40_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"arifle_ARX_blk_F","hgun_Rook40_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"16Rnd_9x21_Mag","16Rnd_9x21_Mag","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"16Rnd_9x21_Mag","16Rnd_9x21_Mag","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","30Rnd_65x39_caseless_green","HandGrenade","HandGrenade"};
 		};	
 	class A3M_APFC_ME_Criminal : O_Soldier_base_F {
 		author = "Cody Salazar AKA TMN Fr33d0m";	 
@@ -481,10 +481,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_blk"; // Backpack Class
 		linkedItems[] = {"ItemMap","G_Bandanna_aviator","V_BandollierB_blk","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"ItemMap","G_Bandanna_aviator","V_BandollierB_blk","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_AK_Norinco_Mod1","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_AK_Norinco_Mod1","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","A3M_30Rnd_762x39_AK","HandGrenade","HandGrenade"};
+		weapons[] = {"SMG_01_F","hgun_P07_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"SMG_01_F","hgun_P07_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"16Rnd_9x21_Mag","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"16Rnd_9x21_Mag","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","30Rnd_45ACP_Mag_SMG_01","HandGrenade","HandGrenade"};
 		};
 	class O_G_medic_F : O_Soldier_base_F {}; 
 	class A3M_APFC_ME_Medic : O_G_medic_F   {
@@ -498,10 +498,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_ocamo_Medic"; // Backpack Class
 		linkedItems[] = {"V_BandollierB_blk", "A3M_APFC_A9Mask", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_blk", "A3M_APFC_A9Mask", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_DSA_SA58_FAL","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_DSA_SA58_FAL","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
+		weapons[] = {"hgun_PDW2000_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"hgun_PDW2000_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"30Rnd_9x21_Mag","30Rnd_9x21_Mag","30Rnd_9x21_Mag","30Rnd_9x21_Mag","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"30Rnd_9x21_Mag","30Rnd_9x21_Mag","30Rnd_9x21_Mag","30Rnd_9x21_Mag","HandGrenade","HandGrenade"};
 			}; 			
 	class O_G_engineer_F: O_Soldier_base_F {}; 
 	class A3M_APFC_ME_Engineer: O_G_engineer_F {
@@ -514,12 +514,10 @@ class CfgVehicles
 		backpack = "B_FieldPack_cbr_Repair"; // Backpack Class
 		linkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap","ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. 
 		respawnLinkedItems[] = {"V_BandollierB_blk", "A3M_APFC_Tbn", "ItemMap", "ItemCompass", "ItemWatch",  "ItemRadio"}; // Item's added to the unit. Should be identical to the linkedItems section.
-		weapons[] = {"A3M_DSA_SA58_FAL_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit.
-		respawnweapons[] = {"A3M_DSA_SA58_FAL_Mod1","hgun_ACPC2_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
-		magazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
-		Respawnmagazines[] = {"9Rnd_45ACP_Mag","9Rnd_45ACP_Mag","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","A3M_20rnd_FAL","HandGrenade","HandGrenade"};
-			
-			
+		weapons[] = {"arifle_AKS_F","hgun_Pistol_heavy_02_F","Binocular"}; // Weapons added to the unit.
+		respawnweapons[] = {"arifle_AKS_F","hgun_Pistol_heavy_02_F","Binocular"}; // Weapons added to the unit. Should be identical to the weapons section
+		magazines[] = {"6Rnd_45ACP_Cylinder","6Rnd_45ACP_Cylinder","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","HandGrenade","HandGrenade"};
+		Respawnmagazines[] = {"6Rnd_45ACP_Cylinder","6Rnd_45ACP_Cylinder","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","30Rnd_545x39_Mag_F","HandGrenade","HandGrenade"};			
 		};	
 }; 	
 		
